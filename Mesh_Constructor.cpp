@@ -8,7 +8,7 @@ inline static std::string loadFileAsString(std::string path) {
 	return buffer.str();
 }
 
-Mesh::Mesh(std::string path = "shader") {
+Mesh::Mesh(std::string path) {
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 
