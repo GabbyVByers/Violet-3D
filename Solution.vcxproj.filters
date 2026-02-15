@@ -14,14 +14,8 @@
     <Filter Include="Source Files\Shaders">
       <UniqueIdentifier>{cc6ea615-c9ef-4a91-9e7d-be7c5c6aefed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Mesh">
-      <UniqueIdentifier>{e25b55e7-fc8e-4b71-90d7-9d9f6a887af5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Window">
-      <UniqueIdentifier>{04c7a228-948c-4313-b900-d4cd009d0a30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Core">
-      <UniqueIdentifier>{47708802-8034-4e79-97ed-bb471720c523}</UniqueIdentifier>
+    <Filter Include="Source Files\Camera">
+      <UniqueIdentifier>{19b8714a-953c-4049-8ad7-2999629990b3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,14 +46,20 @@
     <ClCompile Include="ImGui\imgui_widgets.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh_Constructor.cpp">
-      <Filter>Source Files\Mesh</Filter>
+    <ClCompile Include="_PLY.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh_PLY.cpp">
-      <Filter>Source Files\Mesh</Filter>
+    <ClCompile Include="Camera_Getters.cpp">
+      <Filter>Source Files\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh_Getters.cpp">
-      <Filter>Source Files\Mesh</Filter>
+    <ClCompile Include="Camera_Setters.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera_Constructor.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera_Projection.cpp">
+      <Filter>Source Files\Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,24 +90,18 @@
     <ClInclude Include="ImGui\imstb_truetype.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Source Files\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Source Files\Window</Filter>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Core.h">
-      <Filter>Source Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader.vert">
+    <None Include="default.vert">
       <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="shader.frag">
+    <None Include="default.frag">
       <Filter>Source Files\Shaders</Filter>
     </None>
   </ItemGroup>
