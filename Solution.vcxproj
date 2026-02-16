@@ -160,11 +160,10 @@
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh_Constructor.cpp" />
-    <ClCompile Include="Mesh_Accessors.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Algebra.h" />
+    <ClInclude Include="Vector.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="ImGui\imconfig.h" />
@@ -176,6 +175,7 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>

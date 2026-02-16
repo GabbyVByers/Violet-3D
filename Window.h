@@ -2,13 +2,13 @@
 #pragma once
 
 #include "Core.h"
-#include "Algebra.h"
+#include "Vector.h"
+#include "Matrix.h"
 #include "Camera.h"
 #include "Mesh.h"
 
 class Window {
 public:
-
 	Window(size_t width, size_t height, std::string title) {
 		glfwInit();
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -32,34 +32,34 @@ public:
 		ImGui_ImplOpenGL3_Init("#version 330");
 	}
 
+	~Window() {
+		ImGui_ImplOpenGL3_Shutdown();
+		ImGui_ImplGlfw_Shutdown();
+		ImGui::DestroyContext();
+
+		if (glfwWindow) {
+			glfwDestroyWindow(glfwWindow);
+		}
+		glfwTerminate();
+	}
+
 	void draw(Camera& camera, Mesh& mesh) {
-		const unsigned int& shaderProgram = mesh.getShaderProgram();
 		const unsigned int& VAO = mesh.getVAO();
 		const unsigned int& VBO = mesh.getVBO();
+		const unsigned int& shaderProgram = mesh.getShaderProgram();
 		const std::vector<Vertex>& vertices = mesh.getVertices();
 
 		glBindVertexArray(VAO);
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		glUseProgram(shaderProgram);
 
-		const float transform[16] = {
-			1, 0, 0, 0,
-			0, 1, 0, 0,
-			0, 0, 1, 0,
-			0, 0, 0, 1
-		};
-
-		const float view[16] = {
-			1, 0, 0, 0,
-			0, 0,-1, 0,
-			0, 1, 0, 0,
-			0, 0, 0, 1
-		};
-
 		int width, height; glfwGetFramebufferSize(glfwWindow, &width, &height);
-		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uTransform"), 1, GL_FALSE, transform);
-		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uView"), 1, GL_FALSE, view);
-		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uProject"), 1, GL_FALSE, camera.getProjection(width, height));
+		const double4x4& transform = mesh.getTransformation();
+		const double4x4& cameraView = camera.getView();
+		const double4x4& projection = camera.getProjection(width, height);
+
+		double4x4 transformViewProject = transform * cameraView * projection;
+		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uTransformViewProject"), 1, GL_FALSE, transformViewProject.as_float());
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
 		glDrawArrays(mesh.getPrimative(), 0, (GLsizei)vertices.size());
@@ -73,7 +73,7 @@ public:
 		glfwSwapInterval((int)vsync);
 	}
 
-	void clear(const Color& color = { 0.0f, 0.0f, 0.0f, 0.0f }) {
+	void clear(const Color& color = { 0.0f, 0.0f, 0.0f, 1.0f }) {
 		glClearColor(color.r, color.g, color.b, color.a);
 		glClear(GL_COLOR_BUFFER_BIT);
 		ImGui_ImplOpenGL3_NewFrame();
