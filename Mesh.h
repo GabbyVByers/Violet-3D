@@ -51,19 +51,19 @@ public:
 	const unsigned int& getVAO()           const { return VAO; }
 	const unsigned int& getVBO()           const { return VBO; }
 
-	std::vector<Vertex>& getVertices()   { return vertices;}
-	void addVertex(const Vertex& vertex) { vertices.push_back(vertex); }
+	const std::vector<Vertex>& getVertices() const { return vertices;}
+	void addVertex(const Vertex& vertex)           { vertices.push_back(vertex); }
 
-	void rotate(double3 axis, double theta) { transformation.rotate(axis, theta); }
-	void scale(double  scale)               { transformation.scale(scale); }
-	void translate(double3 translation)     { transformation.translate(translation); }
-	const double4x4& getTransformation()    { return transformation; }
+	void rotate(double3 axis, double theta) { modelMatrix.rotate(axis, theta); }
+	void scale(double  scale)               { modelMatrix.scale(scale); }
+	void translate(double3 translation)     { modelMatrix.translate(translation); }
+	const double4x4& getModelMatrix() const { return modelMatrix; }
 
 private:
 	int primativeType = GL_TRIANGLES;
 	unsigned int shaderProgram = 0;
 	unsigned int VAO = 0, VBO = 0;
 	std::vector<Vertex> vertices;
-	double4x4 transformation;
+	double4x4 modelMatrix;
 };
 

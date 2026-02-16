@@ -65,10 +65,10 @@ public:
 		double z = translation.z;
 		double4x4 transMatrix;
 		transMatrix.set(
-			1.0, 0.0, 0.0, 0.0,
-			0.0, 1.0, 0.0, 0.0,
-			0.0, 0.0, 1.0, 0.0,
-			x, y, z, 1.0
+			1.0, 0.0, 0.0, x,
+			0.0, 1.0, 0.0, y,
+			0.0, 0.0, 1.0, z,
+			0.0, 0.0, 0.0, 1.0
 		);
 		(*this) = (*this) * transMatrix;
 	}

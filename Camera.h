@@ -7,44 +7,47 @@
 
 class Camera {
 public:
-	void resetPosition()           { position.reset(); }
-	void setPosition(double3 pos)  { resetPosition(); position.translate(pos); }
-	void translate(double3 offset) { position.translate(offset); }
-	void moveForward(double distance) {
+	const double3 getPosition()         { return { viewMatrix[0][3], viewMatrix[1][3], viewMatrix[2][3] }; }
+	const double3 getForwardDirection() { return {-viewMatrix[0][2],-viewMatrix[1][2],-viewMatrix[2][2] }; }
+	const double3 getRightDirection()   { return { viewMatrix[0][0], viewMatrix[1][0], viewMatrix[2][0] }; }
+	const double3 getUpDirection()      { return { viewMatrix[0][1], viewMatrix[1][1], viewMatrix[2][1] }; }
 
+	void resetPosition()           { viewMatrix[3][0] = 0.0; viewMatrix[3][1] = 0.0; viewMatrix[3][2] = 0.0; }
+	void setPosition(double3 pos)  { resetPosition(); viewMatrix.translate(pos * -1.0); }
+	void translate(double3 offset) { viewMatrix.translate(offset * -1.0); }
+	void moveForward(double dist)  { double3 dir = getForwardDirection(); translate(dir * dist); }
+	void moveRight(double dist)    { double3 dir = getRightDirection();   translate(dir * dist); }
+	void moveUp(double dist)       { double3 dir = getUpDirection();      translate(dir * dist); }
+	
+	//void resetDirection()                   { direction.reset(); }
+	//void setDirection(double3 dir)          { resetDirection(); direction.translate(dir); }
+	//void rotate(double3 axis, double theta) { direction.rotate(axis, theta); }
+
+
+
+
+	const double4x4& getViewMatrix() const {
+		return viewMatrix;
 	}
 
-	void resetDirection()                   { direction.reset(); }
-	void setDirection(double3 dir)          { resetDirection(); direction.translate(dir); }
-	void rotate(double3 axis, double theta) { direction.rotate(axis, theta); }
-
-
-
-
-	const double4x4 getView() {
-		return direction * position;
-	}
-
-	const double4x4& getProjection(int width, int height) {
-		// this should maybe not be recalculated every time it's called (probably isnt that expensive tho)
+	const double4x4& getProjectionMatrix(int width, int height) {
 		double aspectRatio = (double)width / (double)height;
 		double fovRadians = FOV * PI / 180.0;
 		double f = 1.0 / tan(fovRadians / 2.0);
-		projection.set(
+		projectionMatrix.set(
 			f / aspectRatio, 0.0, 0.0, 0.0,
 			0.0, f, 0.0, 0.0,
 			0.0, 0.0, (farPlane + nearPlane) / (nearPlane - farPlane), -1.0,
 			0.0, 0.0, (2.0 * farPlane * nearPlane) / (nearPlane - farPlane), 0.0
 		);
-		return projection;
+		return projectionMatrix;
 	}
 
 private:
 	double nearPlane = 0.1f;
 	double farPlane = 100.0f;
 	double FOV = 60.0f;
-	double4x4 position;
-	double4x4 direction;
-	double4x4 projection;
+	double4x4 viewMatrix;
+	double4x4 projectionMatrix;
 };
 

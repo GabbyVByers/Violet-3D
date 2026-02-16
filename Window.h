@@ -54,12 +54,12 @@ public:
 		glUseProgram(shaderProgram);
 
 		int width, height; glfwGetFramebufferSize(glfwWindow, &width, &height);
-		const double4x4& transform = mesh.getTransformation();
-		const double4x4& cameraView = camera.getView();
-		const double4x4& projection = camera.getProjection(width, height);
+		const double4x4& modelMatrix = mesh.getModelMatrix();
+		const double4x4& viewMatrix = camera.getViewMatrix();
+		const double4x4& projectionMatrix = camera.getProjectionMatrix(width, height);
 
-		double4x4 transformViewProject = transform * cameraView * projection;
-		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uTransformViewProject"), 1, GL_FALSE, transformViewProject.as_float());
+		double4x4 modelViewProject = modelMatrix * viewMatrix * projectionMatrix;
+		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uModelViewProject"), 1, GL_TRUE, modelViewProject.as_float());
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
 		glDrawArrays(mesh.getPrimative(), 0, (GLsizei)vertices.size());
