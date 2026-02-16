@@ -45,7 +45,7 @@ public:
 			(t * x * z) - (s * y), (t * y * z) + (s * x), (t * z * z) + (c), 0.0,
 			0.0, 0.0, 0.0, 1.0
 		);
-		(*this) = (*this) * rotMatrix;
+		(*this) = rotMatrix * (*this);
 	}
 
 	void scale(double scale) {
@@ -56,7 +56,7 @@ public:
 			0.0, 0.0, scale, 0.0,
 			0.0, 0.0, 0.0, 1.0
 		);
-		(*this) = (*this) * scaleMatrix;
+		(*this) = scaleMatrix * (*this);
 	}
 
 	void translate(double3 translation) {
@@ -70,7 +70,7 @@ public:
 			0.0, 0.0, 1.0, z,
 			0.0, 0.0, 0.0, 1.0
 		);
-		(*this) = (*this) * transMatrix;
+		(*this) = transMatrix * (*this);
 	}
 
 	double* operator[](size_t i) {

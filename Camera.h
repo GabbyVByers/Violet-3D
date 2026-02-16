@@ -7,17 +7,17 @@
 
 class Camera {
 public:
-	const double3 getPosition()         { return { viewMatrix[0][3], viewMatrix[1][3], viewMatrix[2][3] }; }
-	const double3 getForwardDirection() { return {-viewMatrix[0][2],-viewMatrix[1][2],-viewMatrix[2][2] }; }
-	const double3 getRightDirection()   { return { viewMatrix[0][0], viewMatrix[1][0], viewMatrix[2][0] }; }
-	const double3 getUpDirection()      { return { viewMatrix[0][1], viewMatrix[1][1], viewMatrix[2][1] }; }
+	double3 getPosition()         { return { viewMatrix[0][3], viewMatrix[1][3], viewMatrix[2][3] }; }
+	double3 getForwardDirection() { return {-viewMatrix[2][0],-viewMatrix[2][1],-viewMatrix[2][2] }; }
+	double3 getRightDirection()   { return { viewMatrix[0][0], viewMatrix[0][1], viewMatrix[0][2] }; }
+	double3 getUpDirection()      { return { viewMatrix[1][0], viewMatrix[1][1], viewMatrix[1][2] }; }
 
 	void resetPosition()           { viewMatrix[3][0] = 0.0; viewMatrix[3][1] = 0.0; viewMatrix[3][2] = 0.0; }
 	void setPosition(double3 pos)  { resetPosition(); viewMatrix.translate(pos * -1.0); }
 	void translate(double3 offset) { viewMatrix.translate(offset * -1.0); }
-	void moveForward(double dist)  { double3 dir = getForwardDirection(); translate(dir * dist); }
-	void moveRight(double dist)    { double3 dir = getRightDirection();   translate(dir * dist); }
-	void moveUp(double dist)       { double3 dir = getUpDirection();      translate(dir * dist); }
+	void moveForward(double dist)  { double3 dir = getForwardDirection(); dir.normalize(); translate(dir * dist); }
+	void moveRight(double dist)    { double3 dir = getRightDirection();   dir.normalize(); translate(dir * dist); }
+	void moveUp(double dist)       { double3 dir = getUpDirection();      dir.normalize(); translate(dir * dist); }
 	
 	//void resetDirection()                   { direction.reset(); }
 	//void setDirection(double3 dir)          { resetDirection(); direction.translate(dir); }

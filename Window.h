@@ -58,7 +58,7 @@ public:
 		const double4x4& viewMatrix = camera.getViewMatrix();
 		const double4x4& projectionMatrix = camera.getProjectionMatrix(width, height);
 
-		double4x4 modelViewProject = modelMatrix * viewMatrix * projectionMatrix;
+		double4x4 modelViewProject = projectionMatrix * viewMatrix * modelMatrix;
 		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uModelViewProject"), 1, GL_TRUE, modelViewProject.as_float());
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
