@@ -7,8 +7,22 @@
 
 class Camera {
 public:
-	const double4x4& getView() {
-		return view;
+	void resetPosition()           { position.reset(); }
+	void setPosition(double3 pos)  { resetPosition(); position.translate(pos); }
+	void translate(double3 offset) { position.translate(offset); }
+	void moveForward(double distance) {
+
+	}
+
+	void resetDirection()                   { direction.reset(); }
+	void setDirection(double3 dir)          { resetDirection(); direction.translate(dir); }
+	void rotate(double3 axis, double theta) { direction.rotate(axis, theta); }
+
+
+
+
+	const double4x4 getView() {
+		return direction * position;
 	}
 
 	const double4x4& getProjection(int width, int height) {
@@ -29,7 +43,8 @@ private:
 	double nearPlane = 0.1f;
 	double farPlane = 100.0f;
 	double FOV = 60.0f;
-	double4x4 view;
+	double4x4 position;
+	double4x4 direction;
 	double4x4 projection;
 };
 

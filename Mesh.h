@@ -55,7 +55,6 @@ public:
 	void addVertex(const Vertex& vertex) { vertices.push_back(vertex); }
 
 	void rotate(double3 axis, double theta) { transformation.rotate(axis, theta); }
-	void scale(double3 scale)               { transformation.scale(scale); }
 	void scale(double  scale)               { transformation.scale(scale); }
 	void translate(double3 translation)     { transformation.translate(translation); }
 	const double4x4& getTransformation()    { return transformation; }

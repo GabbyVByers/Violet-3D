@@ -48,17 +48,6 @@ public:
 		(*this) = (*this) * rotMatrix;
 	}
 
-	void scale(double3 scale) {
-		double4x4 scaleMatrix;
-		scaleMatrix.set(
-			scale.x, 0.0, 0.0, 0.0,
-			0.0, scale.y, 0.0, 0.0,
-			0.0, 0.0, scale.z, 0.0,
-			0.0, 0.0, 0.0, 1.0
-		);
-		(*this) = (*this) * scaleMatrix;
-	}
-
 	void scale(double scale) {
 		double4x4 scaleMatrix;
 		scaleMatrix.set(
