@@ -41,10 +41,10 @@ struct float3 {
 class double4x4 {
 public:
 	double4x4() {
-		reset();
+		setIdentity();
 	}
 
-	void reset() {
+	void setIdentity() {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				data[i][j] = 0.0;
@@ -77,15 +77,47 @@ public:
 		double y = axis.y;
 		double z = axis.z;
 		double4x4 rotMatrix;
-		rotMatrix.setMatrix((t * x * x) + (c),     (t * y * x) - (s * z), (t * z * x) + (s * y), (0.0),
-			                (t * x * y) + (s * z), (t * y * y) + (c),     (t * z * y) - (s * x), (0.0),
-							(t * x * z) - (s * y), (t * y * z) + (s * x), (t * z * z) + (c),     (0.0),
-							(0.0),                 (0.0),                 (0.0),                 (1.0));
-		double4x4& thisMatrix = *this;
-		thisMatrix = multiply(rotMatrix, thisMatrix);
+		rotMatrix.setMatrix((t * x * x) + (c),     (t * y * x) - (s * z), (t * z * x) + (s * y), 0.0,
+			                (t * x * y) + (s * z), (t * y * y) + (c),     (t * z * y) - (s * x), 0.0,
+							(t * x * z) - (s * y), (t * y * z) + (s * x), (t * z * z) + (c),     0.0,
+							0.0,                   0.0,                   0.0,                   1.0);
+		*this = multiply(*this, rotMatrix);
 	}
 
-	double4x4 multiply(const double4x4& A, const double4x4& B) {
+	void scale(double3 scale) {
+		double4x4 scaleMatrix;
+		scaleMatrix.setMatrix(scale.x, 0.0,     0.0,     0.0,
+			                  0.0,     scale.y, 0.0,     0.0,
+			                  0.0,     0.0,     scale.z, 0.0,
+			                  0.0,     0.0,     0.0,     1.0);
+		*this = multiply(*this, scaleMatrix);
+	}
+
+	void scale(double scale) {
+		double4x4 scaleMatrix;
+		scaleMatrix.setMatrix(scale, 0.0,   0.0,   0.0,
+			                  0.0,   scale, 0.0,   0.0,
+			                  0.0,   0.0,   scale, 0.0,
+			                  0.0,   0.0,   0.0,   1.0);
+		*this = multiply(*this, scaleMatrix);
+	}
+
+	void translate(double3 translation) {
+		double x = translation.x;
+		double y = translation.y;
+		double z = translation.z;
+		double4x4 transMatrix;
+		transMatrix.setMatrix(1.0, 0.0, 0.0, x,
+			                  0.0, 1.0, 0.0, y,
+			                  0.0, 0.0, 1.0, z,
+			                  0.0, 0.0, 0.0, 1.0);
+		*this = multiply(*this, transMatrix);
+	}
+
+private:
+	double data[4][4] = { 0.0 };
+
+	double4x4 multiply(const double4x4& A, const double4x4& B) const {
 		double4x4 result;
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
@@ -96,9 +128,7 @@ public:
 				result.data[i][j] = dot;
 			}
 		}
+		return result;
 	}
-
-private:
-	double data[4][4] = { 0.0 };
 };
 
