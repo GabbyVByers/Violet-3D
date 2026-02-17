@@ -54,16 +54,34 @@ public:
 	const std::vector<Vertex>& getVertices() const { return vertices;}
 	void addVertex(const Vertex& vertex)           { vertices.push_back(vertex); }
 
-	void rotate(double3 axis, double theta) { modelMatrix.rotate(axis, theta); }
-	void scale(double  scale)               { modelMatrix.scale(scale); }
-	void translate(double3 translation)     { modelMatrix.translate(translation); }
-	const double4x4& getModelMatrix() const { return modelMatrix; }
+	//void rotate(double3 axis, double theta) { modelMatrix.rotate(axis, theta); }
+	//void scale(double  scale)               { modelMatrix.scale(scale); }
+	//void translate(double3 translation)     { modelMatrix.translate(translation); }
+	//const double4x4& getModelMatrix() const { return modelMatrix; }
+
+	void resetPosition()    { modelTranslation.reset(); }
+	void resetSize()        { modelScale.reset(); }
+	void resetOrientation() { modelRotation.reset(); }
+
+	void setPosition(double3 position) { resetPosition(); modelTranslation.translate(position); }
+	void setSize(double size)          { resetSize();     modelScale.scale(size); }
+
+	void translate(double3 offset)          { modelTranslation.translate(offset); }
+	void rotate(double3 axis, double theta) { modelRotation.rotate(axis, theta); }
+
+	double4x4 getModelMatrix() {
+		return modelTranslation * modelScale * modelRotation;
+	}
 
 private:
 	int primativeType = GL_TRIANGLES;
 	unsigned int shaderProgram = 0;
 	unsigned int VAO = 0, VBO = 0;
 	std::vector<Vertex> vertices;
+
+	double4x4 modelTranslation;
+	double4x4 modelScale;
+	double4x4 modelRotation;
 	double4x4 modelMatrix;
 };
 

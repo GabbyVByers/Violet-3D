@@ -96,6 +96,9 @@
     <ClInclude Include="Matrix.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">

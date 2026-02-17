@@ -163,6 +163,7 @@
     <ClCompile Include="OpenGL\glad.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Core.h" />

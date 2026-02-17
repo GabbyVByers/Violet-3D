@@ -19,6 +19,7 @@ public:
 		glfwMakeContextCurrent(glfwWindow);
 		gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		glViewport(0, 0, width, height);
+		glEnable(GL_DEPTH_TEST);
 
 		glfwSetFramebufferSizeCallback(glfwWindow, framebufferSizeCallback);
 		glfwSetKeyCallback(glfwWindow, keyCallback);
@@ -59,7 +60,7 @@ public:
 		const double4x4& projectionMatrix = camera.getProjectionMatrix(width, height);
 
 		double4x4 modelViewProject = projectionMatrix * viewMatrix * modelMatrix;
-		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uModelViewProject"), 1, GL_TRUE, modelViewProject.as_float());
+		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uModelViewProject"), 1, GL_FALSE, modelViewProject.as_float());
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
 		glDrawArrays(mesh.getPrimative(), 0, (GLsizei)vertices.size());
@@ -75,7 +76,7 @@ public:
 
 	void clear(const Color& color = { 0.0f, 0.0f, 0.0f, 1.0f }) {
 		glClearColor(color.r, color.g, color.b, color.a);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
@@ -86,6 +87,10 @@ public:
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 		glfwSwapBuffers(glfwWindow);
 		glfwPollEvents();
+	}
+
+	GLFWwindow* getGlfwWindowPtr() {
+		return glfwWindow;
 	}
 
 private:

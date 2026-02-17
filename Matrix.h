@@ -3,6 +3,13 @@
 
 #include "Vector.h"
 
+/*
+
+	"Row Major" 4x4 Matrix of Doubles
+	Returns a "Column Major" 4x4 Matrix of Floats for OpenGL
+
+*/
+
 class double4x4 {
 public:
 	double4x4() {
@@ -100,14 +107,14 @@ public:
 	const float* as_float() {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				gl_dataFloat[i][j] = (float)data[i][j];
+				gl_dataColumnMajor[j][i] = (float)data[i][j];
 			}
 		}
-		return &gl_dataFloat[0][0];
+		return &gl_dataColumnMajor[0][0];
 	}
 	
 private:
 	double data[4][4] = { 0.0 };
-	float gl_dataFloat[4][4] = { 0.0f };
+	float gl_dataColumnMajor[4][4] = { 0.0f };
 };
 
