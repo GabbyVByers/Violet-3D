@@ -3,7 +3,8 @@
 
 #include "Core.h"
 
-struct double3 {
+class double3 {
+public:
 	double x;
 	double y;
 	double z;
@@ -28,7 +29,8 @@ struct double3 {
 	}
 };
 
-struct float3 {
+class float3 {
+public:
 	float x;
 	float y;
 	float z;

@@ -1,14 +1,6 @@
 
 #include "Keyboard.h"
 
-void Keyboard::reset() {
-	keyCallBackPackets.clear();
-}
-
-void Keyboard::pushPacket(KeyCallBackPacket& packet) {
-	keyCallBackPackets.push_back(packet);
-}
-
 bool Keyboard::keyPressed(int KEY) {
 	GLFWwindow* glfwWindow = Window::getGlfwWindowPtr();
 	if (glfwWindow) {

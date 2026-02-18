@@ -67,7 +67,7 @@
     <ClCompile Include="Window.Callback.cpp">
       <Filter>Source Files\Engine\Window</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.Members.cpp">
+    <ClCompile Include="Keyboard.Interface.cpp">
       <Filter>Source Files\Engine\Keyboard</Filter>
     </ClCompile>
     <ClCompile Include="Mesh_Constructor.cpp">
@@ -84,6 +84,15 @@
     </ClCompile>
     <ClCompile Include="Window.Rendering.cpp">
       <Filter>Source Files\Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Constructor.cpp">
+      <Filter>Source Files\Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.Constructors.cpp">
+      <Filter>Source Files\Engine\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.Static.cpp">
+      <Filter>Source Files\Engine\Keyboard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

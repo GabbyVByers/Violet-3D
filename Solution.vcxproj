@@ -158,13 +158,16 @@
     <ClCompile Include="ImGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="Keyboard.Members.cpp" />
+    <ClCompile Include="Keyboard.Constructors.cpp" />
+    <ClCompile Include="Keyboard.Interface.cpp" />
+    <ClCompile Include="Keyboard.Static.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.Manipulation.cpp" />
     <ClCompile Include="Mesh.Members.cpp" />
     <ClCompile Include="Mesh_Constructor.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
     <ClCompile Include="Window.Callback.cpp" />
+    <ClCompile Include="Window.Constructor.cpp" />
     <ClCompile Include="Window.Rendering.cpp" />
     <ClCompile Include="Window.Utilities.cpp" />
   </ItemGroup>

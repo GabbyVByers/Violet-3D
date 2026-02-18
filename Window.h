@@ -11,17 +11,19 @@
 
 class Window {
 public:
+	// Constructor
+	Window(size_t width, size_t height, std::string title);
+	~Window();
+
 	// Utilities
-	static void start(size_t width, size_t height, std::string title);
-	static void terminate();
-	static bool isOpen();
-	static void setVerticalSyncEnable(bool vsync);
+	bool isOpen();
+	void setVerticalSyncEnable(bool vsync);
 	static GLFWwindow* getGlfwWindowPtr();
 	
 	// Rendering
-	static void clear(const Color& color = { 0.0f, 0.0f, 0.0f, 1.0f });
-	static void draw(Camera& camera, Mesh& mesh);
-	static void display();
+	void clear(const Color& color = { 0.0f, 0.0f, 0.0f, 1.0f });
+	void draw(Camera& camera, Mesh& mesh);
+	void display();
 
 private:
 	//Callback

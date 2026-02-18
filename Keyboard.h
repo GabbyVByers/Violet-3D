@@ -8,7 +8,8 @@
 #include "Mesh.h"
 #include "Window.h"
 
-struct KeyCallBackPacket {
+class KeyCallBackPacket {
+public:
 	GLFWwindow* window;
 	int key;
 	int scancode;
@@ -18,16 +19,20 @@ struct KeyCallBackPacket {
 
 class Keyboard {
 public:
-	// Members
+	// Constructors
+	Keyboard();
+	~Keyboard();
+
+	// Static
 	static void reset();
 	static void pushPacket(KeyCallBackPacket& packet);
-	static bool keyPressed(int KEY);
-	static bool keyPressedEvent(int KEY, int EDGE);
+	
+	// Interface
+	bool keyPressed(int KEY);
+	bool keyPressedEvent(int KEY, int EDGE);
 
 private:
-	Keyboard() = delete;
-	~Keyboard() = delete;
-
 	inline static std::vector<KeyCallBackPacket> keyCallBackPackets;
+	inline static size_t instanceCounter = 0;
 };
 
