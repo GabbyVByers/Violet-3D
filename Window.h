@@ -3,7 +3,7 @@
 
 #include "Core.h"
 #include "Error.h"
-#include "Vector.h"
+#include "Vec3.h"
 #include "Matrix.h"
 #include "Camera.h"
 #include "Mesh.h"

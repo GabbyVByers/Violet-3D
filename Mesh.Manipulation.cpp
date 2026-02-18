@@ -26,11 +26,11 @@ void Mesh::translate(double3 offset) {
 	modelTranslation.translate(offset);
 }
 
-void Mesh::rotate(double3 axis, double theta) {
-	modelRotation.rotate(axis, theta);
-}
-
 void Mesh::scale(double scale) {
 	modelScale.scale(scale);
+}
+
+void Mesh::rotate(double3 axis, double theta) {
+	modelRotation.rotate(axis, theta);
 }
 

@@ -2,7 +2,7 @@
 #pragma once
 
 #include "Core.h"
-#include "Vector.h"
+#include "Vec3.h"
 #include "Matrix.h"
 
 class Camera {

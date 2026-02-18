@@ -29,6 +29,9 @@
     <Filter Include="Source Files\Engine\Mesh">
       <UniqueIdentifier>{9f6dfc50-7d1f-4373-9b16-5506b2624289}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Types">
+      <UniqueIdentifier>{b080b164-8527-42c5-85b1-0aede9c2bf22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -79,6 +82,9 @@
     <ClCompile Include="Mesh.Manipulation.cpp">
       <Filter>Source Files\Engine\Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.Members.cpp">
+      <Filter>Source Files\Engine\Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -126,11 +132,17 @@
     <ClInclude Include="Error.h">
       <Filter>Source Files\Engine\UNSORTED</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix.h">
-      <Filter>Source Files\Engine\UNSORTED</Filter>
+    <ClInclude Include="Color.h">
+      <Filter>Source Files\Engine\Types</Filter>
     </ClInclude>
-    <ClInclude Include="Vector.h">
-      <Filter>Source Files\Engine\UNSORTED</Filter>
+    <ClInclude Include="Vertex.h">
+      <Filter>Source Files\Engine\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Source Files\Engine\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec3.h">
+      <Filter>Source Files\Engine\Types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

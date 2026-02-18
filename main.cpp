@@ -27,7 +27,7 @@ int main() {
 	mesh.addVertex(Vertex(float3(-1.0f, 1.0f, 0.0f), Color(0.0f, 1.0f, 0.0f, 1.0f)));
 	mesh.addVertex(Vertex(float3( 0.0f,-1.0f, 0.0f), Color(0.0f, 0.0f, 1.0f, 1.0f)));
 
-	//mesh.translate({ 0.0, 0.0, -10.0 });
+	mesh.translate({ 0.0, 0.0, -10.0 });
 
 	Mesh axies;
 	axies.setPrimative(GL_LINES);
@@ -59,7 +59,7 @@ int main() {
 		if (keyboard.keyPressed(GLFW_KEY_E)) { mesh.rotate({0, 0, 1},-0.05); }
 		if (keyboard.keyPressed(GLFW_KEY_X)) { mesh.resetOrientation(); }
 
-		//mesh.rotate(double3(0, 0, 1), 0.03);
+		mesh.rotate(double3(0, 1, 0), 0.03);
 		
 		ImGui::Begin("Triangle");
 		ImGui::DragFloat3("Vertex 1", (float*)&mesh.getVertices()[0].position, 0.02);

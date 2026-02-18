@@ -3,38 +3,9 @@
 
 #include "Core.h"
 #include "Error.h"
-#include "Vector.h"
+#include "Vec3.h"
+#include "Vertex.h"
 #include "Camera.h"
-
-class Color {
-public:
-	float r;
-	float g;
-	float b;
-	float a;
-
-	Color(float r = 1.0f,
-		  float g = 1.0f,
-		  float b = 1.0f,
-		  float a = 1.0f) {
-		this->r = r;
-		this->g = g;
-		this->b = b;
-		this->a = a;
-	}
-};
-
-class Vertex {
-public:
-	Vertex(float3 position = { 0.0f, 0.0f, 0.0f },
-		   Color color = { 0.0f, 0.0f, 0.0f, 1.0f }) {
-		this->position = position;
-		this->color = color;
-	}
-
-	float3 position;
-	Color color;
-};
 
 class Mesh {
 public:
@@ -45,19 +16,15 @@ public:
 	const void assertFragmentShader(uint fragProgram);
 	const void assertShaderProgram();
 
-	void setPrimative(int primType) { primativeType = primType; }
-	const int getPrimative() const  { return primativeType; }
-
-	const uint& getShaderProgram() const { return shaderProgram; }
-	const uint& getVAO()           const { return VAO; }
-	const uint& getVBO()           const { return VBO; }
-
-	const std::vector<Vertex>& getVertices() const { return vertices;}
-	void addVertex(const Vertex& vertex)           { vertices.push_back(vertex); }
-
-	double4x4 getModelMatrix() {
-		return modelTranslation * modelScale * modelRotation;
-	}
+	// Members
+	void setPrimative(int primType);
+	const int getPrimative() const;
+	const uint& getShaderProgram() const;
+	const uint& getVAO() const ;
+	const uint& getVBO() const ;
+	const std::vector<Vertex>& getVertices() const;
+	void addVertex(const Vertex& vertex);
+	double4x4 getModelMatrix();
 
 	// Manipulation
 	void resetPosition();
@@ -66,8 +33,8 @@ public:
 	void setPosition(double3 position);
 	void setSize(double size);
 	void translate(double3 offset);
-	void rotate(double3 axis, double theta);
 	void scale(double scale);
+	void rotate(double3 axis, double theta);
 
 private:
 	int primativeType = GL_TRIANGLES;

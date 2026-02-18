@@ -161,6 +161,7 @@
     <ClCompile Include="Keyboard.Members.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.Manipulation.cpp" />
+    <ClCompile Include="Mesh.Members.cpp" />
     <ClCompile Include="Mesh_Constructor.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
     <ClCompile Include="Window.Callback.cpp" />
@@ -169,9 +170,10 @@
     <ClCompile Include="Window.Member.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Keyboard.h" />
-    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Vec3.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="ImGui\imconfig.h" />
@@ -185,6 +187,7 @@
     <ClInclude Include="ImGui\imstb_truetype.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Vertex.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
