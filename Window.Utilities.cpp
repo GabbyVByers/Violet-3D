@@ -1,12 +1,7 @@
 
 #include "Window.h"
 
-Window::Window(size_t width, size_t height, std::string title) {
-	instanceCount++;
-	if (instanceCount > 1) {
-		error(MULTIPLE_WINDOW_INSTANCES);
-	}
-
+void Window::start(size_t width, size_t height, std::string title) {
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -30,8 +25,7 @@ Window::Window(size_t width, size_t height, std::string title) {
 	ImGui_ImplOpenGL3_Init("#version 330");
 }
 
-Window::~Window() {
-	instanceCount--;
+void Window::terminate() {
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
@@ -40,5 +34,17 @@ Window::~Window() {
 		glfwDestroyWindow(glfwWindow);
 	}
 	glfwTerminate();
+}
+
+bool Window::isOpen() {
+	return !glfwWindowShouldClose(glfwWindow);
+}
+
+void Window::setVerticalSyncEnable(bool vsync) {
+	glfwSwapInterval((int)vsync);
+}
+
+GLFWwindow* Window::getGlfwWindowPtr() {
+	return glfwWindow;
 }
 

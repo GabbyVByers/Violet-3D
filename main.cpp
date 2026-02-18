@@ -15,10 +15,9 @@ void makeCube(Mesh& mesh) {
 }
 
 int main() {
-	Window window(1920, 1080, "My Window");
-	window.setVerticalSyncEnable(true);
+	Window::start(1920, 1080, "My Window");
+	Window::setVerticalSyncEnable(true);
 
-	Keyboard keyboard;
 	Camera camera;
 	Mesh mesh;
 
@@ -38,26 +37,31 @@ int main() {
 	axies.addVertex(Vertex(float3( 0.0f, 0.0f,-FLT_MAX), Color(0.0f, 0.0f, 1.0f)));
 	axies.addVertex(Vertex(float3( 0.0f, 0.0f, FLT_MAX), Color(0.0f, 0.0f, 1.0f)));
 
-	while (window.isOpen()) {
-		window.clear(Color(0.1, 0.1, 0.25));
-		window.draw(camera, mesh);
-		window.draw(camera, axies);
+	while (Window::isOpen()) {
+		Window::clear(Color(0.1, 0.1, 0.25));
+		Window::draw(camera, mesh);
+		Window::draw(camera, axies);
 
-		if (keyboard.keyPressed(GLFW_KEY_P)) { mesh.scale(1.1); }
-		if (keyboard.keyPressed(GLFW_KEY_L)) { mesh.scale(0.9); }
+		if (Keyboard::keyPressed(GLFW_KEY_P)) { mesh.scale(1.1); }
+		if (Keyboard::keyPressed(GLFW_KEY_L)) { mesh.scale(0.9); }
 
-		if (keyboard.keyPressed(GLFW_KEY_W))            { mesh.translate({ 0.0, 0.0,-0.1 }); }
-		if (keyboard.keyPressed(GLFW_KEY_S))            { mesh.translate({ 0.0, 0.0, 0.1 }); }
-		if (keyboard.keyPressed(GLFW_KEY_A))            { mesh.translate({-0.1, 0.0, 0.0 }); }
-		if (keyboard.keyPressed(GLFW_KEY_D))            { mesh.translate({ 0.1, 0.0, 0.0 }); }
-		if (keyboard.keyPressed(GLFW_KEY_LEFT_SHIFT))   { mesh.translate({ 0.0, 0.1, 0.0 }); }
-		if (keyboard.keyPressed(GLFW_KEY_LEFT_CONTROL)) { mesh.translate({ 0.0,-0.1, 0.0 }); }
+		if (Keyboard::keyPressed(GLFW_KEY_W))            { mesh.translate({ 0.0, 0.0,-0.1 }); }
+		if (Keyboard::keyPressed(GLFW_KEY_S))            { mesh.translate({ 0.0, 0.0, 0.1 }); }
+		if (Keyboard::keyPressed(GLFW_KEY_A))            { mesh.translate({-0.1, 0.0, 0.0 }); }
+		if (Keyboard::keyPressed(GLFW_KEY_D))            { mesh.translate({ 0.1, 0.0, 0.0 }); }
+		if (Keyboard::keyPressed(GLFW_KEY_LEFT_SHIFT))   { mesh.translate({ 0.0, 0.1, 0.0 }); }
+		if (Keyboard::keyPressed(GLFW_KEY_LEFT_CONTROL)) { mesh.translate({ 0.0,-0.1, 0.0 }); }
 
-		if (keyboard.keyPressed(GLFW_KEY_Z)) { mesh.resetPosition(); }
+		if (Keyboard::keyPressed(GLFW_KEY_Z)) { mesh.resetPosition(); }
 
-		if (keyboard.keyPressed(GLFW_KEY_Q)) { mesh.rotate({0, 0, 1}, 0.05); }
-		if (keyboard.keyPressed(GLFW_KEY_E)) { mesh.rotate({0, 0, 1},-0.05); }
-		if (keyboard.keyPressed(GLFW_KEY_X)) { mesh.resetOrientation(); }
+		if (Keyboard::keyPressed(GLFW_KEY_Q)) { mesh.rotate({0, 0, 1}, 0.05); }
+		if (Keyboard::keyPressed(GLFW_KEY_E)) { mesh.rotate({0, 0, 1},-0.05); }
+
+		if (Keyboard::keyPressed(GLFW_KEY_X)) { mesh.resetOrientation(); }
+
+		if (Keyboard::keyPressedEvent(GLFW_KEY_T, GLFW_RELEASE)) {
+			std::cout << "Haii!!\n";
+		}
 
 		mesh.rotate(double3(0, 1, 0), 0.03);
 		
@@ -71,8 +75,10 @@ int main() {
 		ImGui::Text("Test Text");
 		ImGui::End();
 
-		window.display();
+		Window::display();
 	}
+
+	Window::terminate();
 	return 0;
 }
 

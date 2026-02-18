@@ -165,9 +165,8 @@
     <ClCompile Include="Mesh_Constructor.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
     <ClCompile Include="Window.Callback.cpp" />
-    <ClCompile Include="Window.Constructor.cpp" />
-    <ClCompile Include="Window.Draw.cpp" />
-    <ClCompile Include="Window.Member.cpp" />
+    <ClCompile Include="Window.Rendering.cpp" />
+    <ClCompile Include="Window.Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />

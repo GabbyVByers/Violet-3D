@@ -19,15 +19,15 @@ struct KeyCallBackPacket {
 class Keyboard {
 public:
 	// Members
-	Keyboard();
-	~Keyboard();
-	void reset();
-	void pushPacket(KeyCallBackPacket& packet);
-	bool keyPressed(int KEY);
-	bool keyPressedEvent(int KEY, int EDGE);
+	static void reset();
+	static void pushPacket(KeyCallBackPacket& packet);
+	static bool keyPressed(int KEY);
+	static bool keyPressedEvent(int KEY, int EDGE);
 
 private:
+	Keyboard() = delete;
+	~Keyboard() = delete;
+
 	inline static std::vector<KeyCallBackPacket> keyCallBackPackets;
-	inline static size_t instanceCounter = 0;
 };
 

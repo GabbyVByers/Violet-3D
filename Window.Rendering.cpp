@@ -1,6 +1,14 @@
 
 #include "Window.h"
 
+void Window::clear(const Color& color) {
+	glClearColor(color.r, color.g, color.b, color.a);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplGlfw_NewFrame();
+	ImGui::NewFrame();
+}
+
 void Window::draw(Camera& camera, Mesh& mesh) {
 	const uint& VAO = mesh.getVAO();
 	const uint& VBO = mesh.getVBO();
@@ -21,5 +29,13 @@ void Window::draw(Camera& camera, Mesh& mesh) {
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
 	glDrawArrays(mesh.getPrimative(), 0, (GLsizei)vertices.size());
+}
+
+void Window::display() {
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	glfwSwapBuffers(glfwWindow);
+	Keyboard::reset();
+	glfwPollEvents();
 }
 

@@ -61,16 +61,7 @@
     <ClCompile Include="ImGui\imgui_widgets.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="Window.Constructor.cpp">
-      <Filter>Source Files\Engine\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.Draw.cpp">
-      <Filter>Source Files\Engine\Window</Filter>
-    </ClCompile>
     <ClCompile Include="Window.Callback.cpp">
-      <Filter>Source Files\Engine\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.Member.cpp">
       <Filter>Source Files\Engine\Window</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.Members.cpp">
@@ -84,6 +75,12 @@
     </ClCompile>
     <ClCompile Include="Mesh.Members.cpp">
       <Filter>Source Files\Engine\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Utilities.cpp">
+      <Filter>Source Files\Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Rendering.cpp">
+      <Filter>Source Files\Engine\Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
