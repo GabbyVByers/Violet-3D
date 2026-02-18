@@ -26,12 +26,12 @@ Mesh::Mesh(std::string path, int primType) {
 	const char* vertCStr = vertSource.c_str();
 	const char* fragCStr = fragSource.c_str();
 
-	unsigned int vertProgram = glCreateShader(GL_VERTEX_SHADER);
+	uint vertProgram = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertProgram, 1, &vertCStr, nullptr);
 	glCompileShader(vertProgram);
 	assertVertexShader(vertProgram);
 
-	unsigned int fragProgram = glCreateShader(GL_FRAGMENT_SHADER);
+	uint fragProgram = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragProgram, 1, &fragCStr, nullptr);
 	glCompileShader(fragProgram);
 	assertFragmentShader(fragProgram);
@@ -55,7 +55,7 @@ Mesh::~Mesh() {
 	glDeleteVertexArrays(1, &VAO);
 }
 
-const void Mesh::assertVertexShader(int vertProgram) {
+const void Mesh::assertVertexShader(uint vertProgram) {
 	int success = -1;
 	char log[1024] = { '\0' };
 	glGetShaderiv(vertProgram, GL_COMPILE_STATUS, &success);
@@ -65,7 +65,7 @@ const void Mesh::assertVertexShader(int vertProgram) {
 	}
 }
 
-const void Mesh::assertFragmentShader(unsigned int fragProgram) {
+const void Mesh::assertFragmentShader(uint fragProgram) {
 	int success = -1;
 	char log[1024] = { '\0' };
 	glGetShaderiv(fragProgram, GL_COMPILE_STATUS, &success);

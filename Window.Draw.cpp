@@ -2,9 +2,9 @@
 #include "Window.h"
 
 void Window::draw(Camera& camera, Mesh& mesh) {
-	const unsigned int& VAO = mesh.getVAO();
-	const unsigned int& VBO = mesh.getVBO();
-	const unsigned int& shaderProgram = mesh.getShaderProgram();
+	const uint& VAO = mesh.getVAO();
+	const uint& VBO = mesh.getVBO();
+	const uint& shaderProgram = mesh.getShaderProgram();
 	const std::vector<Vertex>& vertices = mesh.getVertices();
 
 	glBindVertexArray(VAO);

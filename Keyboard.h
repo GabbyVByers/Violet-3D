@@ -19,12 +19,15 @@ struct KeyCallBackPacket {
 class Keyboard {
 public:
 	// Members
-	Keyboard(Window& window);
+	Keyboard();
+	~Keyboard();
+	void reset();
+	void pushPacket(KeyCallBackPacket& packet);
 	bool keyPressed(int KEY);
 	bool keyPressedEvent(int KEY, int EDGE);
 
 private:
-	std::vector<KeyCallBackPacket> keyCallBackPackets;
-	GLFWwindow* glfwWindow = nullptr;
+	inline static std::vector<KeyCallBackPacket> keyCallBackPackets;
+	inline static size_t instanceCounter = 0;
 };
 

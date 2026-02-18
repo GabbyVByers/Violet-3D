@@ -1,6 +1,5 @@
 
 #include "Window.h"
-#include "Keyboard.h"
 
 Color randColor() {
 	return {
@@ -19,14 +18,14 @@ int main() {
 	Window window(1920, 1080, "My Window");
 	window.setVerticalSyncEnable(true);
 
-	Keyboard keyboard(window);
+	Keyboard keyboard;
 	Camera camera;
 	Mesh mesh;
 
 	mesh.setPrimative(GL_TRIANGLES);
-	mesh.addVertex(Vertex(float3( 1.0f, 1.0f, -3.0f), Color(1.0f, 0.0f, 0.0f, 1.0f)));
-	mesh.addVertex(Vertex(float3(-1.0f, 1.0f, -3.0f), Color(0.0f, 1.0f, 0.0f, 1.0f)));
-	mesh.addVertex(Vertex(float3( 0.0f,-1.0f, -3.0f), Color(0.0f, 0.0f, 1.0f, 1.0f)));
+	mesh.addVertex(Vertex(float3( 1.0f, 1.0f, 0.0f), Color(1.0f, 0.0f, 0.0f, 1.0f)));
+	mesh.addVertex(Vertex(float3(-1.0f, 1.0f, 0.0f), Color(0.0f, 1.0f, 0.0f, 1.0f)));
+	mesh.addVertex(Vertex(float3( 0.0f,-1.0f, 0.0f), Color(0.0f, 0.0f, 1.0f, 1.0f)));
 
 	//mesh.translate({ 0.0, 0.0, -10.0 });
 
@@ -43,6 +42,9 @@ int main() {
 		window.clear(Color(0.1, 0.1, 0.25));
 		window.draw(camera, mesh);
 		window.draw(camera, axies);
+
+		if (keyboard.keyPressed(GLFW_KEY_P)) { mesh.scale(1.1); }
+		if (keyboard.keyPressed(GLFW_KEY_L)) { mesh.scale(0.9); }
 
 		if (keyboard.keyPressed(GLFW_KEY_W))            { mesh.translate({ 0.0, 0.0,-0.1 }); }
 		if (keyboard.keyPressed(GLFW_KEY_S))            { mesh.translate({ 0.0, 0.0, 0.1 }); }

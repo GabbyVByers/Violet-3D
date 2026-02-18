@@ -41,43 +41,39 @@ public:
 	// Constructor
 	Mesh(std::string path = "default", int primType = GL_TRIANGLES);
 	~Mesh();
-	const void assertVertexShader(int vertProgram);
-	const void assertFragmentShader(unsigned int fragProgram);
+	const void assertVertexShader(uint vertProgram);
+	const void assertFragmentShader(uint fragProgram);
 	const void assertShaderProgram();
 
 	void setPrimative(int primType) { primativeType = primType; }
 	const int getPrimative() const  { return primativeType; }
 
-	const unsigned int& getShaderProgram() const { return shaderProgram; }
-	const unsigned int& getVAO()           const { return VAO; }
-	const unsigned int& getVBO()           const { return VBO; }
+	const uint& getShaderProgram() const { return shaderProgram; }
+	const uint& getVAO()           const { return VAO; }
+	const uint& getVBO()           const { return VBO; }
 
 	const std::vector<Vertex>& getVertices() const { return vertices;}
 	void addVertex(const Vertex& vertex)           { vertices.push_back(vertex); }
-
-	//void rotate(double3 axis, double theta) { modelMatrix.rotate(axis, theta); }
-	//void scale(double  scale)               { modelMatrix.scale(scale); }
-	//void translate(double3 translation)     { modelMatrix.translate(translation); }
-	//const double4x4& getModelMatrix() const { return modelMatrix; }
-
-	void resetPosition()    { modelTranslation.reset(); }
-	void resetSize()        { modelScale.reset(); }
-	void resetOrientation() { modelRotation.reset(); }
-
-	void setPosition(double3 position) { resetPosition(); modelTranslation.translate(position); }
-	void setSize(double size)          { resetSize();     modelScale.scale(size); }
-
-	void translate(double3 offset)          { modelTranslation.translate(offset); }
-	void rotate(double3 axis, double theta) { modelRotation.rotate(axis, theta); }
 
 	double4x4 getModelMatrix() {
 		return modelTranslation * modelScale * modelRotation;
 	}
 
+	// Manipulation
+	void resetPosition();
+	void resetSize();
+	void resetOrientation();
+	void setPosition(double3 position);
+	void setSize(double size);
+	void translate(double3 offset);
+	void rotate(double3 axis, double theta);
+	void scale(double scale);
+
 private:
 	int primativeType = GL_TRIANGLES;
-	unsigned int shaderProgram = 0;
-	unsigned int VAO = 0, VBO = 0;
+	uint shaderProgram = 0;
+	uint VAO = 0;
+	uint VBO = 0;
 	std::vector<Vertex> vertices;
 
 	double4x4 modelTranslation;

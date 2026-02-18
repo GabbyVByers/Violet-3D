@@ -1,12 +1,27 @@
 
 #include "Keyboard.h"
 
-Keyboard::Keyboard(Window& window) {
-	keyCallBackPackets.reserve(32);
-	glfwWindow = window.getGlfwWindowPtr();
+Keyboard::Keyboard() {
+	instanceCounter++;
+	if (instanceCounter > 1) {
+		error(MULTIPLE_KEYBOARD_INSTANCES);
+	}
+}
+
+Keyboard::~Keyboard() {
+	instanceCounter--;
+}
+
+void Keyboard::reset() {
+	keyCallBackPackets.clear();
+}
+
+void Keyboard::pushPacket(KeyCallBackPacket& packet) {
+	keyCallBackPackets.push_back(packet);
 }
 
 bool Keyboard::keyPressed(int KEY) {
+	GLFWwindow* glfwWindow = Window::getGlfwWindowPtr();
 	if (glfwWindow) {
 		return glfwGetKey(glfwWindow, KEY) == GLFW_PRESS;
 	}
