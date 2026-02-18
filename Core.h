@@ -21,4 +21,7 @@
 #define PI (double)3.141592653589793
 
 #define MULTIPLE_WINDOW_INSTANCES (int)0
+#define VERTEX_SHADER_FAILED      (int)1
+#define FRAGMENT_SHADER_FAILED    (int)2
+#define SHADER_PROGRAM_FAILED     (int)3
 

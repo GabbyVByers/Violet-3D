@@ -61,7 +61,7 @@ const void Mesh::assertVertexShader(int vertProgram) {
 	glGetShaderiv(vertProgram, GL_COMPILE_STATUS, &success);
 	if (!success) {
 		glGetShaderInfoLog(vertProgram, 1024, nullptr, log);
-		std::cerr << "Vertex shader compilation failed:\n" << log << std::endl;
+		error(VERTEX_SHADER_FAILED);
 	}
 }
 
@@ -71,7 +71,7 @@ const void Mesh::assertFragmentShader(unsigned int fragProgram) {
 	glGetShaderiv(fragProgram, GL_COMPILE_STATUS, &success);
 	if (!success) {
 		glGetShaderInfoLog(fragProgram, 1024, nullptr, log);
-		std::cerr << "Fragment shader compilation failed:\n" << log << std::endl;
+		error(FRAGMENT_SHADER_FAILED);
 	}
 }
 
@@ -81,7 +81,7 @@ const void Mesh::assertShaderProgram() {
 	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 	if (!success) {
 		glGetProgramInfoLog(shaderProgram, 1024, nullptr, log);
-		std::cerr << "Shader program linking failed:\n" << log << std::endl;
+		error(SHADER_PROGRAM_FAILED);
 	}
 }
 

@@ -23,6 +23,12 @@
     <Filter Include="Source Files\Engine\Keyboard">
       <UniqueIdentifier>{823114bc-c754-443a-9103-fdeb87c9bf81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\UNSORTED">
+      <UniqueIdentifier>{0160a6f4-8cfd-4d09-beae-6ff63f3ea36c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Mesh">
+      <UniqueIdentifier>{9f6dfc50-7d1f-4373-9b16-5506b2624289}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -52,9 +58,6 @@
     <ClCompile Include="ImGui\imgui_widgets.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh_Constructor.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Window.Constructor.cpp">
       <Filter>Source Files\Engine\Window</Filter>
     </ClCompile>
@@ -69,6 +72,9 @@
     </ClCompile>
     <ClCompile Include="Keyboard.Members.cpp">
       <Filter>Source Files\Engine\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh_Constructor.cpp">
+      <Filter>Source Files\Engine\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,32 +105,32 @@
     <ClInclude Include="ImGui\imstb_truetype.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="Core.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Ring.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>Source Files\Engine\Window</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>Source Files\Engine\Keyboard</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Source Files\Engine\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Source Files\Engine\UNSORTED</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Engine\UNSORTED</Filter>
+    </ClInclude>
     <ClInclude Include="Error.h">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\UNSORTED</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Source Files\Engine\UNSORTED</Filter>
+    </ClInclude>
+    <ClInclude Include="Ring.h">
+      <Filter>Source Files\Engine\UNSORTED</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Source Files\Engine\UNSORTED</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

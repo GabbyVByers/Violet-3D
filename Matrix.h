@@ -6,7 +6,7 @@
 /*
 
 	"Row Major" 4x4 Matrix of Doubles
-	Returns a "Column Major" 4x4 Matrix of Floats for OpenGL
+	Can Return a "Column Major" 4x4 Matrix of Floats for OpenGL
 
 */
 
@@ -107,14 +107,14 @@ public:
 	const float* as_float() {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				gl_dataColumnMajor[j][i] = (float)data[i][j];
+				gl_dataFloatColumnMajor[j][i] = (float)data[i][j];
 			}
 		}
-		return &gl_dataColumnMajor[0][0];
+		return &gl_dataFloatColumnMajor[0][0];
 	}
 	
 private:
 	double data[4][4] = { 0.0 };
-	float gl_dataColumnMajor[4][4] = { 0.0f };
+	float gl_dataFloatColumnMajor[4][4] = { 0.0f };
 };
 
