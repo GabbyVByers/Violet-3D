@@ -1,10 +1,6 @@
 
 #include "Window.h"
 
-void makeCube(Mesh& mesh) {
-	
-}
-
 int main() {
 	Window window(1920, 1080, "My Window");
 	Keyboard keyboard;

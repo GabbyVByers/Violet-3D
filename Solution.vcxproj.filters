@@ -23,17 +23,14 @@
     <Filter Include="Source Files\Engine\Keyboard">
       <UniqueIdentifier>{823114bc-c754-443a-9103-fdeb87c9bf81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\UNSORTED">
-      <UniqueIdentifier>{0160a6f4-8cfd-4d09-beae-6ff63f3ea36c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Engine\Mesh">
       <UniqueIdentifier>{9f6dfc50-7d1f-4373-9b16-5506b2624289}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Types">
-      <UniqueIdentifier>{b080b164-8527-42c5-85b1-0aede9c2bf22}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Engine\Camera">
       <UniqueIdentifier>{0626ea7b-6f35-4f77-9e76-91a1c67d4be7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Utilities">
+      <UniqueIdentifier>{b080b164-8527-42c5-85b1-0aede9c2bf22}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -135,29 +132,29 @@
     <ClInclude Include="Mesh.h">
       <Filter>Source Files\Engine\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="Core.h">
-      <Filter>Source Files\Engine\UNSORTED</Filter>
-    </ClInclude>
-    <ClInclude Include="Error.h">
-      <Filter>Source Files\Engine\UNSORTED</Filter>
-    </ClInclude>
     <ClInclude Include="Color.h">
-      <Filter>Source Files\Engine\Types</Filter>
+      <Filter>Source Files\Engine\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Vertex.h">
-      <Filter>Source Files\Engine\Types</Filter>
+      <Filter>Source Files\Engine\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>Source Files\Engine\Types</Filter>
+      <Filter>Source Files\Engine\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Vec3.h">
-      <Filter>Source Files\Engine\Types</Filter>
+      <Filter>Source Files\Engine\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Source Files\Engine\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Source Files\Engine\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
+      <Filter>Source Files\Engine\Utilities</Filter>
+    </ClInclude>
     <ClInclude Include="Quaternions.h">
-      <Filter>Source Files\Engine\UNSORTED</Filter>
+      <Filter>Source Files\Engine\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

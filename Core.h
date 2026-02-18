@@ -24,14 +24,11 @@
 class Window;
 class Mesh;
 class Camera;
-
 class Keyboard;
 class KeyCallBackPacket;
-
 class Vertex;
 class Color;
 class float3;
-
 class Quaternion;
 class double4x4;
 class double3;
