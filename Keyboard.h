@@ -28,8 +28,7 @@ public:
 	static void pushPacket(KeyCallBackPacket& packet);
 	
 	// Interface
-	bool keyPressed(int KEY);
-	bool keyPressedEvent(int KEY, int EDGE);
+	bool press(int KEY, int EDGE = INT_MAX);
 
 private:
 	inline static std::vector<KeyCallBackPacket> keyCallBackPackets;
