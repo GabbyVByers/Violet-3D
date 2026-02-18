@@ -1,15 +1,6 @@
 
 #include "Window.h"
 
-Color randColor() {
-	return {
-		(float)rand() / (float)RAND_MAX,
-		(float)rand() / (float)RAND_MAX,
-		(float)rand() / (float)RAND_MAX,
-		1.0
-	};
-}
-
 void makeCube(Mesh& mesh) {
 	
 }

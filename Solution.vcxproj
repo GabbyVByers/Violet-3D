@@ -164,6 +164,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.Manipulation.cpp" />
     <ClCompile Include="Mesh.Members.cpp" />
+    <ClCompile Include="Mesh.Shapes.cpp" />
     <ClCompile Include="Mesh_Constructor.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
     <ClCompile Include="Window.Callback.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Quaternions.h" />
     <ClInclude Include="Vec3.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Core.h" />

@@ -94,6 +94,9 @@
     <ClCompile Include="Keyboard.Static.cpp">
       <Filter>Source Files\Engine\Keyboard</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.Shapes.cpp">
+      <Filter>Source Files\Engine\Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -152,6 +155,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Source Files\Engine\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternions.h">
+      <Filter>Source Files\Engine\UNSORTED</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

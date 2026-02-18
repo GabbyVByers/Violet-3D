@@ -17,5 +17,14 @@ public:
 		this->b = b;
 		this->a = a;
 	}
+
+	static Color WHITE()  { return { 1.0f, 1.0f, 1.0f, 1.0f }; }
+	static Color BLACK()  { return { 0.0f, 0.0f, 0.0f, 1.0f }; }
+	static Color RED()    { return { 1.0f, 0.0f, 0.0f, 1.0f }; }
+	static Color GREEN()  { return { 0.0f, 1.0f, 0.0f, 1.0f }; }
+	static Color BLUE()   { return { 0.0f, 0.0f, 1.0f, 1.0f }; }
+	static Color CYAN()   { return { 0.0f, 1.0f, 1.0f, 1.0f }; }
+	static Color PURPLE() { return { 1.0f, 0.0f, 1.0f, 1.0f }; }
+	static Color YELLOW() { return { 1.0f, 1.0f, 0.0f, 1.0f }; }
 };
 

@@ -32,6 +32,7 @@ class Vertex;
 class Color;
 class float3;
 
+class Quaternion;
 class double4x4;
 class double3;
 

@@ -18,6 +18,8 @@ public:
 	const void assertShaderProgram();
 
 	// Members
+	void setColor(const Color& color);
+	void setRandomColors();
 	void setPrimative(int primType);
 	const int getPrimative() const;
 	const uint& getShaderProgram() const;
@@ -36,6 +38,9 @@ public:
 	void translate(double3 offset);
 	void scale(double scale);
 	void rotate(double3 axis, double theta);
+
+	// Shapes
+	void sphere(double radius);
 
 private:
 	int primativeType = GL_TRIANGLES;
