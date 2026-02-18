@@ -13,8 +13,8 @@ void Window::start(size_t width, size_t height, std::string title) {
 	glViewport(0, 0, width, height);
 	glEnable(GL_DEPTH_TEST);
 
-	glfwSetFramebufferSizeCallback(glfwWindow, framebufferSizeCallback);
-	glfwSetKeyCallback(glfwWindow, keyCallback);
+	glfwSetFramebufferSizeCallback(glfwWindow, windowResizeCallback);
+	glfwSetKeyCallback(glfwWindow, keyboardCallback);
 
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
@@ -30,13 +30,16 @@ void Window::terminate() {
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
 
-	if (glfwWindow) {
+	if (glfwWindow)
 		glfwDestroyWindow(glfwWindow);
-	}
+	else
+		error(NULL_WINDOW);
 	glfwTerminate();
 }
 
 bool Window::isOpen() {
+	if (!glfwWindow)
+		error(NULL_WINDOW);
 	return !glfwWindowShouldClose(glfwWindow);
 }
 
@@ -45,6 +48,8 @@ void Window::setVerticalSyncEnable(bool vsync) {
 }
 
 GLFWwindow* Window::getGlfwWindowPtr() {
+	if (!glfwWindow)
+		error(NULL_WINDOW);
 	return glfwWindow;
 }
 

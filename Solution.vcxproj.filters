@@ -32,6 +32,9 @@
     <Filter Include="Source Files\Engine\Types">
       <UniqueIdentifier>{b080b164-8527-42c5-85b1-0aede9c2bf22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Camera">
+      <UniqueIdentifier>{0626ea7b-6f35-4f77-9e76-91a1c67d4be7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -123,9 +126,6 @@
     <ClInclude Include="Core.h">
       <Filter>Source Files\Engine\UNSORTED</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Source Files\Engine\UNSORTED</Filter>
-    </ClInclude>
     <ClInclude Include="Error.h">
       <Filter>Source Files\Engine\UNSORTED</Filter>
     </ClInclude>
@@ -140,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="Vec3.h">
       <Filter>Source Files\Engine\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Engine\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

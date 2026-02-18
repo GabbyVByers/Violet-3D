@@ -21,3 +21,15 @@
 #define uint unsigned int
 #define PI (double)3.141592653589793
 
+class Window;
+class Mesh;
+class Keyboard;
+class Camera;
+
+class Color;
+class Vertex;
+
+class double4x4;
+class double3;
+class float3;
+

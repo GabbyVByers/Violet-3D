@@ -6,6 +6,7 @@
 #include "Vec3.h"
 #include "Vertex.h"
 #include "Camera.h"
+#include "Window.h"
 
 class Mesh {
 public:

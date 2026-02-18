@@ -10,6 +10,9 @@ void Window::clear(const Color& color) {
 }
 
 void Window::draw(Camera& camera, Mesh& mesh) {
+	if (!glfwWindow)
+		error(NULL_WINDOW);
+
 	const uint& VAO = mesh.getVAO();
 	const uint& VBO = mesh.getVBO();
 	const uint& shaderProgram = mesh.getShaderProgram();
@@ -32,6 +35,9 @@ void Window::draw(Camera& camera, Mesh& mesh) {
 }
 
 void Window::display() {
+	if (!glfwWindow)
+		error(NULL_WINDOW);
+
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	glfwSwapBuffers(glfwWindow);

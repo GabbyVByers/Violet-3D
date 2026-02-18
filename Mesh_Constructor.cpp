@@ -9,6 +9,9 @@ inline static std::string loadFileAsString(std::string path) {
 }
 
 Mesh::Mesh(std::string path, int primType) {
+	if (!Window::getGlfwWindowPtr())
+		error(NULL_WINDOW);
+
 	primativeType = primType;
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);

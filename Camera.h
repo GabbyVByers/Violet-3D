@@ -45,6 +45,9 @@ private:
 	double nearPlane = 0.1f;
 	double farPlane = 100.0f;
 	double FOV = 60.0f;
+
+	//double4x4 viewMatrix;
+	//double4x4 viewMatrix;
 	double4x4 viewMatrix;
 	double4x4 projectionMatrix;
 };
