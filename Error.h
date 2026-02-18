@@ -3,12 +3,12 @@
 
 #include "Core.h"
 
-#define VERTEX_SHADER_FAILED        (uint)1
-#define FRAGMENT_SHADER_FAILED      (uint)2
-#define SHADER_PROGRAM_FAILED       (uint)3
-#define NULL_WINDOW                 (uint)4
-#define MULTIPLE_WINDOW_INSTANCES   (uint)5
-#define MULTIPLE_KEYBOARD_INSTANCES (uint)6
+#define VERTEX_SHADER_FAILED        (uint)0
+#define FRAGMENT_SHADER_FAILED      (uint)1
+#define SHADER_PROGRAM_FAILED       (uint)2
+#define NULL_WINDOW                 (uint)3
+#define MULTIPLE_WINDOW_INSTANCES   (uint)4
+#define MULTIPLE_KEYBOARD_INSTANCES (uint)5
 
 static inline void error(int ERROR_TYPE) {
 	if (ERROR_TYPE == VERTEX_SHADER_FAILED) {
