@@ -17,6 +17,12 @@
     <Filter Include="Source Files\Engine\Shaders">
       <UniqueIdentifier>{cc6ea615-c9ef-4a91-9e7d-be7c5c6aefed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Window">
+      <UniqueIdentifier>{4be3b8fa-f0ea-4188-9e27-da7d829bda56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Keyboard">
+      <UniqueIdentifier>{823114bc-c754-443a-9103-fdeb87c9bf81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,6 +54,21 @@
     </ClCompile>
     <ClCompile Include="Mesh_Constructor.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Constructor.cpp">
+      <Filter>Source Files\Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Draw.cpp">
+      <Filter>Source Files\Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Callback.cpp">
+      <Filter>Source Files\Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Member.cpp">
+      <Filter>Source Files\Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.Members.cpp">
+      <Filter>Source Files\Engine\Keyboard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,16 +108,22 @@
     <ClInclude Include="Mesh.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Vector.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Ring.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Source Files\Engine\Window</Filter>
+    </ClInclude>
     <ClInclude Include="Keyboard.h">
+      <Filter>Source Files\Engine\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>

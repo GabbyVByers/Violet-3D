@@ -158,12 +158,19 @@
     <ClCompile Include="ImGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Keyboard.Members.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh_Constructor.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
+    <ClCompile Include="Window.Callback.cpp" />
+    <ClCompile Include="Window.Constructor.cpp" />
+    <ClCompile Include="Window.Draw.cpp" />
+    <ClCompile Include="Window.Member.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Error.h" />
     <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Ring.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Core.h" />

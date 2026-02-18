@@ -15,7 +15,10 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <exception>
 
 #define uchar unsigned char
-#define PI 3.141592653589793
+#define PI (double)3.141592653589793
+
+#define MULTIPLE_WINDOW_INSTANCES (int)0
 

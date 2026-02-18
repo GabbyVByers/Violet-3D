@@ -8,19 +8,23 @@
 #include "Mesh.h"
 #include "Window.h"
 
+struct KeyCallBackPacket {
+	GLFWwindow* window;
+	int key;
+	int scancode;
+	int action;
+	int mods;
+};
+
 class Keyboard {
 public:
-	Keyboard(Window& window) {
-		glfwWindow = window.getGlfwWindowPtr();
-	}
-
-	bool isPressed(int KEY) {
-		if (glfwWindow) {
-			return glfwGetKey(glfwWindow, KEY) == GLFW_PRESS;
-		}
-	}
+	// Members
+	Keyboard(Window& window);
+	bool keyPressed(int KEY);
+	bool keyPressedEvent(int KEY, int EDGE);
 
 private:
+	std::vector<KeyCallBackPacket> keyCallBackPackets;
 	GLFWwindow* glfwWindow = nullptr;
 };
 
