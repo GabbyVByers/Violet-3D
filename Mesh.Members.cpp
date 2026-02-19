@@ -1,15 +1,6 @@
 
 #include "Mesh.h"
 
-inline static Color randColor() {
-	return {
-		(float)rand() / (float)RAND_MAX,
-		(float)rand() / (float)RAND_MAX,
-		(float)rand() / (float)RAND_MAX,
-		1.0
-	};
-}
-
 void Mesh::setColor(const Color& color) {
 	for (Vertex& vertex : vertices) {
 		vertex.color = color;
@@ -18,7 +9,7 @@ void Mesh::setColor(const Color& color) {
 
 void Mesh::setRandomColors() {
 	for (Vertex& vertex : vertices) {
-		vertex.color = randColor();
+		vertex.color = Color::Random();
 	}
 }
 

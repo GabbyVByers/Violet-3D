@@ -38,7 +38,11 @@ float3 double3::as_float() const {
 	};
 }
 
-double3 double3::operator*(const double scalar) const {
+double3 double3::operator * (const double scalar) const {
 	return { this->x * scalar, this->y * scalar, this->z * scalar };
+}
+
+double3 double3::operator + (const double3 vector) const {
+	return { this->x + vector.x, this->y + vector.y, this->z + vector.z };
 }
 

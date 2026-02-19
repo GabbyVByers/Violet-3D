@@ -7,7 +7,8 @@ int main() {
 	Camera camera;
 	Mesh mesh;
 
-	mesh.sphere(2.0, 10);
+	mesh.cube(1.0, 10);
+	//mesh.setColor(Color::RED());
 
 	while (window.isOpen()) {
 		window.clear(Color(0.1, 0.1, 0.25));
