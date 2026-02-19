@@ -8,6 +8,8 @@ bool Window::isOpen() {
 }
 
 void Window::setVerticalSyncEnable(bool vsync) {
+	if (!glfwWindow)
+		error(NULL_WINDOW);
 	glfwSwapInterval((int)vsync);
 }
 

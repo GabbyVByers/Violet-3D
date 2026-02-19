@@ -41,6 +41,7 @@ public:
 
 	// Shapes
 	void sphere(double radius);
+	void cube(double radius, uint subDivisions);
 
 private:
 	int primativeType = GL_TRIANGLES;

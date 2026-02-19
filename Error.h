@@ -9,6 +9,7 @@
 #define NULL_WINDOW                 (uint)3
 #define MULTIPLE_WINDOW_INSTANCES   (uint)4
 #define MULTIPLE_KEYBOARD_INSTANCES (uint)5
+#define WINDOW_CREATION_FAILED      (uint)6
 
 static inline void error(int ERROR_TYPE) {
 	if (ERROR_TYPE == VERTEX_SHADER_FAILED) {
@@ -33,6 +34,10 @@ static inline void error(int ERROR_TYPE) {
 	}
 	if (ERROR_TYPE == MULTIPLE_KEYBOARD_INSTANCES) {
 		std::cerr << "CATASTROPHIC ERROR: Multiple Instances of Keyboard is Illegal!\n";
+		std::terminate();
+	}
+	if (ERROR_TYPE == WINDOW_CREATION_FAILED) {
+		std::cerr << "CATASTROPHIC ERROR: Window Creation Failed!\n";
 		std::terminate();
 	}
 }

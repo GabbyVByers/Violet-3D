@@ -12,6 +12,8 @@ Window::Window(size_t width, size_t height, std::string title) {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	glfwWindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+	if (!glfwWindow)
+		error(WINDOW_CREATION_FAILED);
 	glfwMakeContextCurrent(glfwWindow);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 	glViewport(0, 0, width, height);
@@ -31,6 +33,9 @@ Window::Window(size_t width, size_t height, std::string title) {
 }
 
 Window::~Window() {
+	if (!glfwWindow)
+		error(NULL_WINDOW);
+
 	instanceCount--;
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();

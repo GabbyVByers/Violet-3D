@@ -18,8 +18,8 @@ public:
 
 	void reset() {
 		double4x4& A = (*this);
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
+		for (size_t i = 0; i < 4; i++) {
+			for (size_t j = 0; j < 4; j++) {
 				A[i][j] = 0.0;
 			}
 			A[i][i] = 1.0;
@@ -92,8 +92,8 @@ public:
 		const double4x4& A = *this;
 		const double4x4& B = otherMatrix;
 		double4x4 result;
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
+		for (size_t i = 0; i < 4; i++) {
+			for (size_t j = 0; j < 4; j++) {
 				double dot = 0.0;
 				for (int k = 0; k < 4; k++) {
 					dot += A[i][k] * B[k][j];
@@ -105,8 +105,8 @@ public:
 	}
 
 	const float* as_float() {
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
+		for (size_t i = 0; i < 4; i++) {
+			for (size_t j = 0; j < 4; j++) {
 				gl_dataFloatColumnMajor[j][i] = (float)data[i][j];
 			}
 		}

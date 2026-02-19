@@ -11,26 +11,26 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{d3d68c1a-3ae7-4fb2-9f19-d96dd1551db5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine">
+    <Filter Include="Source Files\Violet">
       <UniqueIdentifier>{79aa41d6-7ccc-4bd3-9296-6693a1ef45aa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Shaders">
+    <Filter Include="Source Files\Violet\Shaders">
       <UniqueIdentifier>{cc6ea615-c9ef-4a91-9e7d-be7c5c6aefed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Window">
+    <Filter Include="Source Files\Violet\Window">
       <UniqueIdentifier>{4be3b8fa-f0ea-4188-9e27-da7d829bda56}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Keyboard">
+    <Filter Include="Source Files\Violet\Keyboard">
       <UniqueIdentifier>{823114bc-c754-443a-9103-fdeb87c9bf81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Mesh">
+    <Filter Include="Source Files\Violet\Mesh">
       <UniqueIdentifier>{9f6dfc50-7d1f-4373-9b16-5506b2624289}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Camera">
-      <UniqueIdentifier>{0626ea7b-6f35-4f77-9e76-91a1c67d4be7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Utilities">
+    <Filter Include="Source Files\Violet\Utilities">
       <UniqueIdentifier>{b080b164-8527-42c5-85b1-0aede9c2bf22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Violet\Camera">
+      <UniqueIdentifier>{0626ea7b-6f35-4f77-9e76-91a1c67d4be7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -62,37 +62,37 @@
       <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Window.Callback.cpp">
-      <Filter>Source Files\Engine\Window</Filter>
+      <Filter>Source Files\Violet\Window</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.Interface.cpp">
-      <Filter>Source Files\Engine\Keyboard</Filter>
+      <Filter>Source Files\Violet\Keyboard</Filter>
     </ClCompile>
     <ClCompile Include="Mesh_Constructor.cpp">
-      <Filter>Source Files\Engine\Mesh</Filter>
+      <Filter>Source Files\Violet\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.Manipulation.cpp">
-      <Filter>Source Files\Engine\Mesh</Filter>
+      <Filter>Source Files\Violet\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.Members.cpp">
-      <Filter>Source Files\Engine\Mesh</Filter>
+      <Filter>Source Files\Violet\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Window.Utilities.cpp">
-      <Filter>Source Files\Engine\Window</Filter>
+      <Filter>Source Files\Violet\Window</Filter>
     </ClCompile>
     <ClCompile Include="Window.Rendering.cpp">
-      <Filter>Source Files\Engine\Window</Filter>
+      <Filter>Source Files\Violet\Window</Filter>
     </ClCompile>
     <ClCompile Include="Window.Constructor.cpp">
-      <Filter>Source Files\Engine\Window</Filter>
+      <Filter>Source Files\Violet\Window</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.Constructors.cpp">
-      <Filter>Source Files\Engine\Keyboard</Filter>
+      <Filter>Source Files\Violet\Keyboard</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.Static.cpp">
-      <Filter>Source Files\Engine\Keyboard</Filter>
+      <Filter>Source Files\Violet\Keyboard</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.Shapes.cpp">
-      <Filter>Source Files\Engine\Mesh</Filter>
+      <Filter>Source Files\Violet\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,45 +124,45 @@
       <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Window.h">
-      <Filter>Source Files\Engine\Window</Filter>
+      <Filter>Source Files\Violet\Window</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
-      <Filter>Source Files\Engine\Keyboard</Filter>
+      <Filter>Source Files\Violet\Keyboard</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
-      <Filter>Source Files\Engine\Mesh</Filter>
+      <Filter>Source Files\Violet\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="Color.h">
-      <Filter>Source Files\Engine\Utilities</Filter>
+      <Filter>Source Files\Violet\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Vertex.h">
-      <Filter>Source Files\Engine\Utilities</Filter>
+      <Filter>Source Files\Violet\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>Source Files\Engine\Utilities</Filter>
+      <Filter>Source Files\Violet\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Vec3.h">
-      <Filter>Source Files\Engine\Utilities</Filter>
+      <Filter>Source Files\Violet\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Source Files\Engine\Camera</Filter>
+      <Filter>Source Files\Violet\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Core.h">
-      <Filter>Source Files\Engine\Utilities</Filter>
+      <Filter>Source Files\Violet\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Error.h">
-      <Filter>Source Files\Engine\Utilities</Filter>
+      <Filter>Source Files\Violet\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Quaternions.h">
-      <Filter>Source Files\Engine\Utilities</Filter>
+      <Filter>Source Files\Violet\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">
-      <Filter>Source Files\Engine\Shaders</Filter>
+      <Filter>Source Files\Violet\Shaders</Filter>
     </None>
     <None Include="default.frag">
-      <Filter>Source Files\Engine\Shaders</Filter>
+      <Filter>Source Files\Violet\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>
