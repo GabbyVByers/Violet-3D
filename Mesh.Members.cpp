@@ -50,6 +50,10 @@ void Mesh::addVertex(const Vertex& vertex) {
 	vertices.push_back(vertex);
 }
 
+size_t Mesh::getNumVertices() {
+	return vertices.size();
+}
+
 double4x4 Mesh::getModelMatrix() {
 	return modelTranslation * modelScale * modelRotation;
 }

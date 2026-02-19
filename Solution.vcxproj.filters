@@ -26,11 +26,14 @@
     <Filter Include="Source Files\Violet\Mesh">
       <UniqueIdentifier>{9f6dfc50-7d1f-4373-9b16-5506b2624289}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Violet\Utilities">
-      <UniqueIdentifier>{b080b164-8527-42c5-85b1-0aede9c2bf22}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Violet\Camera">
       <UniqueIdentifier>{0626ea7b-6f35-4f77-9e76-91a1c67d4be7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Violet\Core">
+      <UniqueIdentifier>{b080b164-8527-42c5-85b1-0aede9c2bf22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Violet\Vectors">
+      <UniqueIdentifier>{fe838148-9256-4391-abc0-68faea70fbe2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,9 +67,6 @@
     <ClCompile Include="Window.Callback.cpp">
       <Filter>Source Files\Violet\Window</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.Interface.cpp">
-      <Filter>Source Files\Violet\Keyboard</Filter>
-    </ClCompile>
     <ClCompile Include="Mesh_Constructor.cpp">
       <Filter>Source Files\Violet\Mesh</Filter>
     </ClCompile>
@@ -85,14 +85,17 @@
     <ClCompile Include="Window.Constructor.cpp">
       <Filter>Source Files\Violet\Window</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.Constructors.cpp">
-      <Filter>Source Files\Violet\Keyboard</Filter>
-    </ClCompile>
-    <ClCompile Include="Keyboard.Static.cpp">
+    <ClCompile Include="Keyboard.Members.cpp">
       <Filter>Source Files\Violet\Keyboard</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.Shapes.cpp">
       <Filter>Source Files\Violet\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Double3.Members.cpp">
+      <Filter>Source Files\Violet\Vectors</Filter>
+    </ClCompile>
+    <ClCompile Include="Float3.Members.cpp">
+      <Filter>Source Files\Violet\Vectors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,29 +135,32 @@
     <ClInclude Include="Mesh.h">
       <Filter>Source Files\Violet\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Source Files\Violet\Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="Vertex.h">
-      <Filter>Source Files\Violet\Utilities</Filter>
+      <Filter>Source Files\Violet\Core</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>Source Files\Violet\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Vec3.h">
-      <Filter>Source Files\Violet\Utilities</Filter>
+      <Filter>Source Files\Violet\Core</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Source Files\Violet\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Core.h">
-      <Filter>Source Files\Violet\Utilities</Filter>
+      <Filter>Source Files\Violet\Core</Filter>
     </ClInclude>
     <ClInclude Include="Error.h">
-      <Filter>Source Files\Violet\Utilities</Filter>
+      <Filter>Source Files\Violet\Core</Filter>
     </ClInclude>
     <ClInclude Include="Quaternions.h">
-      <Filter>Source Files\Violet\Utilities</Filter>
+      <Filter>Source Files\Violet\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Source Files\Violet\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Float3.h">
+      <Filter>Source Files\Violet\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="Double3.h">
+      <Filter>Source Files\Violet\Vectors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

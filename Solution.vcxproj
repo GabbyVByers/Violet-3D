@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Double3.Members.cpp" />
+    <ClCompile Include="Float3.Members.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -158,9 +160,7 @@
     <ClCompile Include="ImGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="Keyboard.Constructors.cpp" />
-    <ClCompile Include="Keyboard.Interface.cpp" />
-    <ClCompile Include="Keyboard.Static.cpp" />
+    <ClCompile Include="Keyboard.Members.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.Manipulation.cpp" />
     <ClCompile Include="Mesh.Members.cpp" />
@@ -174,10 +174,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Double3.h" />
     <ClInclude Include="Error.h" />
+    <ClInclude Include="Float3.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Quaternions.h" />
-    <ClInclude Include="Vec3.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="ImGui\imconfig.h" />

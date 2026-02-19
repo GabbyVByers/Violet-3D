@@ -1,5 +1,5 @@
 
-#pragma once
+#include "Core.h"
 
 class Color {
 public:
@@ -16,6 +16,15 @@ public:
 		this->g = g;
 		this->b = b;
 		this->a = a;
+	}
+
+	static Color Random() {
+		return {
+			(float)rand() / (float)RAND_MAX,
+			(float)rand() / (float)RAND_MAX,
+			(float)rand() / (float)RAND_MAX,
+			1.0
+		};
 	}
 
 	static Color WHITE()  { return { 1.0f, 1.0f, 1.0f, 1.0f }; }

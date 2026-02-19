@@ -3,7 +3,6 @@
 
 #include "Core.h"
 #include "Error.h"
-#include "Vec3.h"
 #include "Vertex.h"
 #include "Camera.h"
 #include "Window.h"
@@ -27,6 +26,7 @@ public:
 	const uint& getVBO() const ;
 	const std::vector<Vertex>& getVertices() const;
 	void addVertex(const Vertex& vertex);
+	size_t getNumVertices();
 	double4x4 getModelMatrix();
 
 	// Manipulation
@@ -40,8 +40,8 @@ public:
 	void rotate(double3 axis, double theta);
 
 	// Shapes
-	void sphere(double radius);
-	void cube(double radius, uint subDivisions);
+	void sphere(double radius, size_t sub);
+	void cube(double radius, size_t sub);
 
 private:
 	int primativeType = GL_TRIANGLES;

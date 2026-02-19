@@ -2,8 +2,8 @@
 #pragma once
 
 #include "Core.h"
-#include "Vec3.h"
 #include "Color.h"
+#include "Float3.h"
 
 class Vertex {
 public:

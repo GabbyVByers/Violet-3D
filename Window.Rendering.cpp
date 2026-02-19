@@ -15,6 +15,8 @@ void Window::clear(const Color& color) {
 void Window::draw(Camera& camera, Mesh& mesh) {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
+	if (mesh.getNumVertices() == 0)
+		error(MESH_HAS_NO_VERTICES);
 
 	const uint& VAO = mesh.getVAO();
 	const uint& VBO = mesh.getVBO();

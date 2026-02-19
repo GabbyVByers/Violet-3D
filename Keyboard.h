@@ -2,7 +2,6 @@
 #pragma once
 
 #include "Core.h"
-#include "Vec3.h"
 #include "Matrix.h"
 #include "Camera.h"
 #include "Mesh.h"
@@ -19,15 +18,11 @@ public:
 
 class Keyboard {
 public:
-	// Constructors
+	// Members
 	Keyboard();
 	~Keyboard();
-
-	// Static
 	static void reset();
 	static void pushPacket(KeyCallBackPacket& packet);
-	
-	// Interface
 	bool press(int KEY, int EDGE = INT_MAX);
 
 private:

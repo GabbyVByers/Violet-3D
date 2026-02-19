@@ -2,7 +2,6 @@
 #pragma once
 
 #include "Core.h"
-#include "Vec3.h"
 
 class Quaternion {
 public:
