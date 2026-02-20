@@ -29,7 +29,6 @@ private:
 	static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 	static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
 
-	
 	inline static GLFWwindow* glfwWindow = nullptr;
 	inline static size_t instanceCount = 0;
 };

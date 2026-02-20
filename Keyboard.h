@@ -12,7 +12,8 @@ class Keyboard {
 public:
 	static void reset();
 	static void addKeyEvent(const gl_keyEvent& keyEvent);
-	static bool press(int KEY, int EDGE = INT_MAX);
+	static bool pressing(int KEY);
+	static bool pressed(int KEY, int EDGE);
 
 private:
 	Keyboard() = delete;

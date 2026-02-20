@@ -9,7 +9,7 @@ void Mouse::addMouseEvent(const gl_mouseEvent& mouseEvent) {
 	gl_mouseEvents.push_back(mouseEvent);
 }
 
-bool Mouse::held(int GLFW_BUTTON) {
+bool Mouse::pressing(int GLFW_BUTTON) {
 	return glfwGetMouseButton(Window::getGlfwWindowPtr(), GLFW_BUTTON) == GLFW_PRESS;
 }
 

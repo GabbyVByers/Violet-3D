@@ -108,7 +108,10 @@
     <ClCompile Include="Camera.Projection.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Mouse.cpp">
+    <ClCompile Include="Mouse.Buttons.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.Movement.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -186,6 +189,9 @@
       <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="gl_mouseEvent.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.double2.h">
       <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
     </ClInclude>
   </ItemGroup>

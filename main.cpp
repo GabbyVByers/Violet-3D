@@ -1,8 +1,32 @@
 
 #include "Window.h"
 
-void cameraControl() {
+static void controlCamera(Camera& camera) {
+	const double speed = 0.1;
 
+	if (Keyboard::pressing(GLFW_KEY_SPACE)) {
+		camera.move(double3(0.0, 1.0, 0.0) * speed);
+	}
+	if (Keyboard::pressing(GLFW_KEY_LEFT_SHIFT)) {
+		camera.move(double3(0.0,-1.0, 0.0) * speed);
+	}
+	if (Keyboard::pressing(GLFW_KEY_W)) {
+		camera.moveForward(speed);
+	}
+	if (Keyboard::pressing(GLFW_KEY_S)) {
+		camera.moveForward(-speed);
+	}
+	if (Keyboard::pressing(GLFW_KEY_A)) {
+		camera.moveRight(-speed);
+	}
+	if (Keyboard::pressing(GLFW_KEY_D)) {
+		camera.moveRight(speed);
+	}
+
+	if (Mouse::pressing(GLFW_MOUSE_BUTTON_LEFT)) {
+		camera.pitch(speed * Mouse::getVelocity().y * 0.01);
+		camera.yaw(speed * Mouse::getVelocity().x * 0.01);
+	}
 }
 
 int main() {
@@ -14,23 +38,26 @@ int main() {
 
 	while (window.isOpen()) {
 		window.clear(Color(0.1, 0.1, 0.25));
+
+		controlCamera(camera);
+
 		window.draw(camera, mesh);
 
-		if (Keyboard::press(GLFW_KEY_P))             { mesh.scale(1.1); }
-		if (Keyboard::press(GLFW_KEY_L))             { mesh.scale(0.9); }
-		if (Keyboard::press(GLFW_KEY_W))             { mesh.move({ 0.0, 0.0,-0.1 }); }
-		if (Keyboard::press(GLFW_KEY_S))             { mesh.move({ 0.0, 0.0, 0.1 }); }
-		if (Keyboard::press(GLFW_KEY_A))             { mesh.move({-0.1, 0.0, 0.0 }); }
-		if (Keyboard::press(GLFW_KEY_D))             { mesh.move({ 0.1, 0.0, 0.0 }); }
-		if (Keyboard::press(GLFW_KEY_LEFT_SHIFT))    { mesh.move({ 0.0, 0.1, 0.0 }); }
-		if (Keyboard::press(GLFW_KEY_LEFT_CONTROL))  { mesh.move({ 0.0,-0.1, 0.0 }); }
-		if (Keyboard::press(GLFW_KEY_Z))             { mesh.setPosition({0.0, 0.0, 0.0}); }
-		if (Keyboard::press(GLFW_KEY_Q))             { mesh.rotate({0, 0, 1}, 0.05); }
-		if (Keyboard::press(GLFW_KEY_E))             { mesh.rotate({0, 0, 1},-0.05); }
-		if (Keyboard::press(GLFW_KEY_X))             { mesh.resetOrientation(); }
-		if (Keyboard::press(GLFW_KEY_T, GLFW_PRESS)) { std::cout << "Haii!!\n"; }
+		//if (Keyboard::press(GLFW_KEY_P))             { mesh.scale(1.1); }
+		//if (Keyboard::press(GLFW_KEY_L))             { mesh.scale(0.9); }
+		//if (Keyboard::press(GLFW_KEY_W))             { mesh.move({ 0.0, 0.0,-0.1 }); }
+		//if (Keyboard::press(GLFW_KEY_S))             { mesh.move({ 0.0, 0.0, 0.1 }); }
+		//if (Keyboard::press(GLFW_KEY_A))             { mesh.move({-0.1, 0.0, 0.0 }); }
+		//if (Keyboard::press(GLFW_KEY_D))             { mesh.move({ 0.1, 0.0, 0.0 }); }
+		//if (Keyboard::press(GLFW_KEY_LEFT_SHIFT))    { mesh.move({ 0.0, 0.1, 0.0 }); }
+		//if (Keyboard::press(GLFW_KEY_LEFT_CONTROL))  { mesh.move({ 0.0,-0.1, 0.0 }); }
+		//if (Keyboard::press(GLFW_KEY_Z))             { mesh.setPosition({0.0, 0.0, 0.0}); }
+		//if (Keyboard::press(GLFW_KEY_Q))             { mesh.rotate({0, 0, 1}, 0.05); }
+		//if (Keyboard::press(GLFW_KEY_E))             { mesh.rotate({0, 0, 1},-0.05); }
+		//if (Keyboard::press(GLFW_KEY_X))             { mesh.resetOrientation(); }
+		//if (Keyboard::press(GLFW_KEY_T, GLFW_PRESS)) { std::cout << "Haii!!\n"; }
 
-		if (Mouse::held(GLFW_MOUSE_BUTTON_RIGHT)) {
+		if (Mouse::pressing(GLFW_MOUSE_BUTTON_RIGHT)) {
 			std::cout << "Right Held\n";
 		}
 		if (Mouse::clicked(GLFW_MOUSE_BUTTON_LEFT, GLFW_PRESS)) {

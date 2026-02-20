@@ -24,7 +24,8 @@ public:
 	double3 getForwardDirection() const;
 	double3 getRightDirection() const;
 	double3 getUpDirection() const;
-	const Matrix getMatrix() const;
+	const Matrix getModelMatrix() const;
+	const Matrix getViewMatrix() const;
 
 private:
 	double scale           = 1.0;

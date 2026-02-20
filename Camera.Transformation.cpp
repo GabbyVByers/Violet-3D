@@ -58,6 +58,6 @@ double3 Camera::getUpDirection() const {
 }
 
 const Matrix Camera::getViewMatrix() const {
-	return this->transformation.getMatrix();
+	return this->transformation.getViewMatrix();
 }
 

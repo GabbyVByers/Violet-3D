@@ -70,6 +70,6 @@ double3 Mesh::getUpDirection() const {
 }
 
 const Matrix Mesh::getModelMatrix() const {
-	return this->transformation.getMatrix();
+	return this->transformation.getModelMatrix();
 }
 

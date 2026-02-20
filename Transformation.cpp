@@ -92,10 +92,17 @@ double3 Transformation::getUpDirection() const {
 	return up;
 }
 
-const Matrix Transformation::getMatrix() const {
+const Matrix Transformation::getModelMatrix() const {
 	Matrix scalarMatrix = Matrix::buildScalarMatrix(this->scale);
 	Matrix translationMatrix = Matrix::buildTranslationMatrix(this->position);
 	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix(this->orientation);
 	return translationMatrix * scalarMatrix * quaternionRotationMatrix;
+}
+
+const Matrix Transformation::getViewMatrix() const {
+	Matrix scalarMatrix = Matrix::buildScalarMatrix(this->scale);
+	Matrix translationMatrix = Matrix::buildTranslationMatrix(this->position);
+	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix(this->orientation);
+	return quaternionRotationMatrix * scalarMatrix * translationMatrix;
 }
 
