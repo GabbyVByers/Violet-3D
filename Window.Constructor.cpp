@@ -11,14 +11,14 @@ Window::Window(size_t width, size_t height, std::string title) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	glfwWindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+	glfwWindow = glfwCreateWindow((int)width, (int)height, title.c_str(), nullptr, nullptr);
 	if (!glfwWindow)
 		error(WINDOW_CREATION_FAILED);
 	glfwMakeContextCurrent(glfwWindow);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-	glViewport(0, 0, width, height);
+	glViewport(0, 0, (GLsizei)width, (GLsizei)height);
 	glEnable(GL_DEPTH_TEST);
-	
+
 	glfwSetFramebufferSizeCallback(glfwWindow, windowResizeCallback);
 	glfwSetKeyCallback(glfwWindow, keyboardCallback);
 
@@ -42,5 +42,23 @@ Window::~Window() {
 	ImGui::DestroyContext();
 	glfwDestroyWindow(glfwWindow);
 	glfwTerminate();
+}
+
+bool Window::isOpen() {
+	if (!glfwWindow)
+		error(NULL_WINDOW);
+	return !glfwWindowShouldClose(glfwWindow);
+}
+
+void Window::setVerticalSyncEnable(bool vsync) {
+	if (!glfwWindow)
+		error(NULL_WINDOW);
+	glfwSwapInterval((int)vsync);
+}
+
+GLFWwindow* Window::getGlfwWindowPtr() {
+	if (!glfwWindow)
+		error(NULL_WINDOW);
+	return glfwWindow;
 }
 

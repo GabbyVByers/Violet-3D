@@ -2,7 +2,7 @@
 #pragma once
 
 #include "Core.h"
-#include "Double3.h"
+#include "Vector.double3.h"
 #include "Error.h"
 
 class Quaternion {

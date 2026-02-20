@@ -6,27 +6,18 @@
 #include "Camera.h"
 #include "Mesh.h"
 #include "Window.h"
-
-class KeyCallBackPacket {
-public:
-	GLFWwindow* window;
-	int key;
-	int scancode;
-	int action;
-	int mods;
-};
+#include "gl_keyEvent.h"
 
 class Keyboard {
 public:
-	// Members
 	Keyboard();
 	~Keyboard();
 	static void reset();
-	static void pushPacket(KeyCallBackPacket& packet);
+	static void addKeyEvent(gl_keyEvent& keyEvent);
 	bool press(int KEY, int EDGE = INT_MAX);
 
 private:
-	inline static std::vector<KeyCallBackPacket> keyCallBackPackets;
+	inline static std::vector<gl_keyEvent> gl_keyEvents;
 	inline static size_t instanceCounter = 0;
 };
 

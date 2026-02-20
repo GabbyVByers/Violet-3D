@@ -3,7 +3,7 @@
 
 #include "Core.h"
 #include "Quaternion.h"
-#include "Float3.h"
+#include "Vector.float3.h"
 #include "Error.h"
 
 class double3 {

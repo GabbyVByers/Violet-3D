@@ -1,75 +1,69 @@
 
 #include "Matrix.h"
 
-double4x4::double4x4() {
-	reset();
+Matrix::Matrix() {
+	this->setIdentity();
 }
 
-void double4x4::set(double a, double b, double c, double d,
-	                double e, double f, double g, double h,
-	                double i, double j, double k, double l,
-	                double m, double n, double o, double p) {
-	double4x4& A = (*this);
-	A[0][0] = a; A[0][1] = b; A[0][2] = c; A[0][3] = d;
-	A[1][0] = e; A[1][1] = f; A[1][2] = g; A[1][3] = h;
-	A[2][0] = i; A[2][1] = j; A[2][2] = k; A[2][3] = l;
-	A[3][0] = m; A[3][1] = n; A[3][2] = o; A[3][3] = p;
+Matrix::Matrix(double a, double b, double c, double d,
+	           double e, double f, double g, double h,
+	           double i, double j, double k, double l,
+	           double m, double n, double o, double p) {
+	this->data[0][0] = a; this->data[0][1] = b; this->data[0][2] = c; this->data[0][3] = d;
+	this->data[1][0] = e; this->data[1][1] = f; this->data[1][2] = g; this->data[1][3] = h;
+	this->data[2][0] = i; this->data[2][1] = j; this->data[2][2] = k; this->data[2][3] = l;
+	this->data[3][0] = m; this->data[3][1] = n; this->data[3][2] = o; this->data[3][3] = p;
 }
 
-void double4x4::reset() {
-	double4x4& A = (*this);
+void Matrix::setIdentity() {
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {
-			A[i][j] = 0.0;
+			this->data[i][j] = 0.0;
 		}
-		A[i][i] = 1.0;
+		this->data[i][i] = 1.0;
 	}
 }
 
-void double4x4::rotate(double3 axis, double theta) {
-	axis.normalize();
-	double c = cos(theta);
-	double s = sin(theta);
-	double t = 1.0 - c;
-	double x = axis.x;
-	double y = axis.y;
-	double z = axis.z;
-	double4x4 rotMatrix;
-	rotMatrix.set(
-		(t * x * x) + (c), (t * y * x) - (s * z), (t * z * x) + (s * y), 0.0,
-		(t * x * y) + (s * z), (t * y * y) + (c), (t * z * y) - (s * x), 0.0,
-		(t * x * z) - (s * y), (t * y * z) + (s * x), (t * z * z) + (c), 0.0,
-		0.0, 0.0, 0.0, 1.0
-	);
-	(*this) = rotMatrix * (*this);
-}
-
-void double4x4::scale(double scale) {
-	double4x4 scaleMatrix;
-	scaleMatrix.set(
+Matrix Matrix::buildScalarMatrix(const double scale) {
+	Matrix matrix(
 		scale, 0.0, 0.0, 0.0,
 		0.0, scale, 0.0, 0.0,
 		0.0, 0.0, scale, 0.0,
 		0.0, 0.0, 0.0, 1.0
 	);
-	(*this) = scaleMatrix * (*this);
+	return matrix;
 }
 
-void double4x4::translate(double3 translation) {
-	double x = translation.x;
-	double y = translation.y;
-	double z = translation.z;
-	double4x4 transMatrix;
-	transMatrix.set(
-		1.0, 0.0, 0.0, x,
-		0.0, 1.0, 0.0, y,
-		0.0, 0.0, 1.0, z,
+Matrix Matrix::buildTranslationMatrix(const double3& position) {
+	Matrix matrix(
+		1.0, 0.0, 0.0, position.x,
+		0.0, 1.0, 0.0, position.y,
+		0.0, 0.0, 1.0, position.z,
 		0.0, 0.0, 0.0, 1.0
 	);
-	(*this) = transMatrix * (*this);
+	return matrix;
 }
 
-const float* double4x4::as_float() {
+Matrix Matrix::buildQuaternionRotationMatrix(const Quaternion& quat) {
+	double xx = quat.x * quat.x;
+	double yy = quat.y * quat.y;
+	double zz = quat.z * quat.z;
+	double xy = quat.x * quat.y;
+	double xz = quat.x * quat.z;
+	double yz = quat.y * quat.z;
+	double wx = quat.w * quat.x;
+	double wy = quat.w * quat.y;
+	double wz = quat.w * quat.z;
+	Matrix matrix(
+		1.0 - 2.0 * (yy + zz), 2.0 * (xy - wz), 2.0 * (xz + wy), 0.0,
+		2.0 * (xy + wz), 1.0 - 2.0 * (xx + zz), 2.0 * (yz - wx), 0.0,
+		2.0 * (xz - wy), 2.0 * (yz + wx), 1.0 - 2.0 * (xx + yy), 0.0,
+		0.0, 0.0, 0.0, 1.0
+	);
+	return matrix;
+}
+
+const float* Matrix::as_float() {
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {
 			gl_dataFloatColumnMajor[j][i] = (float)data[i][j];
@@ -78,23 +72,21 @@ const float* double4x4::as_float() {
 	return &gl_dataFloatColumnMajor[0][0];
 }
 
-double* double4x4::operator[](size_t i) {
+double* Matrix::operator [] (size_t i) {
 	assert(i < 4);  return data[i];
 }
 
-const double* double4x4::operator[](size_t i) const {
+const double* Matrix::operator [] (size_t i) const {
 	assert(i < 4); return data[i];
 }
 
-double4x4 double4x4::operator*(const double4x4& otherMatrix) const {
-	const double4x4& A = *this;
-	const double4x4& B = otherMatrix;
-	double4x4 result;
+Matrix Matrix::operator * (const Matrix& otherMatrix) const {
+	Matrix result;
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {
 			double dot = 0.0;
 			for (int k = 0; k < 4; k++) {
-				dot += A[i][k] * B[k][j];
+				dot += this->data[i][k] * otherMatrix[k][j];
 			}
 			result[i][j] = dot;
 		}

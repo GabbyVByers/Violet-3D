@@ -18,9 +18,9 @@ void Window::draw(Camera& camera, Mesh& mesh) {
 	if (mesh.getNumVertices() == 0)
 		error(MESH_HAS_NO_VERTICES);
 
-	const uint& VAO = mesh.getVAO();
-	const uint& VBO = mesh.getVBO();
-	const uint& shaderProgram = mesh.getShaderProgram();
+	const uint VAO = mesh.getVAO();
+	const uint VBO = mesh.getVBO();
+	const uint shaderProgram = mesh.getShaderProgram();
 	const std::vector<Vertex>& vertices = mesh.getVertices();
 
 	glBindVertexArray(VAO);
@@ -28,15 +28,15 @@ void Window::draw(Camera& camera, Mesh& mesh) {
 	glUseProgram(shaderProgram);
 
 	int width, height; glfwGetFramebufferSize(glfwWindow, &width, &height);
-	const double4x4& modelMatrix = mesh.getModelMatrix();
-	const double4x4& viewMatrix = camera.getViewMatrix();
-	const double4x4& projectionMatrix = camera.getProjectionMatrix(width, height);
+	const Matrix modelMatrix = mesh.getModelMatrix();
+	const Matrix viewMatrix = camera.getViewMatrix();
+	const Matrix projectionMatrix = camera.getProjectionMatrix(width, height);
 
-	double4x4 modelViewProject = projectionMatrix * viewMatrix * modelMatrix;
+	Matrix modelViewProject = projectionMatrix * viewMatrix * modelMatrix;
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uModelViewProject"), 1, GL_FALSE, modelViewProject.as_float());
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
-	glDrawArrays(mesh.getPrimative(), 0, (GLsizei)vertices.size());
+	glDrawArrays(mesh.getPrimativeType(), 0, (GLsizei)vertices.size());
 }
 
 void Window::display() {

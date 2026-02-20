@@ -7,18 +7,26 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{d3d68c1a-3ae7-4fb2-9f19-d96dd1551db5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Solution">
+      <UniqueIdentifier>{bcc3bd04-3f4c-4ca8-bc6f-703568f127bd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code\Header Files">
+    <Filter Include="Solution\Violet 3D">
+      <UniqueIdentifier>{4199de56-1c93-4001-8e37-88b9dc6a97e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Shaders">
+      <UniqueIdentifier>{cc6ea615-c9ef-4a91-9e7d-be7c5c6aefed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules">
+      <UniqueIdentifier>{b56f1cb9-6535-4802-853e-f67e7c383f9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Header Files">
       <UniqueIdentifier>{41b8da1a-c04a-4e49-badf-dd8de53db307}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code\Source Files">
-      <UniqueIdentifier>{5a581682-c2c1-4596-810d-a90f1ff45766}</UniqueIdentifier>
+    <Filter Include="Solution\Violet 3D\Modules\Header Files\Header Only">
+      <UniqueIdentifier>{a85b20c0-3734-4d4b-8377-7c74afffa742}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code\Shaders">
-      <UniqueIdentifier>{cc6ea615-c9ef-4a91-9e7d-be7c5c6aefed}</UniqueIdentifier>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files">
+      <UniqueIdentifier>{5a581682-c2c1-4596-810d-a90f1ff45766}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -47,52 +55,55 @@
       <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Color.cpp">
-      <Filter>Code\Source Files</Filter>
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.Members.cpp">
-      <Filter>Code\Source Files</Filter>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.Manipulation.cpp">
-      <Filter>Code\Source Files</Filter>
+    <ClCompile Include="Vector.double3.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.Members.cpp">
-      <Filter>Code\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh_Constructor.cpp">
-      <Filter>Code\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.Shapes.cpp">
-      <Filter>Code\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Double3.cpp">
-      <Filter>Code\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Float3.cpp">
-      <Filter>Code\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.Callback.cpp">
-      <Filter>Code\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.Constructor.cpp">
-      <Filter>Code\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.Utilities.cpp">
-      <Filter>Code\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.Rendering.cpp">
-      <Filter>Code\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Code</Filter>
+    <ClCompile Include="Vector.float3.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
-      <Filter>Code\Source Files</Filter>
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Transformation.cpp">
-      <Filter>Code\Source Files</Filter>
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Quaternion.cpp">
-      <Filter>Code\Source Files</Filter>
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Constructor.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Constructor.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Solution</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Shape.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Transformation.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Utilitys.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Getters.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Rendering.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Callback.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -123,52 +134,55 @@
     <ClInclude Include="ImGui\imstb_truetype.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Code\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Color.h">
-      <Filter>Code\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core.h">
-      <Filter>Code\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Error.h">
-      <Filter>Code\Header Files</Filter>
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>Code\Header Files</Filter>
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Quaternion.h">
-      <Filter>Code\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>Code\Header Files</Filter>
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
-      <Filter>Code\Header Files</Filter>
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Code\Header Files</Filter>
+    <ClInclude Include="Vector.double3.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Double3.h">
-      <Filter>Code\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Float3.h">
-      <Filter>Code\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Code\Header Files</Filter>
+    <ClInclude Include="Vector.float3.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Transformation.h">
-      <Filter>Code\Header Files</Filter>
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
+    </ClInclude>
+    <ClInclude Include="gl_keyEvent.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">
-      <Filter>Code\Shaders</Filter>
+      <Filter>Solution\Violet 3D\Shaders</Filter>
     </None>
     <None Include="default.frag">
-      <Filter>Code\Shaders</Filter>
+      <Filter>Solution\Violet 3D\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

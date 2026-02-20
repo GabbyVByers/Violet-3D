@@ -6,13 +6,13 @@ void Window::windowResizeCallback(GLFWwindow* glfwWindow, int width, int height)
 }
 
 void Window::keyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-	KeyCallBackPacket packet = {
+	gl_keyEvent keyEvent = {
 		window,
 		key,
 		scancode,
 		action,
 		mods
 	};
-	Keyboard::pushPacket(packet);
+	Keyboard::addKeyEvent(keyEvent);
 }
 

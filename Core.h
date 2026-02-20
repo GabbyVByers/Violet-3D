@@ -25,11 +25,12 @@ class Window;
 class Mesh;
 class Camera;
 class Keyboard;
-class KeyCallBackPacket;
-class Vertex;
 class Color;
 class Quaternion;
-class double4x4;
+class Matrix;
 class double3;
 class float3;
+
+struct gl_keyEvent;
+struct Vertex;
 

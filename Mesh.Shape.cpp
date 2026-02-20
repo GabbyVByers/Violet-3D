@@ -64,13 +64,13 @@ inline static std::vector<double3> doublePrecisionCube(double radius, size_t sub
 	return cubePoints;
 }
 
-void Mesh::sphere(double radius, size_t sub) { // mind precision loss
+void Mesh::sphere(double radius, size_t sub) {
 	std::vector<double3> cubePoints = doublePrecisionCube(1.0, sub);
 	vertices.clear();
 	for (double3 point : cubePoints) {
 		point.normalize();
 		point = point * radius;
-		vertices.push_back(Vertex(point.as_float(), Color::Random()));
+		vertices.push_back({ point.as_float(), Color::Random() });
 	}
 }
 
@@ -78,7 +78,7 @@ void Mesh::cube(double radius, size_t sub) {
 	std::vector<double3> cubePoints = doublePrecisionCube(radius, sub);
 	vertices.clear();
 	for (double3 point : cubePoints) {
-		vertices.push_back(Vertex(point.as_float(), Color::Random()));
+		vertices.push_back({ point.as_float(), Color::Random() });
 	}
 }
 

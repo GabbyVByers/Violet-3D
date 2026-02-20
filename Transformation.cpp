@@ -1,8 +1,6 @@
 
 #include "Transformation.h"
 
-// Scale
-
 void Transformation::reScale(double scale) {
 	this->scale *= scale;
 }
@@ -14,8 +12,6 @@ void Transformation::setScale(double scale) {
 double Transformation::getScale() const {
 	return this->scale;
 }
-
-// Position
 
 void Transformation::moveForward(double dist) {
 	double3 forwardDirection = getForwardDirection();
@@ -43,8 +39,6 @@ void Transformation::setPosition(double3 position) {
 double3 Transformation::getPosition() const {
 	return this->position;
 }
-
-// Orientation
 
 void Transformation::resetOrientation() {
 	this->orientation = { 1.0, 0.0, 0.0, 0.0 };
@@ -96,5 +90,12 @@ double3 Transformation::getUpDirection() const {
 	up.applyQuaternionRotation(this->orientation);
 	up.normalize();
 	return up;
+}
+
+const Matrix Transformation::getMatrix() const {
+	Matrix scalarMatrix = Matrix::buildScalarMatrix(this->scale);
+	Matrix translationMatrix = Matrix::buildTranslationMatrix(this->position);
+	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix(this->orientation);
+	return translationMatrix * scalarMatrix * quaternionRotationMatrix;
 }
 

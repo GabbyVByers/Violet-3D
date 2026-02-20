@@ -151,9 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
-    <ClCompile Include="Double3.cpp" />
-    <ClCompile Include="Float3.cpp" />
+    <ClCompile Include="Mesh.Constructor.cpp" />
+    <ClCompile Include="Mesh.Getters.cpp" />
+    <ClCompile Include="Mesh.Shape.cpp" />
+    <ClCompile Include="Mesh.Transformation.cpp" />
+    <ClCompile Include="Mesh.Utilitys.cpp" />
+    <ClCompile Include="Vector.double3.cpp" />
+    <ClCompile Include="Vector.float3.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -161,26 +167,22 @@
     <ClCompile Include="ImGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="Keyboard.Members.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="Mesh.Manipulation.cpp" />
-    <ClCompile Include="Mesh.Members.cpp" />
-    <ClCompile Include="Mesh.Shapes.cpp" />
-    <ClCompile Include="Mesh_Constructor.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Transformation.cpp" />
     <ClCompile Include="Window.Callback.cpp" />
     <ClCompile Include="Window.Constructor.cpp" />
     <ClCompile Include="Window.Rendering.cpp" />
-    <ClCompile Include="Window.Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
-    <ClInclude Include="Double3.h" />
+    <ClInclude Include="gl_keyEvent.h" />
+    <ClInclude Include="Vector.double3.h" />
     <ClInclude Include="Error.h" />
-    <ClInclude Include="Float3.h" />
+    <ClInclude Include="Vector.float3.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Camera.h" />

@@ -1,13 +1,6 @@
 
 #include "Mesh.h"
 
-inline static std::string loadFileAsString(std::string path) {
-	std::ifstream file(path);
-	std::stringstream buffer;
-	buffer << file.rdbuf();
-	return buffer.str();
-}
-
 Mesh::Mesh(std::string path, int primType) {
 	if (!Window::getGlfwWindowPtr())
 		error(NULL_WINDOW);
@@ -24,8 +17,8 @@ Mesh::Mesh(std::string path, int primType) {
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 
-	std::string vertSource = loadFileAsString(path + ".vert");
-	std::string fragSource = loadFileAsString(path + ".frag");
+	std::string vertSource = this->loadFileAsString(path + ".vert");
+	std::string fragSource = this->loadFileAsString(path + ".frag");
 	const char* vertCStr = vertSource.c_str();
 	const char* fragCStr = fragSource.c_str();
 
@@ -89,5 +82,12 @@ const void Mesh::assertShaderProgram() {
 		std::cerr << log;
 		error(SHADER_PROGRAM_FAILED);
 	}
+}
+
+std::string Mesh::loadFileAsString(std::string path) {
+	std::ifstream file(path);
+	std::stringstream buffer;
+	buffer << file.rdbuf();
+	return buffer.str();
 }
 

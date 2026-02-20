@@ -7,8 +7,7 @@ int main() {
 	Camera camera;
 	Mesh mesh;
 
-	mesh.cube(1.0, 10);
-	//mesh.setColor(Color::RED());
+	mesh.cube(1.0, 4);
 
 	while (window.isOpen()) {
 		window.clear(Color(0.1, 0.1, 0.25));
@@ -16,13 +15,13 @@ int main() {
 
 		if (keyboard.press(GLFW_KEY_P))             { mesh.scale(1.1); }
 		if (keyboard.press(GLFW_KEY_L))             { mesh.scale(0.9); }
-		if (keyboard.press(GLFW_KEY_W))             { mesh.translate({ 0.0, 0.0,-0.1 }); }
-		if (keyboard.press(GLFW_KEY_S))             { mesh.translate({ 0.0, 0.0, 0.1 }); }
-		if (keyboard.press(GLFW_KEY_A))             { mesh.translate({-0.1, 0.0, 0.0 }); }
-		if (keyboard.press(GLFW_KEY_D))             { mesh.translate({ 0.1, 0.0, 0.0 }); }
-		if (keyboard.press(GLFW_KEY_LEFT_SHIFT))    { mesh.translate({ 0.0, 0.1, 0.0 }); }
-		if (keyboard.press(GLFW_KEY_LEFT_CONTROL))  { mesh.translate({ 0.0,-0.1, 0.0 }); }
-		if (keyboard.press(GLFW_KEY_Z))             { mesh.resetPosition(); }
+		if (keyboard.press(GLFW_KEY_W))             { mesh.move({ 0.0, 0.0,-0.1 }); }
+		if (keyboard.press(GLFW_KEY_S))             { mesh.move({ 0.0, 0.0, 0.1 }); }
+		if (keyboard.press(GLFW_KEY_A))             { mesh.move({-0.1, 0.0, 0.0 }); }
+		if (keyboard.press(GLFW_KEY_D))             { mesh.move({ 0.1, 0.0, 0.0 }); }
+		if (keyboard.press(GLFW_KEY_LEFT_SHIFT))    { mesh.move({ 0.0, 0.1, 0.0 }); }
+		if (keyboard.press(GLFW_KEY_LEFT_CONTROL))  { mesh.move({ 0.0,-0.1, 0.0 }); }
+		if (keyboard.press(GLFW_KEY_Z))             { mesh.setPosition({0.0, 0.0, 0.0}); }
 		if (keyboard.press(GLFW_KEY_Q))             { mesh.rotate({0, 0, 1}, 0.05); }
 		if (keyboard.press(GLFW_KEY_E))             { mesh.rotate({0, 0, 1},-0.05); }
 		if (keyboard.press(GLFW_KEY_X))             { mesh.resetOrientation(); }

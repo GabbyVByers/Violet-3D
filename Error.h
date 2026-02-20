@@ -3,17 +3,17 @@
 
 #include "Core.h"
 
-#define VERTEX_SHADER_FAILED         (uint)0
-#define FRAGMENT_SHADER_FAILED       (uint)1
-#define SHADER_PROGRAM_FAILED        (uint)2
-#define NULL_WINDOW                  (uint)3
-#define MULTIPLE_WINDOW_INSTANCES    (uint)4
-#define MULTIPLE_KEYBOARD_INSTANCES  (uint)5
-#define WINDOW_CREATION_FAILED       (uint)6
-#define MESH_HAS_NO_VERTICES         (uint)7
-#define NORMALIZE_VECTOR_LENGTH_ZERO (uint)8
+#define VERTEX_SHADER_FAILED         (size_t)0
+#define FRAGMENT_SHADER_FAILED       (size_t)1
+#define SHADER_PROGRAM_FAILED        (size_t)2
+#define NULL_WINDOW                  (size_t)3
+#define MULTIPLE_WINDOW_INSTANCES    (size_t)4
+#define MULTIPLE_KEYBOARD_INSTANCES  (size_t)5
+#define WINDOW_CREATION_FAILED       (size_t)6
+#define MESH_HAS_NO_VERTICES         (size_t)7
+#define NORMALIZE_VECTOR_LENGTH_ZERO (size_t)8
 
-static inline void error(int ERROR_TYPE) {
+static inline void error(size_t ERROR_TYPE) {
 	if (ERROR_TYPE == VERTEX_SHADER_FAILED) {
 		std::cerr << "CATASTROPHIC ERROR: Failed to Compile Vertex Shader!\n";
 		std::terminate();

@@ -12,11 +12,11 @@ Keyboard::~Keyboard() {
 }
 
 void Keyboard::reset() {
-	keyCallBackPackets.clear();
+	gl_keyEvents.clear();
 }
 
-void Keyboard::pushPacket(KeyCallBackPacket& packet) {
-	keyCallBackPackets.push_back(packet);
+void Keyboard::addKeyEvent(gl_keyEvent& keyEvent) {
+	gl_keyEvents.push_back(keyEvent);
 }
 
 bool Keyboard::press(int KEY, int EDGE) {
@@ -27,8 +27,8 @@ bool Keyboard::press(int KEY, int EDGE) {
 		}
 	}
 	else {
-		for (KeyCallBackPacket& packet : keyCallBackPackets) {
-			if (packet.key == KEY && packet.action == EDGE) {
+		for (gl_keyEvent& keyEvent : gl_keyEvents) {
+			if (keyEvent.key == KEY && keyEvent.action == EDGE) {
 				return true;
 			}
 		}
