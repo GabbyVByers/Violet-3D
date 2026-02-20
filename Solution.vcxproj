@@ -169,6 +169,7 @@
     <ClCompile Include="Mesh.Shapes.cpp" />
     <ClCompile Include="Mesh_Constructor.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
+    <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Transformation.cpp" />
     <ClCompile Include="Window.Callback.cpp" />
     <ClCompile Include="Window.Constructor.cpp" />
@@ -181,7 +182,7 @@
     <ClInclude Include="Error.h" />
     <ClInclude Include="Float3.h" />
     <ClInclude Include="Keyboard.h" />
-    <ClInclude Include="Quaternions.h" />
+    <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="ImGui\imconfig.h" />

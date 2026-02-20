@@ -91,6 +91,9 @@
     <ClCompile Include="Transformation.cpp">
       <Filter>Code\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Code\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -135,7 +138,7 @@
     <ClInclude Include="Matrix.h">
       <Filter>Code\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Quaternions.h">
+    <ClInclude Include="Quaternion.h">
       <Filter>Code\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vertex.h">

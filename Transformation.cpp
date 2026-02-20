@@ -47,35 +47,54 @@ double3 Transformation::getPosition() const {
 // Orientation
 
 void Transformation::resetOrientation() {
-
+	this->orientation = { 1.0, 0.0, 0.0, 0.0 };
 }
 
-void Transformation::rotate(double3 rot_axis, double theta) {
-
+void Transformation::rotate(double3 axis, double theta) {
+	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
+	this->orientation = quat * this->orientation;
+	this->orientation.normalize();
 }
 
 void Transformation::pitch(double theta) {
-
+	double3 axis = this->getRightDirection();
+	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
+	this->orientation = quat * this->orientation;
+	this->orientation.normalize();
 }
 
 void Transformation::roll(double theta) {
-
+	double3 axis = this->getForwardDirection();
+	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
+	this->orientation = quat * this->orientation;
+	this->orientation.normalize();
 }
 
 void Transformation::yaw(double theta) {
-
+	double3 axis = this->getUpDirection();
+	Quaternion quat = Quaternion::buildRotationQuaternion(axis, -theta);
+	this->orientation = quat * this->orientation;
+	this->orientation.normalize();
 }
 
 double3 Transformation::getForwardDirection() const {
-	double3 forwardBasis = { 0.0, 0.0,-1.0 };
-
+	double3 forward = { 0.0, 0.0, -1.0 };
+	forward.applyQuaternionRotation(this->orientation);
+	forward.normalize();
+	return forward;
 }
 
 double3 Transformation::getRightDirection() const {
-
+	double3 right = { 1.0, 0.0, 0.0 };
+	right.applyQuaternionRotation(this->orientation);
+	right.normalize();
+	return right;
 }
 
 double3 Transformation::getUpDirection() const {
-
+	double3 up = { 0.0, 1.0, 0.0 };
+	up.applyQuaternionRotation(this->orientation);
+	up.normalize();
+	return up;
 }
 

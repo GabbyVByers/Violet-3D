@@ -2,7 +2,7 @@
 #pragma once
 
 #include "Core.h"
-#include "Quaternions.h"
+#include "Quaternion.h"
 #include "Double3.h"
 
 class float3 {

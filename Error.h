@@ -3,14 +3,15 @@
 
 #include "Core.h"
 
-#define VERTEX_SHADER_FAILED        (uint)0
-#define FRAGMENT_SHADER_FAILED      (uint)1
-#define SHADER_PROGRAM_FAILED       (uint)2
-#define NULL_WINDOW                 (uint)3
-#define MULTIPLE_WINDOW_INSTANCES   (uint)4
-#define MULTIPLE_KEYBOARD_INSTANCES (uint)5
-#define WINDOW_CREATION_FAILED      (uint)6
-#define MESH_HAS_NO_VERTICES        (uint)7
+#define VERTEX_SHADER_FAILED         (uint)0
+#define FRAGMENT_SHADER_FAILED       (uint)1
+#define SHADER_PROGRAM_FAILED        (uint)2
+#define NULL_WINDOW                  (uint)3
+#define MULTIPLE_WINDOW_INSTANCES    (uint)4
+#define MULTIPLE_KEYBOARD_INSTANCES  (uint)5
+#define WINDOW_CREATION_FAILED       (uint)6
+#define MESH_HAS_NO_VERTICES         (uint)7
+#define NORMALIZE_VECTOR_LENGTH_ZERO (uint)8
 
 static inline void error(int ERROR_TYPE) {
 	if (ERROR_TYPE == VERTEX_SHADER_FAILED) {
@@ -44,6 +45,10 @@ static inline void error(int ERROR_TYPE) {
 	if (ERROR_TYPE == MESH_HAS_NO_VERTICES) {
 		std::cerr << "CATASTROPHIC ERROR: Attempted to Draw Mesh with Zero Vertices!\n";
 		std::terminate();
+	}
+	if (ERROR_TYPE == NORMALIZE_VECTOR_LENGTH_ZERO) {
+		std::cerr << "WARNING: Attempted to Normalize Vector of Length Zero!\n";
+		return;
 	}
 }
 
