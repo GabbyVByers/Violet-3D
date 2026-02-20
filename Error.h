@@ -9,9 +9,10 @@
 #define NULL_WINDOW                  (size_t)3
 #define MULTIPLE_WINDOW_INSTANCES    (size_t)4
 #define MULTIPLE_KEYBOARD_INSTANCES  (size_t)5
-#define WINDOW_CREATION_FAILED       (size_t)6
-#define MESH_HAS_NO_VERTICES         (size_t)7
-#define NORMALIZE_VECTOR_LENGTH_ZERO (size_t)8
+#define MULTIPLE_MOUSE_INSTANCES     (size_t)6
+#define WINDOW_CREATION_FAILED       (size_t)7
+#define MESH_HAS_NO_VERTICES         (size_t)8
+#define NORMALIZE_VECTOR_LENGTH_ZERO (size_t)9
 
 static inline void error(size_t ERROR_TYPE) {
 	if (ERROR_TYPE == VERTEX_SHADER_FAILED) {
@@ -36,6 +37,10 @@ static inline void error(size_t ERROR_TYPE) {
 	}
 	if (ERROR_TYPE == MULTIPLE_KEYBOARD_INSTANCES) {
 		std::cerr << "CATASTROPHIC ERROR: Multiple Instances of Keyboard is Illegal!\n";
+		std::terminate();
+	}
+	if (ERROR_TYPE == MULTIPLE_MOUSE_INSTANCES) {
+		std::cerr << "CATASTROPHIC ERROR: Multiple Instances of Mouse is Illegal!\n";
 		std::terminate();
 	}
 	if (ERROR_TYPE == WINDOW_CREATION_FAILED) {

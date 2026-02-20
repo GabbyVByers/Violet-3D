@@ -7,6 +7,7 @@
 #include "Camera.h"
 #include "Mesh.h"
 #include "Keyboard.h"
+#include "Mouse.h"
 
 class Window {
 public:
@@ -24,8 +25,10 @@ public:
 
 private:
 	// Callback
-	static void windowResizeCallback(GLFWwindow* glfwWindow, int width, int height);
-	static void keyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+	static void framebufferSizeCallback(GLFWwindow* glfwWindow, int width, int height);
+	static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+	static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
+
 	
 	inline static GLFWwindow* glfwWindow = nullptr;
 	inline static size_t instanceCount = 0;

@@ -32,5 +32,6 @@ class double3;
 class float3;
 
 struct gl_keyEvent;
+struct gl_mouseEvent;
 struct Vertex;
 

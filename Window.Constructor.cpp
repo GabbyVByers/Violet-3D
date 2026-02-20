@@ -19,8 +19,9 @@ Window::Window(size_t width, size_t height, std::string title) {
 	glViewport(0, 0, (GLsizei)width, (GLsizei)height);
 	glEnable(GL_DEPTH_TEST);
 
-	glfwSetFramebufferSizeCallback(glfwWindow, windowResizeCallback);
-	glfwSetKeyCallback(glfwWindow, keyboardCallback);
+	glfwSetFramebufferSizeCallback(glfwWindow, framebufferSizeCallback);
+	glfwSetKeyCallback(glfwWindow, keyCallback);
+	glfwSetMouseButtonCallback(glfwWindow, mouseButtonCallback);
 
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();

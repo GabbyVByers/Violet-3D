@@ -159,6 +159,7 @@
     <ClCompile Include="Mesh.Shape.cpp" />
     <ClCompile Include="Mesh.Transformation.cpp" />
     <ClCompile Include="Mesh.Utilitys.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Vector.double3.cpp" />
     <ClCompile Include="Vector.float3.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
@@ -181,6 +182,8 @@
   <ItemGroup>
     <ClInclude Include="Color.h" />
     <ClInclude Include="gl_keyEvent.h" />
+    <ClInclude Include="gl_mouseEvent.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="Vector.double3.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Vector.float3.h" />

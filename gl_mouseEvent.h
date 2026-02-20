@@ -3,10 +3,9 @@
 
 #include "Core.h"
 
-struct gl_keyEvent {
+struct gl_mouseEvent {
 	GLFWwindow* window;
-	int key;
-	int scancode;
+	int button;
 	int action;
 	int mods;
 };

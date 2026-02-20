@@ -1,11 +1,13 @@
 
 #include "Window.h"
 
-void Window::windowResizeCallback(GLFWwindow* glfwWindow, int width, int height) {
+void Window::framebufferSizeCallback(GLFWwindow* glfwWindow, int width, int height) {
 	glViewport(0, 0, width, height);
 }
 
-void Window::keyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+void Window::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	if (Keyboard::getInstanceCounter() == 0)
+		return;
 	gl_keyEvent keyEvent = {
 		window,
 		key,
@@ -14,5 +16,17 @@ void Window::keyboardCallback(GLFWwindow* window, int key, int scancode, int act
 		mods
 	};
 	Keyboard::addKeyEvent(keyEvent);
+}
+
+void Window::mouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
+	if (Mouse::getInstanceCounter() == 0)
+		return;
+	gl_mouseEvent mouseEvent = {
+		window,
+		button,
+		action,
+		mods
+	};
+	Mouse::addMouseEvent(mouseEvent);
 }
 

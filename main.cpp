@@ -1,9 +1,14 @@
 
 #include "Window.h"
 
+void cameraControl() {
+
+}
+
 int main() {
 	Window window(1920, 1080, "My Window");
 	Keyboard keyboard;
+	Mouse mouse;
 	Camera camera;
 	Mesh mesh;
 
@@ -26,6 +31,16 @@ int main() {
 		if (keyboard.press(GLFW_KEY_E))             { mesh.rotate({0, 0, 1},-0.05); }
 		if (keyboard.press(GLFW_KEY_X))             { mesh.resetOrientation(); }
 		if (keyboard.press(GLFW_KEY_T, GLFW_PRESS)) { std::cout << "Haii!!\n"; }
+
+		if (mouse.held(GLFW_MOUSE_BUTTON_RIGHT)) {
+			std::cout << "Right Held\n";
+		}
+		if (mouse.clicked(GLFW_MOUSE_BUTTON_LEFT, GLFW_PRESS)) {
+			std::cout << "Left Press\n";
+		}
+		if (mouse.clicked(GLFW_MOUSE_BUTTON_LEFT, GLFW_RELEASE)) {
+			std::cout << "Left Release\n";
+		}
 
 		mesh.rotate(double3(0, 1, 0), 0.03);
 		

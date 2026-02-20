@@ -2,24 +2,29 @@
 #include "Keyboard.h"
 
 Keyboard::Keyboard() {
-	instanceCounter++;
-	if (instanceCounter > 1)
+	this->instanceCounter++;
+	if (this->instanceCounter > 1)
 		error(MULTIPLE_KEYBOARD_INSTANCES);
 }
 
 Keyboard::~Keyboard() {
-	instanceCounter--;
+	this->instanceCounter--;
+	this->gl_keyEvents.clear();
+}
+
+const size_t Keyboard::getInstanceCounter() {
+	return instanceCounter;
 }
 
 void Keyboard::reset() {
 	gl_keyEvents.clear();
 }
 
-void Keyboard::addKeyEvent(gl_keyEvent& keyEvent) {
+void Keyboard::addKeyEvent(const gl_keyEvent& keyEvent) {
 	gl_keyEvents.push_back(keyEvent);
 }
 
-bool Keyboard::press(int KEY, int EDGE) {
+bool Keyboard::press(int KEY, int EDGE) const {
 	if ((EDGE != GLFW_PRESS) && (EDGE != GLFW_RELEASE)) {
 		GLFWwindow* glfwWindow = Window::getGlfwWindowPtr();
 		if (glfwWindow) {
@@ -27,7 +32,7 @@ bool Keyboard::press(int KEY, int EDGE) {
 		}
 	}
 	else {
-		for (gl_keyEvent& keyEvent : gl_keyEvents) {
+		for (gl_keyEvent& keyEvent : this->gl_keyEvents) {
 			if (keyEvent.key == KEY && keyEvent.action == EDGE) {
 				return true;
 			}

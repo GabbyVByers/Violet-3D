@@ -108,6 +108,9 @@
     <ClCompile Include="Camera.Projection.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -178,6 +181,12 @@
     </ClInclude>
     <ClInclude Include="Mesh.h">
       <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gl_mouseEvent.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
