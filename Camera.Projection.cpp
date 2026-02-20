@@ -1,8 +1,28 @@
 
 #include "Camera.h"
 
-const Matrix Camera::getViewMatrix() const {
-	return transformation.getMatrix();
+double Camera::getNearPlane() const {
+	return this->nearPlane;
+}
+
+double Camera::getFarPlane() const {
+	return this->farPlane;
+}
+
+double Camera::getFOV() const {
+	return this->FOV;
+}
+
+void Camera::setNearPlane(const double nearPlane) {
+	this->nearPlane = nearPlane;
+}
+
+void Camera::setFarPlane(const double farPlane) {
+	this->farPlane = farPlane;
+}
+
+void Camera::setFOV(const double FOV) {
+	this->FOV = FOV;
 }
 
 const Matrix Camera::getProjectionMatrix(int width, int height) const {

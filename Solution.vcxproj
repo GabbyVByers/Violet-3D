@@ -151,7 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Camera.Projection.cpp" />
+    <ClCompile Include="Camera.Transformation.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Mesh.Constructor.cpp" />
     <ClCompile Include="Mesh.Getters.cpp" />
@@ -205,6 +206,9 @@
   <ItemGroup>
     <None Include="default.frag" />
     <None Include="default.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

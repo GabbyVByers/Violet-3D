@@ -1,0 +1,8 @@
+
+ TODO List
+
+ Camera Transformation.
+ World Axies.
+ Shape Factory.
+ Replace get/set with borrow.  // nah not that good
+

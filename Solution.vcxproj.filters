@@ -78,7 +78,7 @@
     <ClCompile Include="Window.Constructor.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
+    <ClCompile Include="Camera.Transformation.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.Constructor.cpp">
@@ -103,6 +103,9 @@
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Window.Callback.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.Projection.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -184,5 +187,8 @@
     <None Include="default.frag">
       <Filter>Solution\Violet 3D\Shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt" />
   </ItemGroup>
 </Project>
