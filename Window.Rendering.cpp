@@ -46,10 +46,8 @@ void Window::display() {
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	glfwSwapBuffers(glfwWindow);
-	if (Keyboard::getInstanceCounter() != 0)
-		Keyboard::reset();
-	if (Mouse::getInstanceCounter() != 0)
-		Mouse::reset();
+	Keyboard::reset();
+	Mouse::reset();
 	glfwPollEvents();
 }
 

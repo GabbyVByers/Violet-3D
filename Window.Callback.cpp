@@ -6,8 +6,6 @@ void Window::framebufferSizeCallback(GLFWwindow* glfwWindow, int width, int heig
 }
 
 void Window::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-	if (Keyboard::getInstanceCounter() == 0)
-		return;
 	gl_keyEvent keyEvent = {
 		window,
 		key,
@@ -19,8 +17,6 @@ void Window::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
 }
 
 void Window::mouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
-	if (Mouse::getInstanceCounter() == 0)
-		return;
 	gl_mouseEvent mouseEvent = {
 		window,
 		button,

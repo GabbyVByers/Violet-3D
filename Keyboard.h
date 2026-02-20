@@ -10,15 +10,13 @@
 
 class Keyboard {
 public:
-	Keyboard();
-	~Keyboard();
-	static const size_t getInstanceCounter();
 	static void reset();
 	static void addKeyEvent(const gl_keyEvent& keyEvent);
-	bool press(int KEY, int EDGE = INT_MAX) const;
+	static bool press(int KEY, int EDGE = INT_MAX);
 
 private:
+	Keyboard() = delete;
+	~Keyboard() = delete;
 	inline static std::vector<gl_keyEvent> gl_keyEvents;
-	inline static size_t instanceCounter = 0;
 };
 

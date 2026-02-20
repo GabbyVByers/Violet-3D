@@ -8,16 +8,14 @@
 
 class Mouse {
 public:
-	Mouse();
-	~Mouse();
-	static const size_t getInstanceCounter();
 	static void reset();
 	static void addMouseEvent(const gl_mouseEvent& mouseEvent);
-	bool held(int GLFW_BUTTON) const;
-	bool clicked(int GLFW_BUTTON, int EDGE) const;
+	static bool held(int GLFW_BUTTON);
+	static bool clicked(int GLFW_BUTTON, int EDGE);
 
 private:
+	Mouse() = delete;
+	~Mouse() = delete;
 	inline static std::vector<gl_mouseEvent> gl_mouseEvents;
-	inline static size_t instanceCounter = 0;
 };
 
