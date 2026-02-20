@@ -1,16 +1,16 @@
 
 #include "Transformation.h"
 
-void Transformation::reScale(double scale) {
-	this->scale *= scale;
+void Transformation::reScale(double s) {
+	scale *= s;
 }
 
-void Transformation::setScale(double scale) {
-	this->scale = scale;
+void Transformation::setScale(double s) {
+	scale = s;
 }
 
 double Transformation::getScale() const {
-	return this->scale;
+	return scale;
 }
 
 void Transformation::moveForward(double dist) {
@@ -28,81 +28,81 @@ void Transformation::moveUp(double dist) {
 	move(upDirection * dist);
 }
 
-void Transformation::move(double3 position) {
-	this->position = this->position + position;
+void Transformation::move(double3 pos) {
+	position = position + pos;
 }
 
-void Transformation::setPosition(double3 position) {
-	this->position = position;
+void Transformation::setPosition(double3 pos) {
+	position = pos;
 }
 
 double3 Transformation::getPosition() const {
-	return this->position;
+	return position;
 }
 
 void Transformation::resetOrientation() {
-	this->orientation = { 1.0, 0.0, 0.0, 0.0 };
+	orientation = { 1.0, 0.0, 0.0, 0.0 };
 }
 
 void Transformation::rotate(double3 axis, double theta) {
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
-	this->orientation = quat * this->orientation;
-	this->orientation.normalize();
+	orientation = quat * orientation;
+	orientation.normalize();
 }
 
 void Transformation::pitch(double theta) {
-	double3 axis = this->getRightDirection();
+	double3 axis = getRightDirection();
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
-	this->orientation = quat * this->orientation;
-	this->orientation.normalize();
+	orientation = quat * orientation;
+	orientation.normalize();
 }
 
 void Transformation::roll(double theta) {
-	double3 axis = this->getForwardDirection();
+	double3 axis = getForwardDirection();
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
-	this->orientation = quat * this->orientation;
-	this->orientation.normalize();
+	orientation = quat * orientation;
+	orientation.normalize();
 }
 
 void Transformation::yaw(double theta) {
-	double3 axis = this->getUpDirection();
+	double3 axis = getUpDirection();
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, -theta);
-	this->orientation = quat * this->orientation;
-	this->orientation.normalize();
+	orientation = quat * orientation;
+	orientation.normalize();
 }
 
 double3 Transformation::getForwardDirection() const {
 	double3 forward = { 0.0, 0.0, -1.0 };
-	forward.applyQuaternionRotation(this->orientation);
+	forward.applyQuaternionRotation(orientation);
 	forward.normalize();
 	return forward;
 }
 
 double3 Transformation::getRightDirection() const {
 	double3 right = { 1.0, 0.0, 0.0 };
-	right.applyQuaternionRotation(this->orientation);
+	right.applyQuaternionRotation(orientation);
 	right.normalize();
 	return right;
 }
 
 double3 Transformation::getUpDirection() const {
 	double3 up = { 0.0, 1.0, 0.0 };
-	up.applyQuaternionRotation(this->orientation);
+	up.applyQuaternionRotation(orientation);
 	up.normalize();
 	return up;
 }
 
 const Matrix Transformation::getModelMatrix() const {
-	Matrix scalarMatrix = Matrix::buildScalarMatrix(this->scale);
-	Matrix translationMatrix = Matrix::buildTranslationMatrix(this->position);
-	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix(this->orientation);
+	Matrix scalarMatrix = Matrix::buildScalarMatrix(scale);
+	Matrix translationMatrix = Matrix::buildTranslationMatrix(position);
+	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix(orientation);
 	return translationMatrix * scalarMatrix * quaternionRotationMatrix;
 }
 
 const Matrix Transformation::getViewMatrix() const {
-	Matrix scalarMatrix = Matrix::buildScalarMatrix(this->scale);
-	Matrix translationMatrix = Matrix::buildTranslationMatrix(this->position);
-	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix(this->orientation);
+	Matrix scalarMatrix = Matrix::buildScalarMatrix(scale);
+	Matrix translationMatrix = Matrix::buildTranslationMatrix(position * -1.0);
+	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix({ orientation.w, -orientation.x, -orientation.y, -orientation.z });
 	return quaternionRotationMatrix * scalarMatrix * translationMatrix;
 }
 

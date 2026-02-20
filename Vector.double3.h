@@ -3,12 +3,12 @@
 
 #include "Core.h"
 #include "Quaternion.h"
-#include "Vector.float3.h"
 #include "Error.h"
+#include "Vector.float3.h"
 
 class double3 {
 public:
-	double3(double x = 0.0, double y = 0.0, double z = 0.0);
+	double3(double new_x = 0.0, double new_y = 0.0, double new_z = 0.0);
 	void rotate(double3 axis, double theta);
 	void applyQuaternionRotation(Quaternion quat);
 	void normalize();

@@ -2,21 +2,21 @@
 #include "Color.h"
 
 Color::Color() {
-	this->r = 1.0f;
-	this->g = 1.0f;
-	this->b = 1.0f;
-	this->a = 1.0f;
+	r = 1.0f;
+	g = 1.0f;
+	b = 1.0f;
+	a = 1.0f;
 }
 
-Color::Color(float r, float g, float b, float a) {
-	r = std::fmax(0.0f, std::fmin(r, 1.0f));
-	g = std::fmax(0.0f, std::fmin(g, 1.0f));
-	b = std::fmax(0.0f, std::fmin(b, 1.0f));
-	a = std::fmax(0.0f, std::fmin(a, 1.0f));
-	this->r = r;
-	this->g = g;
-	this->b = b;
-	this->a = a;
+Color::Color(float new_r, float new_g, float new_b, float new_a) {
+	new_r = std::fmax(0.0f, std::fmin(new_r, 1.0f));
+	new_g = std::fmax(0.0f, std::fmin(new_g, 1.0f));
+	new_b = std::fmax(0.0f, std::fmin(new_b, 1.0f));
+	new_a = std::fmax(0.0f, std::fmin(new_a, 1.0f));
+	r = new_r;
+	g = new_g;
+	b = new_b;
+	a = new_a;
 }
 
 Color Color::Random() {

@@ -2,62 +2,62 @@
 #include "Camera.h"
 
 void Camera::moveForward(double dist) {
-	this->transformation.moveForward(-dist);
+	transformation.moveForward(dist);
 }
 
 void Camera::moveRight(double dist) {
-	this->transformation.moveRight(-dist);
+	transformation.moveRight(dist);
 }
 
 void Camera::moveUp(double dist) {
-	this->transformation.moveUp(-dist);
+	transformation.moveUp(dist);
 }
 
 void Camera::move(double3 position) {
-	this->transformation.move(position * -1.0);
+	transformation.move(position);
 }
 
 void Camera::setPosition(double3 position) {
-	this->transformation.setPosition(position * -1.0);
+	transformation.setPosition(position);
 }
 
 double3 Camera::getPosition() const {
-	return this->transformation.getPosition();
+	return transformation.getPosition();
 }
 
 void Camera::resetOrientation() {
-	this->transformation.resetOrientation();
+	transformation.resetOrientation();
 }
 
 void Camera::rotate(double3 rot_axis, double theta) {
-	this->transformation.rotate(rot_axis, -theta);
+	transformation.rotate(rot_axis, theta);
 }
 
 void Camera::pitch(double theta) {
-	this->transformation.pitch(-theta);
+	transformation.pitch(theta);
 }
 
 void Camera::roll(double theta) {
-	this->transformation.roll(-theta);
+	transformation.roll(theta);
 }
 
 void Camera::yaw(double theta) {
-	this->transformation.yaw(-theta);
+	transformation.yaw(theta);
 }
 
 double3 Camera::getForwardDirection() const {
-	this->transformation.getForwardDirection();
+	return transformation.getForwardDirection();
 }
 
 double3 Camera::getRightDirection() const {
-	this->transformation.getRightDirection();
+	return transformation.getRightDirection();
 }
 
 double3 Camera::getUpDirection() const {
-	this->getUpDirection();
+	return transformation.getUpDirection();
 }
 
 const Matrix Camera::getViewMatrix() const {
-	return this->transformation.getViewMatrix();
+	return transformation.getViewMatrix();
 }
 

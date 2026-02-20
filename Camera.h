@@ -28,9 +28,9 @@ public:
 	double getNearPlane() const;
 	double getFarPlane() const;
 	double getFOV() const;
-	void setNearPlane(const double nearPlane);
-	void setFarPlane(const double farPlane);
-	void setFOV(const double FOV);
+	void setNearPlane(const double new_nearPlane);
+	void setFarPlane(const double new_farPlane);
+	void setFOV(const double new_FOV);
 	const Matrix getProjectionMatrix(int width, int height) const;
 
 private:

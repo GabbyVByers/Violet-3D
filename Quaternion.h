@@ -8,7 +8,6 @@
 class Quaternion {
 public:
     void normalize();
-    double length() const;
     static Quaternion buildRotationQuaternion(double3 axis, double theta);
     Quaternion operator * (const Quaternion& b) const;
 

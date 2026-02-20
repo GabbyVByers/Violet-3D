@@ -2,38 +2,40 @@
 #include "Camera.h"
 
 double Camera::getNearPlane() const {
-	return this->nearPlane;
+	return nearPlane;
 }
 
 double Camera::getFarPlane() const {
-	return this->farPlane;
+	return farPlane;
 }
 
 double Camera::getFOV() const {
-	return this->FOV;
+	return FOV;
 }
 
-void Camera::setNearPlane(const double nearPlane) {
-	this->nearPlane = nearPlane;
+void Camera::setNearPlane(const double new_nearPlane) {
+	nearPlane = new_nearPlane;
 }
 
-void Camera::setFarPlane(const double farPlane) {
-	this->farPlane = farPlane;
+void Camera::setFarPlane(const double new_farPlane) {
+	farPlane = new_farPlane;
 }
 
-void Camera::setFOV(const double FOV) {
-	this->FOV = FOV;
+void Camera::setFOV(const double new_FOV) {
+	FOV = new_FOV;
 }
 
 const Matrix Camera::getProjectionMatrix(int width, int height) const {
+	if (height == 0)
+		height = 1;
 	double aspectRatio = (double)width / (double)height;
-	double fovRadians = this->FOV * PI / 180.0;
+	double fovRadians = FOV * PI / 180.0;
 	double f = 1.0 / tan(fovRadians / 2.0);
 	Matrix projectionMatrix(
 		f / aspectRatio, 0.0, 0.0, 0.0,
 		0.0, f, 0.0, 0.0,
-		0.0, 0.0, (this->farPlane + this->nearPlane) / (this->nearPlane - this->farPlane),
-		(2.0 * this->farPlane * this->nearPlane) / (this->nearPlane - this->farPlane),
+		0.0, 0.0, (farPlane + nearPlane) / (nearPlane - farPlane),
+		(2.0 * farPlane * nearPlane) / (nearPlane - farPlane),
 		0.0, 0.0, -1.0, 0.0
 	);
 	return projectionMatrix;

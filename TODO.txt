@@ -6,4 +6,6 @@
  World Axies.
  Shape Factory.
  Replace get/set with borrow.  // nah not that good
+ I need to look into GL_STATIC_DRAW vs GL_DYNAMIC_DRAW in Window.Rendering.cpp
+ Improve Mouse Want Capture ImGui
 

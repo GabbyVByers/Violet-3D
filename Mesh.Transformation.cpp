@@ -2,74 +2,74 @@
 #include "Mesh.h"
 
 void Mesh::scale(double scale) {
-	this->transformation.reScale(scale);
+	transformation.reScale(scale);
 }
 
 void Mesh::setScale(double scale) {
-	this->transformation.setScale(scale);
+	transformation.setScale(scale);
 }
 
 double Mesh::getScale() const {
-	return this->transformation.getScale();
+	return transformation.getScale();
 }
 
 void Mesh::moveForward(double dist) {
-	this->transformation.moveForward(dist);
+	transformation.moveForward(dist);
 }
 
 void Mesh::moveRight(double dist) {
-	this->transformation.moveRight(dist);
+	transformation.moveRight(dist);
 }
 
 void Mesh::moveUp(double dist) {
-	this->transformation.moveUp(dist);
+	transformation.moveUp(dist);
 }
 
 void Mesh::move(double3 position) {
-	this->transformation.move(position);
+	transformation.move(position);
 }
 
 void Mesh::setPosition(double3 position) {
-	this->transformation.setPosition(position);
+	transformation.setPosition(position);
 }
 
 double3 Mesh::getPosition() const {
-	return this->transformation.getPosition();
+	return transformation.getPosition();
 }
 
 void Mesh::resetOrientation() {
-	this->transformation.resetOrientation();
+	transformation.resetOrientation();
 }
 
 void Mesh::rotate(double3 rot_axis, double theta) {
-	this->transformation.rotate(rot_axis, theta);
+	transformation.rotate(rot_axis, theta);
 }
 
 void Mesh::pitch(double theta) {
-	this->transformation.pitch(theta);
+	transformation.pitch(theta);
 }
 
 void Mesh::roll(double theta) {
-	this->transformation.roll(theta);
+	transformation.roll(theta);
 }
 
 void Mesh::yaw(double theta) {
-	this->transformation.yaw(theta);
+	transformation.yaw(theta);
 }
 
 double3 Mesh::getForwardDirection() const {
-	this->transformation.getForwardDirection();
+	return transformation.getForwardDirection();
 }
 
 double3 Mesh::getRightDirection() const {
-	this->transformation.getRightDirection();
+	return transformation.getRightDirection();
 }
 
 double3 Mesh::getUpDirection() const {
-	this->transformation.getUpDirection();
+	return transformation.getUpDirection();
 }
 
 const Matrix Mesh::getModelMatrix() const {
-	return this->transformation.getModelMatrix();
+	return transformation.getModelMatrix();
 }
 

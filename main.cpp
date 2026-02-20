@@ -25,7 +25,7 @@ static void controlCamera(Camera& camera) {
 
 	if (Mouse::pressing(GLFW_MOUSE_BUTTON_LEFT)) {
 		camera.pitch(speed * Mouse::getVelocity().y * 0.01);
-		camera.yaw(speed * Mouse::getVelocity().x * 0.01);
+		camera.yaw(speed * Mouse::getVelocity().x * -0.01);
 	}
 }
 
@@ -43,20 +43,6 @@ int main() {
 
 		window.draw(camera, mesh);
 
-		//if (Keyboard::press(GLFW_KEY_P))             { mesh.scale(1.1); }
-		//if (Keyboard::press(GLFW_KEY_L))             { mesh.scale(0.9); }
-		//if (Keyboard::press(GLFW_KEY_W))             { mesh.move({ 0.0, 0.0,-0.1 }); }
-		//if (Keyboard::press(GLFW_KEY_S))             { mesh.move({ 0.0, 0.0, 0.1 }); }
-		//if (Keyboard::press(GLFW_KEY_A))             { mesh.move({-0.1, 0.0, 0.0 }); }
-		//if (Keyboard::press(GLFW_KEY_D))             { mesh.move({ 0.1, 0.0, 0.0 }); }
-		//if (Keyboard::press(GLFW_KEY_LEFT_SHIFT))    { mesh.move({ 0.0, 0.1, 0.0 }); }
-		//if (Keyboard::press(GLFW_KEY_LEFT_CONTROL))  { mesh.move({ 0.0,-0.1, 0.0 }); }
-		//if (Keyboard::press(GLFW_KEY_Z))             { mesh.setPosition({0.0, 0.0, 0.0}); }
-		//if (Keyboard::press(GLFW_KEY_Q))             { mesh.rotate({0, 0, 1}, 0.05); }
-		//if (Keyboard::press(GLFW_KEY_E))             { mesh.rotate({0, 0, 1},-0.05); }
-		//if (Keyboard::press(GLFW_KEY_X))             { mesh.resetOrientation(); }
-		//if (Keyboard::press(GLFW_KEY_T, GLFW_PRESS)) { std::cout << "Haii!!\n"; }
-
 		if (Mouse::pressing(GLFW_MOUSE_BUTTON_RIGHT)) {
 			std::cout << "Right Held\n";
 		}
@@ -70,9 +56,6 @@ int main() {
 		mesh.rotate(double3(0, 1, 0), 0.03);
 		
 		ImGui::Begin("Triangle");
-		//ImGui::DragFloat3("Vertex 1", (float*)&mesh.getVertices()[0].position, 0.02);
-		//ImGui::DragFloat3("Vertex 2", (float*)&mesh.getVertices()[1].position, 0.02);
-		//ImGui::DragFloat3("Vertex 3", (float*)&mesh.getVertices()[2].position, 0.02);
 		ImGui::End();
 
 		ImGui::Begin("Second Window Test");

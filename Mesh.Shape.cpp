@@ -4,7 +4,7 @@
 inline static std::vector<double3> doublePrecisionCube(double radius, size_t sub) {
 	std::vector<double3> cubePoints;
 	double stride = (2.0 * radius) / ((double)sub + 1.0);
-	static std::vector<double3> facePoints;
+	std::vector<double3> facePoints;
 	for (size_t side = 0; side < 6; side++) {
 		facePoints.clear();
 		for (size_t i = 0; i < sub + 1; i++) {
@@ -77,7 +77,7 @@ void Mesh::sphere(double radius, size_t sub) {
 void Mesh::cube(double radius, size_t sub) {
 	std::vector<double3> cubePoints = doublePrecisionCube(radius, sub);
 	vertices.clear();
-	for (double3 point : cubePoints) {
+	for (const double3& point : cubePoints) {
 		vertices.push_back({ point.as_float(), Color::Random() });
 	}
 }

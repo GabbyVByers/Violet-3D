@@ -13,9 +13,9 @@ public:
 	// Constructor
 	Mesh(std::string path = "default", int primType = GL_TRIANGLES);
 	~Mesh();
-	const void assertVertexShader(uint vertProgram);
-	const void assertFragmentShader(uint fragProgram);
-	const void assertShaderProgram();
+	void assertVertexShader(uint vertProgram);
+	void assertFragmentShader(uint fragProgram);
+	void assertShaderProgram();
 	static std::string loadFileAsString(std::string path);
 
 	// Utilitys
@@ -56,7 +56,7 @@ public:
 	void sphere(double radius, size_t sub);
 	void cube(double radius, size_t sub);
 
-public:
+private:
 	Transformation transformation;
 	std::vector<Vertex> vertices;
 	int primativeType = GL_TRIANGLES;

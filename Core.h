@@ -17,9 +17,9 @@
 #include <iostream>
 #include <exception>
 
-#define uchar unsigned char
-#define uint unsigned int
-#define PI (double)3.141592653589793
+using uchar = unsigned char;
+using uint  = unsigned int;
+constexpr double PI = 3.141592653589793;
 
 class Window;
 class Mesh;

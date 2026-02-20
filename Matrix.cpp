@@ -2,25 +2,25 @@
 #include "Matrix.h"
 
 Matrix::Matrix() {
-	this->setIdentity();
+	setIdentity();
 }
 
 Matrix::Matrix(double a, double b, double c, double d,
 	           double e, double f, double g, double h,
 	           double i, double j, double k, double l,
 	           double m, double n, double o, double p) {
-	this->data[0][0] = a; this->data[0][1] = b; this->data[0][2] = c; this->data[0][3] = d;
-	this->data[1][0] = e; this->data[1][1] = f; this->data[1][2] = g; this->data[1][3] = h;
-	this->data[2][0] = i; this->data[2][1] = j; this->data[2][2] = k; this->data[2][3] = l;
-	this->data[3][0] = m; this->data[3][1] = n; this->data[3][2] = o; this->data[3][3] = p;
+	data[0][0] = a; data[0][1] = b; data[0][2] = c; data[0][3] = d;
+	data[1][0] = e; data[1][1] = f; data[1][2] = g; data[1][3] = h;
+	data[2][0] = i; data[2][1] = j; data[2][2] = k; data[2][3] = l;
+	data[3][0] = m; data[3][1] = n; data[3][2] = o; data[3][3] = p;
 }
 
 void Matrix::setIdentity() {
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {
-			this->data[i][j] = 0.0;
+			data[i][j] = 0.0;
 		}
-		this->data[i][i] = 1.0;
+		data[i][i] = 1.0;
 	}
 }
 
@@ -86,7 +86,7 @@ Matrix Matrix::operator * (const Matrix& otherMatrix) const {
 		for (size_t j = 0; j < 4; j++) {
 			double dot = 0.0;
 			for (int k = 0; k < 4; k++) {
-				dot += this->data[i][k] * otherMatrix[k][j];
+				dot += data[i][k] * otherMatrix[k][j];
 			}
 			result[i][j] = dot;
 		}

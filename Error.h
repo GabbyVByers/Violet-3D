@@ -12,7 +12,7 @@
 #define MESH_HAS_NO_VERTICES         (size_t)6
 #define NORMALIZE_VECTOR_LENGTH_ZERO (size_t)7
 
-static inline void error(size_t ERROR_TYPE) {
+inline void error(size_t ERROR_TYPE) {
 	if (ERROR_TYPE == VERTEX_SHADER_FAILED) {
 		std::cerr << "CATASTROPHIC ERROR: Failed to Compile Vertex Shader!\n";
 		std::terminate();

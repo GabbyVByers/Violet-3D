@@ -2,24 +2,15 @@
 #include "Quaternion.h"
 
 void Quaternion::normalize() {
-    double length = this->length();
+    double length = sqrt(w * w + x * x + y * y + z * z);
     if (length == 0.0) {
         error(NORMALIZE_VECTOR_LENGTH_ZERO);
         return;
     }
-    this->w = this->w / length;
-    this->x = this->x / length;
-    this->y = this->y / length;
-    this->z = this->z / length;
-}
-
-double Quaternion::length() const {
-    return sqrt(
-        this->w * this->w +
-        this->x * this->x +
-        this->y * this->y +
-        this->z * this->z
-    );
+    w = w / length;
+    x = x / length;
+    y = y / length;
+    z = z / length;
 }
 
 Quaternion Quaternion::buildRotationQuaternion(double3 axis, double theta) {
@@ -32,10 +23,10 @@ Quaternion Quaternion::buildRotationQuaternion(double3 axis, double theta) {
 
 Quaternion Quaternion::operator * (const Quaternion & b) const {
     return {
-        (this->w * b.w) - (this->x * b.x) - (this->y * b.y) - (this->z * b.z),
-        (this->w * b.x) + (this->x * b.w) + (this->y * b.z) - (this->z * b.y),
-        (this->w * b.y) - (this->x * b.z) + (this->y * b.w) + (this->z * b.x),
-        (this->w * b.z) + (this->x * b.y) - (this->y * b.x) + (this->z * b.w)
+        (w * b.w) - (x * b.x) - (y * b.y) - (z * b.z),
+        (w * b.x) + (x * b.w) + (y * b.z) - (z * b.y),
+        (w * b.y) - (x * b.z) + (y * b.w) + (z * b.x),
+        (w * b.z) + (x * b.y) - (y * b.x) + (z * b.w)
     };
 }
 

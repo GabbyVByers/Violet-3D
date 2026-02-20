@@ -1,24 +1,24 @@
 
 #include "Vector.double3.h"
 
-double3::double3(double x, double y, double z) {
-	this->x = x;
-	this->y = y;
-	this->z = z;
+double3::double3(double new_x, double new_y, double new_z) {
+	x = new_x;
+	y = new_y;
+	z = new_z;
 }
 
 void double3::rotate(double3 axis, double theta) {
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
-	this->applyQuaternionRotation(quat);
+	applyQuaternionRotation(quat);
 }
 
 void double3::applyQuaternionRotation(Quaternion quat) {
 	Quaternion quat_inv = { quat.w, -quat.x, -quat.y, -quat.z };
-	Quaternion p = { 0.0, this->x, this->y, this->z };
+	Quaternion p = { 0.0, x, y, z };
 	Quaternion result = quat * p * quat_inv;
-	this->x = result.x;
-	this->y = result.y;
-	this->z = result.z;
+	x = result.x;
+	y = result.y;
+	z = result.z;
 }
 
 void double3::normalize() {
@@ -27,24 +27,24 @@ void double3::normalize() {
 		error(NORMALIZE_VECTOR_LENGTH_ZERO);
 		return;
 	}
-	this->x = this->x /  length;
-	this->y = this->y /  length;
-	this->z = this->z /  length;
+	x = x /  length;
+	y = y /  length;
+	z = z /  length;
 }
 
 float3 double3::as_float() const {
 	return {
-		(float)this->x,
-		(float)this->y,
-		(float)this->z
+		(float)x,
+		(float)y,
+		(float)z
 	};
 }
 
 double3 double3::operator * (const double scalar) const {
-	return { this->x * scalar, this->y * scalar, this->z * scalar };
+	return { x * scalar, y * scalar, z * scalar };
 }
 
 double3 double3::operator + (const double3 vector) const {
-	return { this->x + vector.x, this->y + vector.y, this->z + vector.z };
+	return { x + vector.x, y + vector.y, z + vector.z };
 }
 

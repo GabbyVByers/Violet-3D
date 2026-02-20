@@ -2,7 +2,7 @@
 #include "Window.h"
 
 void Window::clear(const Color& color) {
-	if (!this->glfwWindow)
+	if (!glfwWindow)
 		error(NULL_WINDOW);
 
 	glClearColor(color.r, color.g, color.b, color.a);
@@ -13,7 +13,7 @@ void Window::clear(const Color& color) {
 }
 
 void Window::draw(Camera& camera, Mesh& mesh) {
-	if (!this->glfwWindow)
+	if (!glfwWindow)
 		error(NULL_WINDOW);
 	if (mesh.getNumVertices() == 0)
 		error(MESH_HAS_NO_VERTICES);
@@ -27,7 +27,7 @@ void Window::draw(Camera& camera, Mesh& mesh) {
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glUseProgram(shaderProgram);
 
-	int width, height; glfwGetFramebufferSize(this->glfwWindow, &width, &height);
+	int width, height; glfwGetFramebufferSize(glfwWindow, &width, &height);
 	const Matrix modelMatrix = mesh.getModelMatrix();
 	const Matrix viewMatrix = camera.getViewMatrix();
 	const Matrix projectionMatrix = camera.getProjectionMatrix(width, height);
@@ -35,20 +35,23 @@ void Window::draw(Camera& camera, Mesh& mesh) {
 	Matrix modelViewProject = projectionMatrix * viewMatrix * modelMatrix;
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "uModelViewProject"), 1, GL_FALSE, modelViewProject.as_float());
 
+	// GL_STATIC_DRAW or GL_DYNAMIC_DRAW ?
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
 	glDrawArrays(mesh.getPrimativeType(), 0, (GLsizei)vertices.size());
 }
 
 void Window::display() {
-	if (!this->glfwWindow)
+	if (!glfwWindow)
 		error(NULL_WINDOW);
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-	glfwSwapBuffers(this->glfwWindow);
+	glfwSwapBuffers(glfwWindow);
+
 	Keyboard::reset();
 	Mouse::reset();
-	double x, y; glfwGetCursorPos(this->glfwWindow, &x, &y);
+	double x, y;
+	glfwGetCursorPos(glfwWindow, &x, &y);
 	Mouse::update(x, y);
 	glfwPollEvents();
 }
