@@ -25,7 +25,7 @@ static void controlCamera(Camera& camera) {
 
 	if (Mouse::pressing(GLFW_MOUSE_BUTTON_LEFT)) {
 		camera.pitch(speed * Mouse::getVelocity().y * 0.01);
-		camera.yaw(speed * Mouse::getVelocity().x * -0.01);
+		camera.yaw(speed * Mouse::getVelocity().x * 0.01);
 	}
 }
 
