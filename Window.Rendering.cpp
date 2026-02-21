@@ -15,13 +15,13 @@ void Violet::Window::clear(const Color& color) {
 void Violet::Window::draw(Camera& camera, Mesh& mesh) {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
-	if (mesh.getNumVertices() == 0)
+	if (mesh.borrowVertices().size() == 0)
 		error(MESH_HAS_NO_VERTICES);
 
-	const uint VAO = mesh.getVAO();
-	const uint VBO = mesh.getVBO();
-	const uint shaderProgram = mesh.getShaderProgram();
-	const std::vector<Vertex>& vertices = mesh.getVertices();
+	const uint& VAO = mesh.borrowVAO();
+	const uint& VBO = mesh.borrowVBO();
+	const uint& shaderProgram = mesh.borrowShaderProgram();
+	const std::vector<Vertex>& vertices = mesh.borrowVertices();
 
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -37,7 +37,7 @@ void Violet::Window::draw(Camera& camera, Mesh& mesh) {
 
 	// GL_STATIC_DRAW or GL_DYNAMIC_DRAW ?
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
-	glDrawArrays(mesh.getPrimativeType(), 0, (GLsizei)vertices.size());
+	glDrawArrays(mesh.borrowPrimativeType(), 0, (GLsizei)vertices.size());
 }
 
 void Violet::Window::display() {

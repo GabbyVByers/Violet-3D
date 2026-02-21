@@ -31,9 +31,6 @@
     <Filter Include="Solution\Realistic Progression 3D">
       <UniqueIdentifier>{49ddf830-275e-4fd4-a5d3-ffa5f0bed93f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Solution\Violet 3D\Modules\Source Files\Camera">
-      <UniqueIdentifier>{a606d69a-4a44-4a73-a67e-c14969742a8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Solution\Violet 3D\Modules\Source Files\Mesh">
       <UniqueIdentifier>{28f8f13a-4f64-4349-a026-59461abdcc2a}</UniqueIdentifier>
     </Filter>
@@ -102,12 +99,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Solution\Realistic Progression 3D</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.Projection.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.Transformation.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
-    </ClCompile>
     <ClCompile Include="Mesh.Constructor.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
     </ClCompile>
@@ -133,7 +124,10 @@
       <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Interface.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
