@@ -27,7 +27,7 @@ void Violet::Window::draw(Camera& camera, Mesh& mesh) {
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glUseProgram(shaderProgram);
 
-	int width, height; glfwGetFramebufferSize(glfwWindow, &width, &height);
+	int width, height; glfwGetFramebufferSize(glfwWindow, &width, &height); // TODO REFACTOR TO USE NEW FUNCTION
 	const Matrix modelMatrix = mesh.getModelMatrix();
 	const Matrix viewMatrix = camera.getViewMatrix();
 	const Matrix projectionMatrix = camera.getProjectionMatrix(width, height);

@@ -38,5 +38,6 @@ namespace Violet {
 	class  Vector3f;
 	struct Vector2d;
 	struct Vector2f;
+	struct Vector2i;
 }
 

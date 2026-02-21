@@ -1,10 +1,11 @@
 
 #include "Window.h"
 
+namespace Vi = Violet;
+
 static void controlCamera(Violet::Camera& camera) {
 	if (Violet::Mouse::isImGuiCaptured())
 		return;
-
 
 	const double speed = 0.1;
 
@@ -12,7 +13,7 @@ static void controlCamera(Violet::Camera& camera) {
 		camera.move(Violet::Vector3d(0.0, 1.0, 0.0) * speed);
 	}
 	if (Violet::Keyboard::pressing(GLFW_KEY_LEFT_SHIFT)) {
-		camera.move(Violet::Vector3d(0.0,-1.0, 0.0) * speed);
+		camera.move(Violet::Vector3d(0.0, -1.0, 0.0) * speed);
 	}
 	if (Violet::Keyboard::pressing(GLFW_KEY_W)) {
 		camera.moveForward(speed);
@@ -35,8 +36,6 @@ static void controlCamera(Violet::Camera& camera) {
 	else {
 		Violet::Mouse::cursor(GLFW_CURSOR_NORMAL);
 	}
-
-
 }
 
 int main() {
@@ -62,6 +61,12 @@ int main() {
 		if (Violet::Mouse::clicked(GLFW_MOUSE_BUTTON_LEFT, GLFW_RELEASE)) {
 			std::cout << "Left Release\n";
 		}
+
+		Violet::Vector2i size = Violet::Window::getWindowSize();
+		ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiCond_Always);
+		ImGui::SetNextWindowSize(ImVec2(200.0f, (float)size.y), ImGuiCond_Always);
+		ImGui::Begin("Left Panel", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
+		ImGui::End();
 
 		window.display();
 	}

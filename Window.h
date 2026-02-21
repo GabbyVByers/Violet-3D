@@ -8,6 +8,7 @@
 #include "Mesh.h"
 #include "Keyboard.h"
 #include "Mouse.h"
+#include "Vector2i.h"
 
 class Violet::Window {
 public:
@@ -16,6 +17,7 @@ public:
 	~Window();
 	bool isOpen();
 	void setVerticalSyncEnable(bool vsync);
+	static Vector2i getWindowSize();
 	static GLFWwindow* getGlfwWindowPtr();
 
 	// Rendering

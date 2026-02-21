@@ -1,15 +1,25 @@
 
- TODO List
+TODO List
 
- Camera Transformation.
- Mouse Input.
- World Axies.
- Shape Factory.
- Replace get/set with borrow.  // nah not that good
- I need to look into GL_STATIC_DRAW vs GL_DYNAMIC_DRAW in Window.Rendering.cpp
- Improve Mouse Want Capture ImGui // it might be all good actually
+Camera Transformation.
+Mouse Input.
+World Axies.
+Shape Factory.
+Replace get/set with borrow.  // nah not that good
+I need to look into GL_STATIC_DRAW vs GL_DYNAMIC_DRAW in Window.Rendering.cpp
+Improve Mouse Want Capture ImGui // it might be all good actually
 
- Wrap everything in a "Violet" namespace
- Change double3 to Vec3d and float3 to Vec3f and float2 to Vec2f <- yes do this
+Wrap everything in a "Violet" namespace
+Change double3 to Vec3d and float3 to Vec3f and float2 to Vec2f <- yes do this
+
+
+Random notes:
+
+bool showPanel = true; // Neat feature of ImGui
+// inside loop:
+if (showPanel) {
+    ImGui::Begin("Left Panel", &showPanel, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize);
+    ImGui::End();
+}
 
 

@@ -185,6 +185,7 @@
     <ClInclude Include="gl_mouseEvent.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Vector2f.h" />
+    <ClInclude Include="Vector2i.h" />
     <ClInclude Include="Vector3d.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Vector2d.h" />

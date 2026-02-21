@@ -57,6 +57,14 @@ void Violet::Window::setVerticalSyncEnable(bool vsync) {
 	glfwSwapInterval((int)vsync);
 }
 
+Violet::Vector2i Violet::Window::getWindowSize() {
+	int width, height; glfwGetFramebufferSize(glfwWindow, &width, &height);
+	return {
+		width,
+		height
+	};
+}
+
 GLFWwindow* Violet::Window::getGlfwWindowPtr() {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
