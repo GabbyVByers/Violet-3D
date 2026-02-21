@@ -1,6 +1,8 @@
 
 TODO List
 
+replace getters/setters with unified 'borrow' convention,,, resist urge to rewrite codebase in rust (jk imagine (lol))
+
 Camera Transformation.
 Mouse Input.
 World Axies.
@@ -10,10 +12,11 @@ I need to look into GL_STATIC_DRAW vs GL_DYNAMIC_DRAW in Window.Rendering.cpp
 Improve Mouse Want Capture ImGui // it might be all good actually
 
 Wrap everything in a "Violet" namespace
-Change double3 to Vec3d and float3 to Vec3f and float2 to Vec2f <- yes do this
+Change double3 to Vec3d and float3 to Vec3f and float2 to Vec2f <- yes do this (prettier)
 
+Add "project vector onto plane" members to Vector3d (would be useful for the camera controls I want)
 
-Random notes:
+This text doc should probably be a readme or something idk what im doing
 
 bool showPanel = true; // Neat feature of ImGui
 // inside loop:

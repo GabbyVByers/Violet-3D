@@ -14,6 +14,9 @@ public:
 	void moveRight(double dist);
 	void moveUp(double dist);
 	void move(Vector3d position);
+	void setPosX(double new_x);
+	void setPosY(double new_y);
+	void setPosZ(double new_z);
 	void setPosition(Vector3d position);
 	Vector3d getPosition() const;
 	void resetOrientation();

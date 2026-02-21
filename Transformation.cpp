@@ -32,6 +32,18 @@ void Violet::Transformation::move(Vector3d pos) {
 	position = position + pos;
 }
 
+void Violet::Transformation::setPosX(double new_x) {
+	position.x = new_x;
+}
+
+void Violet::Transformation::setPosY(double new_y) {
+	position.y = new_y;
+}
+
+void Violet::Transformation::setPosZ(double new_z) {
+	position.z = new_z;
+}
+
 void Violet::Transformation::setPosition(Vector3d pos) {
 	position = pos;
 }

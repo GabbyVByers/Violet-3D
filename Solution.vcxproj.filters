@@ -132,6 +132,9 @@
     <ClCompile Include="Window.Rendering.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
