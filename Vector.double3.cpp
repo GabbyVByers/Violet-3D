@@ -48,3 +48,9 @@ Violet::Vector3d Violet::Vector3d::operator + (const Vector3d vector) const {
 	return { x + vector.x, y + vector.y, z + vector.z };
 }
 
+void Violet::Vector3d::operator += (const Vector3d vector) {
+	x += vector.x;
+	y += vector.y;
+	z += vector.z;
+}
+

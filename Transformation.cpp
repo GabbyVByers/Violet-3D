@@ -1,54 +1,11 @@
 
 #include "Transformation.h"
 
-void Violet::Transformation::reScale(double s) {
-	scale *= s;
-}
-
-void Violet::Transformation::setScale(double s) {
-	scale = s;
-}
-
-double Violet::Transformation::getScale() const {
+double& Violet::Transformation::borrowScale() {
 	return scale;
 }
 
-void Violet::Transformation::moveForward(double dist) {
-	Vector3d forwardDirection = getForwardDirection();
-	move(forwardDirection * dist);
-}
-
-void Violet::Transformation::moveRight(double dist) {
-	Vector3d rightDirection = getRightDirection();
-	move(rightDirection * dist);
-}
-
-void Violet::Transformation::moveUp(double dist) {
-	Vector3d upDirection = getUpDirection();
-	move(upDirection * dist);
-}
-
-void Violet::Transformation::move(Vector3d pos) {
-	position = position + pos;
-}
-
-void Violet::Transformation::setPosX(double new_x) {
-	position.x = new_x;
-}
-
-void Violet::Transformation::setPosY(double new_y) {
-	position.y = new_y;
-}
-
-void Violet::Transformation::setPosZ(double new_z) {
-	position.z = new_z;
-}
-
-void Violet::Transformation::setPosition(Vector3d pos) {
-	position = pos;
-}
-
-Violet::Vector3d Violet::Transformation::getPosition() const {
+Violet::Vector3d& Violet::Transformation::borrowPosition() {
 	return position;
 }
 
@@ -63,41 +20,41 @@ void Violet::Transformation::rotate(Vector3d axis, double theta) {
 }
 
 void Violet::Transformation::pitch(double theta) {
-	Vector3d axis = getRightDirection();
+	Vector3d axis = rightDir();
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
 	orientation = quat * orientation;
 	orientation.normalize();
 }
 
 void Violet::Transformation::roll(double theta) {
-	Vector3d axis = getForwardDirection();
+	Vector3d axis = forwardDir();
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
 	orientation = quat * orientation;
 	orientation.normalize();
 }
 
 void Violet::Transformation::yaw(double theta) {
-	Vector3d axis = getUpDirection();
+	Vector3d axis = upDir();
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, -theta);
 	orientation = quat * orientation;
 	orientation.normalize();
 }
 
-Violet::Vector3d Violet::Transformation::getForwardDirection() const {
+Violet::Vector3d Violet::Transformation::forwardDir() const {
 	Vector3d forward = { 0.0, 0.0, -1.0 };
 	forward.applyQuaternionRotation(orientation);
 	forward.normalize();
 	return forward;
 }
 
-Violet::Vector3d Violet::Transformation::getRightDirection() const {
+Violet::Vector3d Violet::Transformation::rightDir() const {
 	Vector3d right = { 1.0, 0.0, 0.0 };
 	right.applyQuaternionRotation(orientation);
 	right.normalize();
 	return right;
 }
 
-Violet::Vector3d Violet::Transformation::getUpDirection() const {
+Violet::Vector3d Violet::Transformation::upDir() const {
 	Vector3d up = { 0.0, 1.0, 0.0 };
 	up.applyQuaternionRotation(orientation);
 	up.normalize();

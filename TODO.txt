@@ -3,6 +3,11 @@ TODO List
 
 replace getters/setters with unified 'borrow' convention,,, resist urge to rewrite codebase in rust (jk imagine (lol))
 
+the big three:
+    Textures
+    Lighting (i think that even a trivial lighting scheme would work well for my needs)
+    Index Array, or whatever its called (VIO?) EBO!
+
 Camera Transformation.
 Mouse Input.
 World Axies.

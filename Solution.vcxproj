@@ -154,11 +154,8 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Mesh.Constructor.cpp" />
-    <ClCompile Include="Mesh.Getters.cpp" />
     <ClCompile Include="Mesh.Interface.cpp" />
     <ClCompile Include="Mesh.Shape.cpp" />
-    <ClCompile Include="Mesh.Transformation.cpp" />
-    <ClCompile Include="Mesh.Utilitys.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Vector.double3.cpp" />
     <ClCompile Include="Vector.float3.cpp" />
@@ -212,6 +209,8 @@
   <ItemGroup>
     <None Include="default.frag" />
     <None Include="default.vert" />
+    <None Include="planet.frag" />
+    <None Include="planet.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

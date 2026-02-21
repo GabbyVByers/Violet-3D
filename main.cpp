@@ -18,16 +18,16 @@ static void controlCamera(Violet::Camera& camera) {
 		altitude -= speed;
 	}
 	if (Violet::Keyboard::pressing(GLFW_KEY_W)) {
-		cameraTrans.moveForward(speed);
+		cameraTrans.borrowPosition() += (cameraTrans.forwardDir() * speed);
 	}
 	if (Violet::Keyboard::pressing(GLFW_KEY_S)) {
-		cameraTrans.moveForward(-speed);
+		cameraTrans.borrowPosition() += (cameraTrans.forwardDir() * -speed);
 	}
 	if (Violet::Keyboard::pressing(GLFW_KEY_A)) {
-		cameraTrans.moveRight(-speed);
+		cameraTrans.borrowPosition() += (cameraTrans.rightDir() * -speed);
 	}
 	if (Violet::Keyboard::pressing(GLFW_KEY_D)) {
-		cameraTrans.moveRight(speed);
+		cameraTrans.borrowPosition() += (cameraTrans.rightDir() * speed);
 	}
 
 	if (Violet::Mouse::pressing(GLFW_MOUSE_BUTTON_LEFT)) {
@@ -39,7 +39,7 @@ static void controlCamera(Violet::Camera& camera) {
 		Violet::Mouse::cursor(GLFW_CURSOR_NORMAL);
 	}
 
-	cameraTrans.setPosY(altitude);
+	cameraTrans.borrowPosition().y = altitude;
 }
 
 int main() {
@@ -57,8 +57,31 @@ int main() {
 
 		Violet::Vector2i size = Violet::Window::getWindowSize();
 		ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiCond_Always);
-		ImGui::SetNextWindowSize(ImVec2(200.0f, (float)size.y), ImGuiCond_Always);
-		ImGui::Begin("Left Panel", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
+		ImGui::SetNextWindowSize(ImVec2(255.0f, (float)size.y), ImGuiCond_Always);
+		ImGui::Begin(" ", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
+		const Violet::Vector3d& camPos     = camera.borrowTrans().borrowPosition();
+		const Violet::Vector3d& camForward = camera.borrowTrans().forwardDir();
+		const Violet::Vector3d& camRight   = camera.borrowTrans().rightDir();
+		const Violet::Vector3d& camUp      = camera.borrowTrans().upDir();
+		ImGui::Text(" Camera Position");
+		ImGui::Text("  X: %.4f", camPos.x);
+		ImGui::Text("  Y: %.4f", camPos.y);
+		ImGui::Text("  Z: %.4f", camPos.z);
+		ImGui::Text(" ");
+		ImGui::Text(" Camera Forward");
+		ImGui::Text("  X: %.4f", camForward.x);
+		ImGui::Text("  Y: %.4f", camForward.y);
+		ImGui::Text("  Z: %.4f", camForward.z);
+		ImGui::Text(" ");
+		ImGui::Text(" Camera Right");
+		ImGui::Text("  X: %.4f", camRight.x);
+		ImGui::Text("  Y: %.4f", camRight.y);
+		ImGui::Text("  Z: %.4f", camRight.z);
+		ImGui::Text(" ");
+		ImGui::Text(" Camera Up");
+		ImGui::Text("  X: %.4f", camUp.x);
+		ImGui::Text("  Y: %.4f", camUp.y);
+		ImGui::Text("  Z: %.4f", camUp.z);
 		ImGui::End();
 
 		window.display();
