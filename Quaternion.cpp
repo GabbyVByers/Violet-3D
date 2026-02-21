@@ -1,7 +1,7 @@
 
 #include "Quaternion.h"
 
-void Quaternion::normalize() {
+void Violet::Quaternion::normalize() {
     double length = sqrt(w * w + x * x + y * y + z * z);
     if (length == 0.0) {
         error(NORMALIZE_VECTOR_LENGTH_ZERO);
@@ -13,7 +13,7 @@ void Quaternion::normalize() {
     z = z / length;
 }
 
-Quaternion Quaternion::buildRotationQuaternion(double3 axis, double theta) {
+Violet::Quaternion Violet::Quaternion::buildRotationQuaternion(Vector3d axis, double theta) {
     axis.normalize();
     double half = theta * 0.5;
     double s = sin(half);
@@ -21,7 +21,7 @@ Quaternion Quaternion::buildRotationQuaternion(double3 axis, double theta) {
     return quat;
 }
 
-Quaternion Quaternion::operator * (const Quaternion & b) const {
+Violet::Quaternion Violet::Quaternion::operator * (const Quaternion & b) const {
     return {
         (w * b.w) - (x * b.x) - (y * b.y) - (z * b.z),
         (w * b.x) + (x * b.w) + (y * b.z) - (z * b.y),

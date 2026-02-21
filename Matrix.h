@@ -1,9 +1,9 @@
 
 #pragma once
 
-#include "Vector.double3.h"
+#include "Vector3d.h"
 
-class Matrix {
+class Violet::Matrix {
 public:
 	Matrix();
 	Matrix(double a, double b, double c, double d,
@@ -12,7 +12,7 @@ public:
 		   double m, double n, double o, double p);
 	void setIdentity();
 	static Matrix buildScalarMatrix(const double scale);
-	static Matrix buildTranslationMatrix(const double3& position);
+	static Matrix buildTranslationMatrix(const Vector3d& position);
 	static Matrix buildQuaternionRotationMatrix(const Quaternion& quat);
 	const float* as_float();
 	double* operator [] (size_t i);

@@ -1,11 +1,11 @@
 
 #include "Matrix.h"
 
-Matrix::Matrix() {
+Violet::Matrix::Matrix() {
 	setIdentity();
 }
 
-Matrix::Matrix(double a, double b, double c, double d,
+Violet::Matrix::Matrix(double a, double b, double c, double d,
 	           double e, double f, double g, double h,
 	           double i, double j, double k, double l,
 	           double m, double n, double o, double p) {
@@ -15,7 +15,7 @@ Matrix::Matrix(double a, double b, double c, double d,
 	data[3][0] = m; data[3][1] = n; data[3][2] = o; data[3][3] = p;
 }
 
-void Matrix::setIdentity() {
+void Violet::Matrix::setIdentity() {
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {
 			data[i][j] = 0.0;
@@ -24,7 +24,7 @@ void Matrix::setIdentity() {
 	}
 }
 
-Matrix Matrix::buildScalarMatrix(const double scale) {
+Violet::Matrix Violet::Matrix::buildScalarMatrix(const double scale) {
 	Matrix matrix(
 		scale, 0.0, 0.0, 0.0,
 		0.0, scale, 0.0, 0.0,
@@ -34,7 +34,7 @@ Matrix Matrix::buildScalarMatrix(const double scale) {
 	return matrix;
 }
 
-Matrix Matrix::buildTranslationMatrix(const double3& position) {
+Violet::Matrix Violet::Matrix::buildTranslationMatrix(const Vector3d& position) {
 	Matrix matrix(
 		1.0, 0.0, 0.0, position.x,
 		0.0, 1.0, 0.0, position.y,
@@ -44,7 +44,7 @@ Matrix Matrix::buildTranslationMatrix(const double3& position) {
 	return matrix;
 }
 
-Matrix Matrix::buildQuaternionRotationMatrix(const Quaternion& quat) {
+Violet::Matrix Violet::Matrix::buildQuaternionRotationMatrix(const Quaternion& quat) {
 	double xx = quat.x * quat.x;
 	double yy = quat.y * quat.y;
 	double zz = quat.z * quat.z;
@@ -63,7 +63,7 @@ Matrix Matrix::buildQuaternionRotationMatrix(const Quaternion& quat) {
 	return matrix;
 }
 
-const float* Matrix::as_float() {
+const float* Violet::Matrix::as_float() {
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {
 			gl_dataFloatColumnMajor[j][i] = (float)data[i][j];
@@ -72,15 +72,15 @@ const float* Matrix::as_float() {
 	return &gl_dataFloatColumnMajor[0][0];
 }
 
-double* Matrix::operator [] (size_t i) {
+double* Violet::Matrix::operator [] (size_t i) {
 	assert(i < 4);  return data[i];
 }
 
-const double* Matrix::operator [] (size_t i) const {
+const double* Violet::Matrix::operator [] (size_t i) const {
 	assert(i < 4); return data[i];
 }
 
-Matrix Matrix::operator * (const Matrix& otherMatrix) const {
+Violet::Matrix Violet::Matrix::operator * (const Matrix& otherMatrix) const {
 	Matrix result;
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {

@@ -1,13 +1,13 @@
 
-#include "Vector.float3.h"
+#include "Vector3f.h"
 
-float3::float3(float new_x, float new_y, float new_z) {
+Violet::Vector3f::Vector3f(float new_x, float new_y, float new_z) {
 	x = new_x;
 	y = new_y;
 	z = new_z;
 }
 
-double3 float3::as_double() const {
+Violet::Vector3d Violet::Vector3f::as_double() const {
 	return {
 		(double)x,
 		(double)y,

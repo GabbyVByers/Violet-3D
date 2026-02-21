@@ -1,9 +1,9 @@
 
 #pragma once
 
-#include "Core.h"
+#include "Violet.h"
 
-struct gl_mouseEvent {
+struct Violet::gl_mouseEvent {
 	GLFWwindow* window;
 	int button;
 	int action;

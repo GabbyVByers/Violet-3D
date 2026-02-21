@@ -19,20 +19,24 @@
 
 using uchar = unsigned char;
 using uint  = unsigned int;
-constexpr double PI = 3.141592653589793;
+constexpr double PI = 3.14159265358979323846;
 
-class Window;
-class Mesh;
-class Camera;
-class Keyboard;
-class Color;
-class Quaternion;
-class Matrix;
-class double3;
-class float3;
-
-struct gl_keyEvent;
-struct gl_mouseEvent;
-struct Vertex;
-struct double2;
+namespace Violet {
+	class Window;
+	class Mesh;
+	class Camera;
+	class Keyboard;
+	class Mouse;
+	class Color;
+	class Quaternion;
+	class Transformation;
+	class Matrix;
+	struct gl_keyEvent;
+	struct gl_mouseEvent;
+	struct Vertex;
+	class  Vector3d;
+	class  Vector3f;
+	struct Vector2d;
+	struct Vector2f;
+}
 

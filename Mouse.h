@@ -1,24 +1,26 @@
 
 #pragma once
 
-#include "Core.h"
+#include "Violet.h"
 #include "Error.h"
 #include "Window.h"
 #include "gl_mouseEvent.h"
-#include "Vector.double2.h"
+#include "Vector2d.h"
 
-class Mouse {
+class Violet::Mouse {
 public:
-	// Buttons
+	// Utilities
 	static void reset();
 	static void addMouseEvent(const gl_mouseEvent& mouseEvent);
+	static void update(double x, double y);
+	
+	// Interface
+	static bool isImGuiCaptured();
+	static void cursor(int cursorSetting);
+	static Vector2d getVelocity();
+	static Vector2d getPosition();
 	static bool pressing(int GLFW_BUTTON);
 	static bool clicked(int GLFW_BUTTON, int EDGE);
-	
-	// Movement
-	static void update(double x, double y);
-	static double2 getPosition();
-	static double2 getVelocity();
 
 private:
 	Mouse() = delete;

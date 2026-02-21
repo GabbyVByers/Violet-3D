@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "Core.h"
+#include "Violet.h"
 #include "Error.h"
 #include "Matrix.h"
 #include "Camera.h"
@@ -9,7 +9,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 
-class Window {
+class Violet::Window {
 public:
 	// Constructor
 	Window(size_t width, size_t height, std::string title);

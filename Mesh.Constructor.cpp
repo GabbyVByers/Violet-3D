@@ -1,7 +1,7 @@
 
 #include "Mesh.h"
 
-Mesh::Mesh(std::string path, int primType) {
+Violet::Mesh::Mesh(std::string path, int primType) {
 	if (!Window::getGlfwWindowPtr())
 		error(NULL_WINDOW);
 
@@ -45,13 +45,13 @@ Mesh::Mesh(std::string path, int primType) {
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
-Mesh::~Mesh() {
+Violet::Mesh::~Mesh() {
 	glDeleteProgram(shaderProgram);
 	glDeleteBuffers(1, &VBO);
 	glDeleteVertexArrays(1, &VAO);
 }
 
-void Mesh::assertVertexShader(uint vertProgram) {
+void Violet::Mesh::assertVertexShader(uint vertProgram) {
 	int success = -1;
 	char log[1024] = { '\0' };
 	glGetShaderiv(vertProgram, GL_COMPILE_STATUS, &success);
@@ -62,7 +62,7 @@ void Mesh::assertVertexShader(uint vertProgram) {
 	}
 }
 
-void Mesh::assertFragmentShader(uint fragProgram) {
+void Violet::Mesh::assertFragmentShader(uint fragProgram) {
 	int success = -1;
 	char log[1024] = { '\0' };
 	glGetShaderiv(fragProgram, GL_COMPILE_STATUS, &success);
@@ -73,7 +73,7 @@ void Mesh::assertFragmentShader(uint fragProgram) {
 	}
 }
 
-void Mesh::assertShaderProgram() {
+void Violet::Mesh::assertShaderProgram() {
 	int success = -1;
 	char log[1024] = { '\0' };
 	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
@@ -84,7 +84,7 @@ void Mesh::assertShaderProgram() {
 	}
 }
 
-std::string Mesh::loadFileAsString(std::string path) {
+std::string Violet::Mesh::loadFileAsString(std::string path) {
 	std::ifstream file(path);
 	std::stringstream buffer;
 	buffer << file.rdbuf();

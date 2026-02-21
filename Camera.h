@@ -1,27 +1,27 @@
 
 #pragma once
 
-#include "Core.h"
+#include "Violet.h"
 #include "Matrix.h"
 #include "Transformation.h"
 
-class Camera {
+class Violet::Camera {
 public:
 	// Transformation
 	void moveForward(double dist);
 	void moveRight(double dist);
 	void moveUp(double dist);
-	void move(double3 position);
-	void setPosition(double3 position);
-	double3 getPosition() const;
+	void move(Vector3d position);
+	void setPosition(Vector3d position);
+	Vector3d getPosition() const;
 	void resetOrientation();
-	void rotate(double3 rot_axis, double theta);
+	void rotate(Vector3d rot_axis, double theta);
 	void pitch(double theta);
 	void roll(double theta);
 	void yaw(double theta);
-	double3 getForwardDirection() const;
-	double3 getRightDirection() const;
-	double3 getUpDirection() const;
+	Vector3d getForwardDirection() const;
+	Vector3d getRightDirection() const;
+	Vector3d getUpDirection() const;
 	const Matrix getViewMatrix() const;
 
 	// Projection

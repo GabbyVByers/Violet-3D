@@ -1,7 +1,7 @@
 
 #include "Window.h"
 
-void Window::clear(const Color& color) {
+void Violet::Window::clear(const Color& color) {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
 
@@ -12,7 +12,7 @@ void Window::clear(const Color& color) {
 	ImGui::NewFrame();
 }
 
-void Window::draw(Camera& camera, Mesh& mesh) {
+void Violet::Window::draw(Camera& camera, Mesh& mesh) {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
 	if (mesh.getNumVertices() == 0)
@@ -40,7 +40,7 @@ void Window::draw(Camera& camera, Mesh& mesh) {
 	glDrawArrays(mesh.getPrimativeType(), 0, (GLsizei)vertices.size());
 }
 
-void Window::display() {
+void Violet::Window::display() {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
 

@@ -1,11 +1,11 @@
 
 #pragma once
 
-#include "Core.h"
-#include "Vector.double3.h"
+#include "Violet.h"
+#include "Vector3d.h"
 #include "Matrix.h"
 
-class Transformation {
+class Violet::Transformation {
 public:
 	void reScale(double scale);
 	void setScale(double scale);
@@ -13,23 +13,23 @@ public:
 	void moveForward(double dist);
 	void moveRight(double dist);
 	void moveUp(double dist);
-	void move(double3 position);
-	void setPosition(double3 position);
-	double3 getPosition() const;
+	void move(Vector3d position);
+	void setPosition(Vector3d position);
+	Vector3d getPosition() const;
 	void resetOrientation();
-	void rotate(double3 rot_axis, double theta);
+	void rotate(Vector3d rot_axis, double theta);
 	void pitch(double theta);
 	void roll(double theta);
 	void yaw(double theta);
-	double3 getForwardDirection() const;
-	double3 getRightDirection() const;
-	double3 getUpDirection() const;
+	Vector3d getForwardDirection() const;
+	Vector3d getRightDirection() const;
+	Vector3d getUpDirection() const;
 	const Matrix getModelMatrix() const;
 	const Matrix getViewMatrix() const;
 
 private:
 	double scale           = 1.0;
-	double3 position       = { 0.0, 0.0, 0.0 };
+	Vector3d position      = { 0.0, 0.0, 0.0 };
 	Quaternion orientation = { 1.0, 0.0, 0.0, 0.0 };
 };
 

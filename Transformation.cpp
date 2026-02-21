@@ -1,105 +1,105 @@
 
 #include "Transformation.h"
 
-void Transformation::reScale(double s) {
+void Violet::Transformation::reScale(double s) {
 	scale *= s;
 }
 
-void Transformation::setScale(double s) {
+void Violet::Transformation::setScale(double s) {
 	scale = s;
 }
 
-double Transformation::getScale() const {
+double Violet::Transformation::getScale() const {
 	return scale;
 }
 
-void Transformation::moveForward(double dist) {
-	double3 forwardDirection = getForwardDirection();
+void Violet::Transformation::moveForward(double dist) {
+	Vector3d forwardDirection = getForwardDirection();
 	move(forwardDirection * dist);
 }
 
-void Transformation::moveRight(double dist) {
-	double3 rightDirection = getRightDirection();
+void Violet::Transformation::moveRight(double dist) {
+	Vector3d rightDirection = getRightDirection();
 	move(rightDirection * dist);
 }
 
-void Transformation::moveUp(double dist) {
-	double3 upDirection = getUpDirection();
+void Violet::Transformation::moveUp(double dist) {
+	Vector3d upDirection = getUpDirection();
 	move(upDirection * dist);
 }
 
-void Transformation::move(double3 pos) {
+void Violet::Transformation::move(Vector3d pos) {
 	position = position + pos;
 }
 
-void Transformation::setPosition(double3 pos) {
+void Violet::Transformation::setPosition(Vector3d pos) {
 	position = pos;
 }
 
-double3 Transformation::getPosition() const {
+Violet::Vector3d Violet::Transformation::getPosition() const {
 	return position;
 }
 
-void Transformation::resetOrientation() {
+void Violet::Transformation::resetOrientation() {
 	orientation = { 1.0, 0.0, 0.0, 0.0 };
 }
 
-void Transformation::rotate(double3 axis, double theta) {
+void Violet::Transformation::rotate(Vector3d axis, double theta) {
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
 	orientation = quat * orientation;
 	orientation.normalize();
 }
 
-void Transformation::pitch(double theta) {
-	double3 axis = getRightDirection();
+void Violet::Transformation::pitch(double theta) {
+	Vector3d axis = getRightDirection();
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
 	orientation = quat * orientation;
 	orientation.normalize();
 }
 
-void Transformation::roll(double theta) {
-	double3 axis = getForwardDirection();
+void Violet::Transformation::roll(double theta) {
+	Vector3d axis = getForwardDirection();
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, theta);
 	orientation = quat * orientation;
 	orientation.normalize();
 }
 
-void Transformation::yaw(double theta) {
-	double3 axis = getUpDirection();
+void Violet::Transformation::yaw(double theta) {
+	Vector3d axis = getUpDirection();
 	Quaternion quat = Quaternion::buildRotationQuaternion(axis, -theta);
 	orientation = quat * orientation;
 	orientation.normalize();
 }
 
-double3 Transformation::getForwardDirection() const {
-	double3 forward = { 0.0, 0.0, -1.0 };
+Violet::Vector3d Violet::Transformation::getForwardDirection() const {
+	Vector3d forward = { 0.0, 0.0, -1.0 };
 	forward.applyQuaternionRotation(orientation);
 	forward.normalize();
 	return forward;
 }
 
-double3 Transformation::getRightDirection() const {
-	double3 right = { 1.0, 0.0, 0.0 };
+Violet::Vector3d Violet::Transformation::getRightDirection() const {
+	Vector3d right = { 1.0, 0.0, 0.0 };
 	right.applyQuaternionRotation(orientation);
 	right.normalize();
 	return right;
 }
 
-double3 Transformation::getUpDirection() const {
-	double3 up = { 0.0, 1.0, 0.0 };
+Violet::Vector3d Violet::Transformation::getUpDirection() const {
+	Vector3d up = { 0.0, 1.0, 0.0 };
 	up.applyQuaternionRotation(orientation);
 	up.normalize();
 	return up;
 }
 
-const Matrix Transformation::getModelMatrix() const {
+const Violet::Matrix Violet::Transformation::getModelMatrix() const {
 	Matrix scalarMatrix = Matrix::buildScalarMatrix(scale);
 	Matrix translationMatrix = Matrix::buildTranslationMatrix(position);
 	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix(orientation);
 	return translationMatrix * scalarMatrix * quaternionRotationMatrix;
 }
 
-const Matrix Transformation::getViewMatrix() const {
+const Violet::Matrix Violet::Transformation::getViewMatrix() const {
 	Matrix scalarMatrix = Matrix::buildScalarMatrix(scale);
 	Matrix translationMatrix = Matrix::buildTranslationMatrix(position * -1.0);
 	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix({ orientation.w, -orientation.x, -orientation.y, -orientation.z });

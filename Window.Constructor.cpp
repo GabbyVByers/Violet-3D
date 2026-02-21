@@ -1,7 +1,7 @@
 
 #include "Window.h"
 
-Window::Window(size_t width, size_t height, std::string title) {
+Violet::Window::Window(size_t width, size_t height, std::string title) {
 	instanceCount++;
 	if (instanceCount > 1)
 		error(MULTIPLE_WINDOW_INSTANCES);
@@ -33,7 +33,7 @@ Window::Window(size_t width, size_t height, std::string title) {
 	setVerticalSyncEnable(true);
 }
 
-Window::~Window() {
+Violet::Window::~Window() {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
 
@@ -45,19 +45,19 @@ Window::~Window() {
 	glfwTerminate();
 }
 
-bool Window::isOpen() {
+bool Violet::Window::isOpen() {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
 	return !glfwWindowShouldClose(glfwWindow);
 }
 
-void Window::setVerticalSyncEnable(bool vsync) {
+void Violet::Window::setVerticalSyncEnable(bool vsync) {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
 	glfwSwapInterval((int)vsync);
 }
 
-GLFWwindow* Window::getGlfwWindowPtr() {
+GLFWwindow* Violet::Window::getGlfwWindowPtr() {
 	if (!glfwWindow)
 		error(NULL_WINDOW);
 	return glfwWindow;

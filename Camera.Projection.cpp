@@ -1,31 +1,31 @@
 
 #include "Camera.h"
 
-double Camera::getNearPlane() const {
+double Violet::Camera::getNearPlane() const {
 	return nearPlane;
 }
 
-double Camera::getFarPlane() const {
+double Violet::Camera::getFarPlane() const {
 	return farPlane;
 }
 
-double Camera::getFOV() const {
+double Violet::Camera::getFOV() const {
 	return FOV;
 }
 
-void Camera::setNearPlane(const double new_nearPlane) {
+void Violet::Camera::setNearPlane(const double new_nearPlane) {
 	nearPlane = new_nearPlane;
 }
 
-void Camera::setFarPlane(const double new_farPlane) {
+void Violet::Camera::setFarPlane(const double new_farPlane) {
 	farPlane = new_farPlane;
 }
 
-void Camera::setFOV(const double new_FOV) {
+void Violet::Camera::setFOV(const double new_FOV) {
 	FOV = new_FOV;
 }
 
-const Matrix Camera::getProjectionMatrix(int width, int height) const {
+const Violet::Matrix Violet::Camera::getProjectionMatrix(int width, int height) const {
 	if (height == 0)
 		height = 1;
 	double aspectRatio = (double)width / (double)height;

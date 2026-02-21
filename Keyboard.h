@@ -1,14 +1,14 @@
 
 #pragma once
 
-#include "Core.h"
+#include "Violet.h"
 #include "Matrix.h"
 #include "Camera.h"
 #include "Mesh.h"
 #include "Window.h"
 #include "gl_keyEvent.h"
 
-class Keyboard {
+class Violet::Keyboard {
 public:
 	static void reset();
 	static void addKeyEvent(const gl_keyEvent& keyEvent);

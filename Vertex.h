@@ -1,12 +1,12 @@
 
 #pragma once
 
-#include "Core.h"
+#include "Violet.h"
 #include "Color.h"
-#include "Vector.float3.h"
+#include "Vector3f.h"
 
-struct Vertex {
-	float3 position;
+struct Violet::Vertex {
+	Vector3f position;
 	Color color;
 };
 

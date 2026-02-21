@@ -1,9 +1,9 @@
 
 #pragma once
 
-#include "Core.h"
+#include "Violet.h"
 
-class Color {
+class Violet::Color {
 public:
 	Color();
 	Color(float r, float g, float b, float a = 1.0f);

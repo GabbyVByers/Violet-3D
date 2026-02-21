@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "Core.h"
+#include "Violet.h"
 
 #define VERTEX_SHADER_FAILED         (size_t)0
 #define FRAGMENT_SHADER_FAILED       (size_t)1

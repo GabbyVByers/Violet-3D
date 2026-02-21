@@ -1,15 +1,15 @@
 
 #include "Keyboard.h"
 
-void Keyboard::reset() {
+void Violet::Keyboard::reset() {
 	gl_keyEvents.clear();
 }
 
-void Keyboard::addKeyEvent(const gl_keyEvent& keyEvent) {
+void Violet::Keyboard::addKeyEvent(const gl_keyEvent& keyEvent) {
 	gl_keyEvents.push_back(keyEvent);
 }
 
-bool Keyboard::pressing(int KEY) {
+bool Violet::Keyboard::pressing(int KEY) {
 	GLFWwindow* glfwWindow = Window::getGlfwWindowPtr();
 	if (glfwWindow) {
 		return glfwGetKey(glfwWindow, KEY) == GLFW_PRESS;
@@ -17,7 +17,7 @@ bool Keyboard::pressing(int KEY) {
 	return false;
 }
 
-bool Keyboard::pressed(int KEY, int EDGE) {
+bool Violet::Keyboard::pressed(int KEY, int EDGE) {
 	for (gl_keyEvent& keyEvent : gl_keyEvents) {
 		if (keyEvent.key == KEY && keyEvent.action == EDGE) {
 			return true;
