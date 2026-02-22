@@ -1,25 +1,25 @@
 
 TODO List
 
-replace getters/setters with unified 'borrow' convention,,, resist urge to rewrite codebase in rust (jk imagine (lol))
+--replace getters/setters with unified 'borrow' convention,,, resist urge to rewrite codebase in rust (jk imagine (lol))
 
 the big three:
-    Textures
-    Lighting (i think that even a trivial lighting scheme would work well for my needs)
-    Index Array, or whatever its called (VIO?) EBO!
+Textures
+Lighting (i think that even a trivial lighting scheme would work well for my needs)
+Index Array, or whatever its called (VIO?) EBO!
 
-Camera Transformation.
-Mouse Input.
+--Camera Transformation.
+--Mouse Input.
 World Axies.
 Shape Factory.
-Replace get/set with borrow.  // nah not that good
+--Replace get/set with borrow.  // nah not that good
 I need to look into GL_STATIC_DRAW vs GL_DYNAMIC_DRAW in Window.Rendering.cpp
-Improve Mouse Want Capture ImGui // it might be all good actually
+--Improve Mouse Want Capture ImGui // it might be all good actually
 
-Wrap everything in a "Violet" namespace
-Change double3 to Vec3d and float3 to Vec3f and float2 to Vec2f <- yes do this (prettier)
+--Wrap everything in a "Violet" namespace
+--Change double3 to Vec3d and float3 to Vec3f and float2 to Vec2f <- yes do this (prettier)
 
-Add "project vector onto plane" members to Vector3d (would be useful for the camera controls I want)
+Add "project vector onto plane" member to Vector3d (would be useful for the camera controls I want)
 
 This text doc should probably be a readme or something idk what im doing
 

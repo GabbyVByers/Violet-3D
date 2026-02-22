@@ -56,9 +56,9 @@ int main() {
 		ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiCond_Always);
 		ImGui::SetNextWindowSize(ImVec2(255.0f, (float)size.y), ImGuiCond_Always);
 		ImGui::Begin(" ", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
-		const Violet::Vector3d& forward = camera.transformation.forward();
-		const Violet::Vector3d& right   = camera.transformation.right();
-		const Violet::Vector3d& up      = camera.transformation.up();
+		Violet::Vector3d forward = camera.transformation.forward();
+		Violet::Vector3d right   = camera.transformation.right();
+		Violet::Vector3d up      = camera.transformation.up();
 		ImGui::Text(" Camera Position");
 		ImGui::Text("  X: %.4f", camera.transformation.position.x);
 		ImGui::Text("  Y: %.4f", camera.transformation.position.y);
