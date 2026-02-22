@@ -1,5 +1,23 @@
 
-#include "Vector3d.h"
+#include "Vector.h"
+
+// VECTOR 2 FLOAT
+
+Violet::Vector3f::Vector3f(float new_x, float new_y, float new_z) {
+	x = new_x;
+	y = new_y;
+	z = new_z;
+}
+
+Violet::Vector3d Violet::Vector3f::as_double() const {
+	return {
+		(double)x,
+		(double)y,
+		(double)z
+	};
+}
+
+// VECTOR 3 DOUBLE
 
 Violet::Vector3d::Vector3d(double new_x, double new_y, double new_z) {
 	x = new_x;
@@ -27,9 +45,9 @@ void Violet::Vector3d::normalize() {
 		error(NORMALIZE_VECTOR_LENGTH_ZERO);
 		return;
 	}
-	x = x /  length;
-	y = y /  length;
-	z = z /  length;
+	x = x / length;
+	y = y / length;
+	z = z / length;
 }
 
 Violet::Vector3f Violet::Vector3d::as_float() const {
@@ -41,11 +59,19 @@ Violet::Vector3f Violet::Vector3d::as_float() const {
 }
 
 Violet::Vector3d Violet::Vector3d::operator * (const double scalar) const {
-	return { x * scalar, y * scalar, z * scalar };
+	return {
+		x * scalar,
+		y * scalar,
+		z * scalar
+	};
 }
 
 Violet::Vector3d Violet::Vector3d::operator + (const Vector3d vector) const {
-	return { x + vector.x, y + vector.y, z + vector.z };
+	return {
+		x + vector.x,
+		y + vector.y,
+		z + vector.z
+	};
 }
 
 void Violet::Vector3d::operator += (const Vector3d vector) {

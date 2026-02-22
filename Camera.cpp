@@ -1,22 +1,6 @@
 
 #include "Camera.h"
 
-double& Violet::Camera::borrowNearPlane() {
-	return nearPlane;
-}
-
-double& Violet::Camera::borrowFarPlane() {
-	return farPlane;
-}
-
-double& Violet::Camera::borrowFOV() {
-	return FOV;
-}
-
-Violet::Transformation& Violet::Camera::borrowTrans() {
-	return transformation;
-}
-
 const Violet::Matrix Violet::Camera::getViewMatrix() const {
 	return transformation.getViewMatrix();
 }

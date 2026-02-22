@@ -5,7 +5,7 @@
 #include "Error.h"
 #include "Window.h"
 #include "gl_mouseEvent.h"
-#include "Vector2d.h"
+#include "Vector.h"
 
 class Violet::Mouse {
 public:
@@ -17,8 +17,8 @@ public:
 	// Interface
 	static bool isImGuiCaptured();
 	static void cursor(int cursorSetting);
-	static Vector2d getVelocity();
-	static Vector2d getPosition();
+	static Vector2d velocity();
+	static Vector2d position();
 	static bool pressing(int GLFW_BUTTON);
 	static bool clicked(int GLFW_BUTTON, int EDGE);
 

@@ -8,7 +8,7 @@
 #include "Mesh.h"
 #include "Keyboard.h"
 #include "Mouse.h"
-#include "Vector2i.h"
+#include "Vector.h"
 
 class Violet::Window {
 public:

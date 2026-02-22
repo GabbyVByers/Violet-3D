@@ -153,12 +153,10 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
-    <ClCompile Include="Mesh.Constructor.cpp" />
-    <ClCompile Include="Mesh.Interface.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Mesh.Shape.cpp" />
     <ClCompile Include="Mouse.cpp" />
-    <ClCompile Include="Vector.double3.cpp" />
-    <ClCompile Include="Vector.float3.cpp" />
+    <ClCompile Include="Vector.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -181,12 +179,8 @@
     <ClInclude Include="gl_keyEvent.h" />
     <ClInclude Include="gl_mouseEvent.h" />
     <ClInclude Include="Mouse.h" />
-    <ClInclude Include="Vector2f.h" />
-    <ClInclude Include="Vector2i.h" />
-    <ClInclude Include="Vector3d.h" />
+    <ClInclude Include="Vector.h" />
     <ClInclude Include="Error.h" />
-    <ClInclude Include="Vector2d.h" />
-    <ClInclude Include="Vector3f.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Camera.h" />
@@ -209,8 +203,6 @@
   <ItemGroup>
     <None Include="default.frag" />
     <None Include="default.vert" />
-    <None Include="planet.frag" />
-    <None Include="planet.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

@@ -34,10 +34,10 @@ namespace Violet {
 	struct gl_keyEvent;
 	struct gl_mouseEvent;
 	struct Vertex;
-	class  Vector3d;
-	class  Vector3f;
-	struct Vector2d;
-	struct Vector2f;
-	struct Vector2i;
+	class Vector2i;
+	class Vector2f;
+	class Vector2d;
+	class Vector3f;
+	class Vector3d;
 }
 

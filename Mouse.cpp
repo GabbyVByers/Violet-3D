@@ -33,11 +33,11 @@ void Violet::Mouse::cursor(int cursorSetting) {
 	glfwSetInputMode(Window::getGlfwWindowPtr(), GLFW_CURSOR, cursorSetting);
 }
 
-Violet::Vector2d Violet::Mouse::getVelocity() {
+Violet::Vector2d Violet::Mouse::velocity() {
 	return { x_vel, y_vel };
 }
 
-Violet::Vector2d Violet::Mouse::getPosition() {
+Violet::Vector2d Violet::Mouse::position() {
 	return { x_pos, y_pos };
 }
 

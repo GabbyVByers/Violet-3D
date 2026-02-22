@@ -37,21 +37,6 @@
     <Filter Include="Solution\Violet 3D\Modules\Source Files\Window">
       <UniqueIdentifier>{f06ff017-7444-46b0-a3fd-98110f8d2656}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Solution\Realistic Progression 3D\Source Files">
-      <UniqueIdentifier>{2539f346-14f8-4cd5-9951-558ceb61a4d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Solution\Violet 3D\Modules\Header Files\Vectors">
-      <UniqueIdentifier>{f4d6b66c-45cf-40de-b176-2d52bab32530}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Solution\Realistic Progression 3D\Modules">
-      <UniqueIdentifier>{93d43976-7321-4189-be0d-8c1540e748f2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Solution\Realistic Progression 3D\Modules\Header Files">
-      <UniqueIdentifier>{25be4bb0-6ba4-49c9-8aab-1771eaeee455}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Solution\Realistic Progression 3D\Modules\Shaders">
-      <UniqueIdentifier>{5b130c92-be05-40eb-8fb8-18d75996c544}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL\glad.c">
@@ -84,12 +69,6 @@
     <ClCompile Include="Keyboard.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.double3.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector.float3.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Matrix.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
@@ -105,7 +84,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Solution\Realistic Progression 3D</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.Constructor.cpp">
+    <ClCompile Include="Mesh.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.Shape.cpp">
@@ -123,8 +102,8 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.Interface.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,22 +173,10 @@
     <ClInclude Include="gl_mouseEvent.h">
       <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2d.h">
-      <Filter>Solution\Violet 3D\Modules\Header Files\Vectors</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2f.h">
-      <Filter>Solution\Violet 3D\Modules\Header Files\Vectors</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3f.h">
-      <Filter>Solution\Violet 3D\Modules\Header Files\Vectors</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3d.h">
-      <Filter>Solution\Violet 3D\Modules\Header Files\Vectors</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2i.h">
-      <Filter>Solution\Violet 3D\Modules\Header Files\Vectors</Filter>
-    </ClInclude>
     <ClInclude Include="Window.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
       <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -220,14 +187,10 @@
     <None Include="default.frag">
       <Filter>Solution\Violet 3D\Shaders</Filter>
     </None>
-    <None Include="planet.vert">
-      <Filter>Solution\Realistic Progression 3D\Source Files</Filter>
-    </None>
-    <None Include="planet.frag">
-      <Filter>Solution\Realistic Progression 3D\Source Files</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="TODO.txt" />
+    <Text Include="TODO.txt">
+      <Filter>Solution\Realistic Progression 3D</Filter>
+    </Text>
   </ItemGroup>
 </Project>
