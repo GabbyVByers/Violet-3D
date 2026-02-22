@@ -73,9 +73,8 @@ Violet::Matrix Violet::Transformation::getModelMatrix() const {
 }
 
 Violet::Matrix Violet::Transformation::getViewMatrix() const {
-	Matrix scalarMatrix = Matrix::buildScalarMatrix(scale);
 	Matrix translationMatrix = Matrix::buildTranslationMatrix(position * -1.0);
 	Matrix quaternionRotationMatrix = Matrix::buildQuaternionRotationMatrix({ orientation.w, -orientation.x, -orientation.y, -orientation.z });
-	return quaternionRotationMatrix * scalarMatrix * translationMatrix;
+	return quaternionRotationMatrix * translationMatrix;
 }
 

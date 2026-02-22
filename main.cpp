@@ -1,6 +1,8 @@
 
 #include "Window.h"
 
+#define Violet Violet // is whimsy still legal?
+
 static void controlCamera(Violet::Camera& camera) {
 	const double speed = 0.1;
 	static double altitude = 0.0;
@@ -44,7 +46,7 @@ int main() {
 	Violet::Camera camera;
 	Violet::Mesh mesh;
 
-	mesh.cube(1.0, 4);
+	mesh.sphere(1.0, 40);
 
 	while (window.isOpen()) {
 		window.clear(Violet::Color(0.1, 0.1, 0.25));

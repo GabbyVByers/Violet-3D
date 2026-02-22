@@ -1,7 +1,7 @@
 
 #include "Vector.h"
 
-// VECTOR 2 FLOAT
+// VECTOR 3 FLOAT
 
 Violet::Vector3f::Vector3f(float new_x, float new_y, float new_z) {
 	x = new_x;
@@ -66,7 +66,7 @@ Violet::Vector3d Violet::Vector3d::operator * (const double scalar) const {
 	};
 }
 
-Violet::Vector3d Violet::Vector3d::operator + (const Vector3d vector) const {
+Violet::Vector3d Violet::Vector3d::operator + (const Vector3d& vector) const {
 	return {
 		x + vector.x,
 		y + vector.y,
@@ -74,7 +74,7 @@ Violet::Vector3d Violet::Vector3d::operator + (const Vector3d vector) const {
 	};
 }
 
-void Violet::Vector3d::operator += (const Vector3d vector) {
+void Violet::Vector3d::operator += (const Vector3d& vector) {
 	x += vector.x;
 	y += vector.y;
 	z += vector.z;

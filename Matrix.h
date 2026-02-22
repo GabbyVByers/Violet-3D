@@ -15,9 +15,9 @@ public:
 	static Matrix buildTranslationMatrix(const Vector3d& position);
 	static Matrix buildQuaternionRotationMatrix(const Quaternion& quat);
 	const float* as_float();
-	double* operator [] (size_t i);
+	double*       operator [] (size_t i);
 	const double* operator [] (size_t i) const;
-	Matrix operator * (const Matrix& otherMatrix) const;
+	Matrix        operator *  (const Matrix& otherMatrix) const;
 	
 private:
 	double data[4][4] = { 0.0 };
