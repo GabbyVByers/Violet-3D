@@ -94,7 +94,7 @@ void Violet::Window::clear(const Color& color) {
 	ImGui::NewFrame();
 }
 
-void Violet::Window::draw(Camera& camera, Mesh& mesh) {
+void Violet::Window::draw(Mesh& mesh, Camera& camera) {
 	if (mesh.vertices.size() == 0)
 		return;
 

@@ -179,6 +179,7 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="SivContainer.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Quaternion.h" />

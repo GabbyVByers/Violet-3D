@@ -3,6 +3,8 @@ TODO List
 
 --replace getters/setters with unified 'borrow' convention,,, resist urge to rewrite codebase in rust (jk imagine (lol))
 
+merge together keplar and map?
+
 the big three:
 Textures
 Lighting (i think that even a trivial lighting scheme would work well for my needs)

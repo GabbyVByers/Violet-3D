@@ -46,6 +46,7 @@ public:
 	void normalize();
 	Vector3f as_float() const;
 
+	static Vector3d ZERO();
 	Vector3d operator *  (const double    scalar) const;
 	Vector3d operator +  (const Vector3d& vector) const;
 	void     operator += (const Vector3d& vector);

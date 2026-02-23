@@ -25,7 +25,7 @@ public:
 
 	// Rendering
 	static void clear(const Color& color = { 0.0f, 0.0f, 0.0f, 1.0f });
-	static void draw(Camera& camera, Mesh& mesh);
+	static void draw(Mesh& mesh, Camera& camera);
 	static void display();
 
 private:

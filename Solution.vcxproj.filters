@@ -170,6 +170,9 @@
     <ClInclude Include="Shape.h">
       <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SivContainer.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">

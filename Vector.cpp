@@ -56,6 +56,10 @@ Violet::Vector3f Violet::Vector3d::as_float() const {
 	};
 }
 
+Violet::Vector3d Violet::Vector3d::ZERO() {
+	return { 0.0, 0.0, 0.0 };
+}
+
 Violet::Vector3d Violet::Vector3d::operator * (const double scalar) const {
 	return {
 		x * scalar,

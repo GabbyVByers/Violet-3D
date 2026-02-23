@@ -16,7 +16,9 @@
 #include <sstream>
 #include <iostream>
 #include <exception>
+#include "SivContainer.h"
 
+#define Vi Violet
 using uchar = unsigned char;
 using uint  = unsigned int;
 constexpr double PI = 3.14159265358979323846;
