@@ -3,10 +3,8 @@
 
 void Violet::Quaternion::normalize() {
     double length = sqrt(w * w + x * x + y * y + z * z);
-    if (length == 0.0) {
-        error(NORMALIZE_VECTOR_LENGTH_ZERO);
+    if (length == 0.0)
         return;
-    }
     w = w / length;
     x = x / length;
     y = y / length;

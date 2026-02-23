@@ -1,11 +1,11 @@
 
 #include "Camera.h"
 
-const Violet::Matrix Violet::Camera::getViewMatrix() const {
+Violet::Matrix Violet::Camera::getViewMatrix() const {
 	return transformation.getViewMatrix();
 }
 
-const Violet::Matrix Violet::Camera::getProjectionMatrix(int width, int height) const {
+Violet::Matrix Violet::Camera::getProjectionMatrix(int width, int height) const {
 	if (height == 0)
 		height = 1;
 	double aspectRatio = (double)width / (double)height;

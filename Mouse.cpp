@@ -30,7 +30,7 @@ bool Violet::Mouse::isImGuiCaptured() {
 }
 
 void Violet::Mouse::cursor(int cursorSetting) {
-	glfwSetInputMode(Window::getGlfwWindowPtr(), GLFW_CURSOR, cursorSetting);
+	glfwSetInputMode(Window::getGLFW(), GLFW_CURSOR, cursorSetting);
 }
 
 Violet::Vector2d Violet::Mouse::velocity() {
@@ -42,7 +42,7 @@ Violet::Vector2d Violet::Mouse::position() {
 }
 
 bool Violet::Mouse::pressing(int GLFW_BUTTON) {
-	return glfwGetMouseButton(Window::getGlfwWindowPtr(), GLFW_BUTTON) == GLFW_PRESS;
+	return glfwGetMouseButton(Window::getGLFW(), GLFW_BUTTON) == GLFW_PRESS;
 }
 
 bool Violet::Mouse::clicked(int GLFW_BUTTON, int ACTION) {

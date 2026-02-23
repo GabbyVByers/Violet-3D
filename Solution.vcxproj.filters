@@ -31,12 +31,6 @@
     <Filter Include="Solution\Realistic Progression 3D">
       <UniqueIdentifier>{49ddf830-275e-4fd4-a5d3-ffa5f0bed93f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Solution\Violet 3D\Modules\Source Files\Mesh">
-      <UniqueIdentifier>{28f8f13a-4f64-4349-a026-59461abdcc2a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Solution\Violet 3D\Modules\Source Files\Window">
-      <UniqueIdentifier>{f06ff017-7444-46b0-a3fd-98110f8d2656}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL\glad.c">
@@ -84,25 +78,19 @@
     <ClCompile Include="main.cpp">
       <Filter>Solution\Realistic Progression 3D</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.Shape.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.Callback.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.Constructor.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.Rendering.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Vector.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,9 +146,6 @@
     <ClInclude Include="Violet.h">
       <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
     </ClInclude>
-    <ClInclude Include="Error.h">
-      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
@@ -177,6 +162,12 @@
       <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Solution\Realistic Progression 3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
       <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

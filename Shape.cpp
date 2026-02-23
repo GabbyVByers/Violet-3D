@@ -1,14 +1,32 @@
 
-#include "Mesh.h"
+#include "Shape.h"
 
-inline static std::vector<Violet::Vector3d> doublePrecisionCube(double radius, size_t sub) {
+void Violet::Shape::sphere(Mesh& mesh, double radius, uint subdivisions) {
+	mesh.vertices.clear();
+	std::vector<Vector3d> cubePoints = precisionCube(1.0, subdivisions);
+	for (Vector3d point : cubePoints) {
+		point.normalize();
+		point = point * radius;
+		mesh.vertices.push_back({ point.as_float(), Color::Random() });
+	}
+}
+
+void Violet::Shape::cube(Mesh& mesh, double radius, uint subdivisions) {
+	mesh.vertices.clear();
+	std::vector<Vector3d> cubePoints = precisionCube(radius, subdivisions);
+	for (const Vector3d& point : cubePoints) {
+		mesh.vertices.push_back({ point.as_float(), Color::Random() });
+	}
+}
+
+std::vector<Violet::Vector3d> Violet::Shape::precisionCube(double radius, uint subdivisions) {
 	std::vector<Violet::Vector3d> cubePoints;
-	double stride = (2.0 * radius) / ((double)sub + 1.0);
+	double stride = (2.0 * radius) / ((double)subdivisions + 1.0);
 	std::vector<Violet::Vector3d> facePoints;
 	for (size_t side = 0; side < 6; side++) {
 		facePoints.clear();
-		for (size_t i = 0; i < sub + 1; i++) {
-			for (size_t j = 0; j < sub + 1; j++) {
+		for (size_t i = 0; i < subdivisions + 1; i++) {
+			for (size_t j = 0; j < subdivisions + 1; j++) {
 				double x = -radius + (stride * (double)i);
 				double y = -radius + (stride * (double)j);
 				facePoints.push_back({ x,          y,          0.0 });
@@ -62,23 +80,5 @@ inline static std::vector<Violet::Vector3d> doublePrecisionCube(double radius, s
 		}
 	}
 	return cubePoints;
-}
-
-void Violet::Mesh::sphere(double radius, size_t sub) {
-	std::vector<Vector3d> cubePoints = doublePrecisionCube(1.0, sub);
-	vertices.clear();
-	for (Vector3d point : cubePoints) {
-		point.normalize();
-		point = point * radius;
-		vertices.push_back({ point.as_float(), Color::Random() });
-	}
-}
-
-void Violet::Mesh::cube(double radius, size_t sub) {
-	std::vector<Vector3d> cubePoints = doublePrecisionCube(radius, sub);
-	vertices.clear();
-	for (const Vector3d& point : cubePoints) {
-		vertices.push_back({ point.as_float(), Color::Random() });
-	}
 }
 

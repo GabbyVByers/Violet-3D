@@ -2,7 +2,6 @@
 #pragma once
 
 #include "Violet.h"
-#include "Error.h"
 #include "Vertex.h"
 #include "Camera.h"
 #include "Window.h"
@@ -10,7 +9,7 @@
 
 class Violet::Mesh {
 public:
-	// Constructor
+	// Mesh
 	Mesh(std::string path = "default", int primType = GL_TRIANGLES);
 	~Mesh();
 	void assertVertexShader(uint vertProgram);

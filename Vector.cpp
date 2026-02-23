@@ -41,10 +41,8 @@ void Violet::Vector3d::applyQuaternionRotation(Quaternion quat) {
 
 void Violet::Vector3d::normalize() {
 	double length = sqrt((x * x) + (y * y) + (z * z));
-	if (length == 0.0) {
-		error(NORMALIZE_VECTOR_LENGTH_ZERO);
+	if (length == 0.0)
 		return;
-	}
 	x = x / length;
 	y = y / length;
 	z = z / length;

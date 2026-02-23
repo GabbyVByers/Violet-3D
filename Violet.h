@@ -24,6 +24,7 @@ constexpr double PI = 3.14159265358979323846;
 namespace Violet {
 	class Window;
 	class Mesh;
+	class Shape;
 	class Camera;
 	class Keyboard;
 	class Mouse;

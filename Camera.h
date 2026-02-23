@@ -7,8 +7,8 @@
 
 class Violet::Camera {
 public:
-	const Matrix getViewMatrix() const;
-	const Matrix getProjectionMatrix(int width, int height) const;
+	Matrix getViewMatrix() const;
+	Matrix getProjectionMatrix(int width, int height) const;
 
 	double nearPlane = 0.1;
 	double farPlane  = 100.0;

@@ -2,9 +2,6 @@
 #include "Mesh.h"
 
 Violet::Mesh::Mesh(std::string path, int primType) {
-	if (!Window::getGlfwWindowPtr())
-		error(NULL_WINDOW);
-
 	primativeType = primType;
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -25,12 +22,12 @@ Violet::Mesh::Mesh(std::string path, int primType) {
 	uint vertProgram = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertProgram, 1, &vertCStr, nullptr);
 	glCompileShader(vertProgram);
-	assertVertexShader(vertProgram);
+	//assertVertexShader(vertProgram);
 
 	uint fragProgram = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragProgram, 1, &fragCStr, nullptr);
 	glCompileShader(fragProgram);
-	assertFragmentShader(fragProgram);
+	//assertFragmentShader(fragProgram);
 
 	shaderProgram = glCreateProgram();
 	glAttachShader(shaderProgram, vertProgram);
@@ -38,7 +35,7 @@ Violet::Mesh::Mesh(std::string path, int primType) {
 	glLinkProgram(shaderProgram);
 	glDeleteShader(vertProgram);
 	glDeleteShader(fragProgram);
-	assertShaderProgram();
+	//assertShaderProgram();
 
 	glEnable(GL_PROGRAM_POINT_SIZE);
 	glEnable(GL_BLEND);
@@ -51,38 +48,35 @@ Violet::Mesh::~Mesh() {
 	glDeleteVertexArrays(1, &VAO);
 }
 
-void Violet::Mesh::assertVertexShader(uint vertProgram) {
-	int success = -1;
-	char log[1024] = { '\0' };
-	glGetShaderiv(vertProgram, GL_COMPILE_STATUS, &success);
-	if (!success) {
-		glGetShaderInfoLog(vertProgram, 1024, nullptr, log);
-		std::cerr << log;
-		error(VERTEX_SHADER_FAILED);
-	}
-}
-
-void Violet::Mesh::assertFragmentShader(uint fragProgram) {
-	int success = -1;
-	char log[1024] = { '\0' };
-	glGetShaderiv(fragProgram, GL_COMPILE_STATUS, &success);
-	if (!success) {
-		glGetShaderInfoLog(fragProgram, 1024, nullptr, log);
-		std::cerr << log;
-		error(FRAGMENT_SHADER_FAILED);
-	}
-}
-
-void Violet::Mesh::assertShaderProgram() {
-	int success = -1;
-	char log[1024] = { '\0' };
-	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-	if (!success) {
-		glGetProgramInfoLog(shaderProgram, 1024, nullptr, log);
-		std::cerr << log;
-		error(SHADER_PROGRAM_FAILED);
-	}
-}
+//void Violet::Mesh::assertVertexShader(uint vertProgram) {
+//	int success = -1;
+//	char log[1024] = { '\0' };
+//	glGetShaderiv(vertProgram, GL_COMPILE_STATUS, &success);
+//	if (!success) {
+//		glGetShaderInfoLog(vertProgram, 1024, nullptr, log);
+//		std::cerr << log;
+//	}
+//}
+//
+//void Violet::Mesh::assertFragmentShader(uint fragProgram) {
+//	int success = -1;
+//	char log[1024] = { '\0' };
+//	glGetShaderiv(fragProgram, GL_COMPILE_STATUS, &success);
+//	if (!success) {
+//		glGetShaderInfoLog(fragProgram, 1024, nullptr, log);
+//		std::cerr << log;
+//	}
+//}
+//
+//void Violet::Mesh::assertShaderProgram() {
+//	int success = -1;
+//	char log[1024] = { '\0' };
+//	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+//	if (!success) {
+//		glGetProgramInfoLog(shaderProgram, 1024, nullptr, log);
+//		std::cerr << log;
+//	}
+//}
 
 std::string Violet::Mesh::loadFileAsString(std::string path) {
 	std::ifstream file(path);

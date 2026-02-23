@@ -10,11 +10,7 @@ void Violet::Keyboard::addKeyEvent(const gl_keyEvent& keyEvent) {
 }
 
 bool Violet::Keyboard::pressing(int KEY) {
-	GLFWwindow* glfwWindow = Window::getGlfwWindowPtr();
-	if (glfwWindow) {
-		return glfwGetKey(glfwWindow, KEY) == GLFW_PRESS;
-	}
-	return false;
+	return glfwGetKey(Window::getGLFW(), KEY) == GLFW_PRESS;
 }
 
 bool Violet::Keyboard::pressed(int KEY, int EDGE) {
