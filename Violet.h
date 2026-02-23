@@ -16,14 +16,16 @@
 #include <sstream>
 #include <iostream>
 #include <exception>
-#include "SivContainer.h"
+#include "Container.h"
 
 #define Vi Violet
-using uchar = unsigned char;
-using uint  = unsigned int;
-constexpr double PI = 3.14159265358979323846;
 
-namespace Violet {
+namespace Violet
+{
+	using uchar = unsigned char;
+	using uint = unsigned int;
+	constexpr double PI = 3.14159265358979323846;
+
 	class Window;
 	class Mesh;
 	class Shape;

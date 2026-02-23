@@ -30,7 +30,8 @@ public:
 
 class Violet::Vector3f {
 public:
-	Vector3f(float new_x = 0.0f, float new_y = 0.0f, float new_z = 0.0f);
+	Vector3f() = default;
+	Vector3f(float x, float y, float z);
 	Vector3d as_double() const;
 
 	float x = 0.0f;
@@ -40,7 +41,8 @@ public:
 
 class Violet::Vector3d {
 public:
-	Vector3d(double new_x = 0.0, double new_y = 0.0, double new_z = 0.0);
+	Vector3d() = default;
+	Vector3d(double x, double y, double z);
 	void rotate(Vector3d axis, double theta);
 	void applyQuaternionRotation(Quaternion quat);
 	void normalize();

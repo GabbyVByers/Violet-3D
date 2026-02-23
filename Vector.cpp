@@ -3,10 +3,10 @@
 
 // VECTOR 3 FLOAT
 
-Violet::Vector3f::Vector3f(float new_x, float new_y, float new_z) {
-	x = new_x;
-	y = new_y;
-	z = new_z;
+Violet::Vector3f::Vector3f(float x, float y, float z) {
+	this->x = x;
+	this->y = y;
+	this->z = z;
 }
 
 Violet::Vector3d Violet::Vector3f::as_double() const {
@@ -19,10 +19,10 @@ Violet::Vector3d Violet::Vector3f::as_double() const {
 
 // VECTOR 3 DOUBLE
 
-Violet::Vector3d::Vector3d(double new_x, double new_y, double new_z) {
-	x = new_x;
-	y = new_y;
-	z = new_z;
+Violet::Vector3d::Vector3d(double x, double y, double z) {
+	this->x = x;
+	this->y = y;
+	this->z = z;
 }
 
 void Violet::Vector3d::rotate(Vector3d axis, double theta) {

@@ -39,37 +39,30 @@ namespace Violet
     class Handle
     {
     public:
-        /// Default constructor
         Handle() = default;
-        /// Constructor
         Handle(ID id, ID validity_id, Container<TObjectType>* vector)
             : m_id{ id }
             , m_validity_id{ validity_id }
             , m_vector{ vector }
-        {
-        }
+        {}
 
         /// Pointer-like access to the underlying object
-        TObjectType* operator->()
-        {
+        TObjectType* operator->() {
             return &(*m_vector)[m_id];
         }
 
         /// Const pointer-like access to the object
-        TObjectType const* operator->() const
-        {
+        TObjectType const* operator->() const {
             return &(*m_vector)[m_id];
         }
 
         /// Dereference operator
-        TObjectType& operator*()
-        {
+        TObjectType& operator*() {
             return (*m_vector)[m_id];
         }
 
         /// Dereference constant operator
-        TObjectType const& operator*() const
-        {
+        TObjectType const& operator*() const {
             return (*m_vector)[m_id];
         }
 

@@ -31,6 +31,15 @@
     <Filter Include="Solution\Realistic Progression 3D">
       <UniqueIdentifier>{49ddf830-275e-4fd4-a5d3-ffa5f0bed93f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Solution\Realistic Progression 3D\Modules">
+      <UniqueIdentifier>{cf6feca7-91b8-49f8-aa69-deb6b2062874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Realistic Progression 3D\Modules\Header Files">
+      <UniqueIdentifier>{662bd1f7-9957-40ec-aeb1-307f86cb9a3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Realistic Progression 3D\Modules\Source Files">
+      <UniqueIdentifier>{b71535ac-c4c4-495c-a1f1-9cc5499cb517}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL\glad.c">
@@ -92,6 +101,15 @@
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Keplar.cpp">
+      <Filter>Solution\Realistic Progression 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Solution\Realistic Progression 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Planet.cpp">
+      <Filter>Solution\Realistic Progression 3D\Modules\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -164,14 +182,20 @@
     <ClInclude Include="Vector.h">
       <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Solution\Realistic Progression 3D</Filter>
-    </ClInclude>
     <ClInclude Include="Shape.h">
       <Filter>Solution\Violet 3D\Modules\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SivContainer.h">
+    <ClInclude Include="Container.h">
       <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
+    </ClInclude>
+    <ClInclude Include="Keplar.h">
+      <Filter>Solution\Realistic Progression 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Solution\Realistic Progression 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Planet.h">
+      <Filter>Solution\Realistic Progression 3D\Modules\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -184,7 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt">
-      <Filter>Solution\Realistic Progression 3D</Filter>
+      <Filter>Solution\Violet 3D</Filter>
     </Text>
   </ItemGroup>
 </Project>

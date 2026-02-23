@@ -8,7 +8,6 @@ int main() {
 
 	while (Vi::Window::isOpen()) {
 		Vi::Window::clear(Vi::Color::BLACK());
-		Map::controlMapViewCamera();
 		Map::render();
 		Vi::Window::display();
 	}
