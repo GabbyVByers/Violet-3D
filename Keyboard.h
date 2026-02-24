@@ -10,6 +10,7 @@
 
 class Violet::Keyboard {
 public:
+	// Keyboard.cpp
 	static void reset();
 	static void addKeyEvent(const gl_keyEvent& keyEvent);
 	static bool pressing(int KEY);
@@ -18,6 +19,6 @@ public:
 private:
 	Keyboard() = delete;
 	~Keyboard() = delete;
-	inline static std::vector<gl_keyEvent> gl_keyEvents;
+	inline static std::vector<gl_keyEvent> m_gl_keyEvents;
 };
 

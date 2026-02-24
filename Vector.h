@@ -4,32 +4,29 @@
 #include "Violet.h"
 #include "Quaternion.h"
 
-class Violet::Vector2i;
-class Violet::Vector2f;
-class Violet::Vector2d;
-class Violet::Vector3f;
-class Violet::Vector3d;
+struct Violet::Vector2i;
+struct Violet::Vector2f;
+struct Violet::Vector2d;
+struct Violet::Vector3f;
+struct Violet::Vector3d;
 
-class Violet::Vector2i {
-public:
+struct Violet::Vector2i {
 	int x = 0;
 	int y = 0;
 };
 
-class Violet::Vector2f {
-public:
+struct Violet::Vector2f {
 	float x = 0.0f;
 	float y = 0.0f;
 };
 
-class Violet::Vector2d {
-public:
+struct Violet::Vector2d {
 	double x = 0.0;
 	double y = 0.0;
 };
 
-class Violet::Vector3f {
-public:
+struct Violet::Vector3f {
+	// Vector.Vector3f.cpp
 	Vector3f() = default;
 	Vector3f(float x, float y, float z);
 	Vector3d as_double() const;
@@ -39,15 +36,14 @@ public:
 	float z = 0.0f;
 };
 
-class Violet::Vector3d {
-public:
+struct Violet::Vector3d {
+	// Vector.Vector3d.cpp
 	Vector3d() = default;
 	Vector3d(double x, double y, double z);
 	void rotate(Vector3d axis, double theta);
 	void applyQuaternionRotation(Quaternion quat);
 	void normalize();
 	Vector3f as_float() const;
-
 	static Vector3d ZERO();
 	Vector3d operator *  (const double    scalar) const;
 	Vector3d operator +  (const Vector3d& vector) const;

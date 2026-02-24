@@ -12,9 +12,11 @@
 
 class Violet::Window {
 public:
-	// Window
+	// Window.Lifetime.cpp
 	static void construct(size_t width, size_t height, std::string title);
 	static void destruct();
+
+	// Window.Utilities.cpp
 	static bool isOpen();
 	static void vSync(bool vsync);
 	static Vector2i getSize();
@@ -23,14 +25,14 @@ public:
 	static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 	static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
 
-	// Rendering
-	static void clear(const Color& color = { 0.0f, 0.0f, 0.0f, 1.0f });
+	// Window.Rendering.cpp
+	static void clear(Color color = { 0.0f, 0.0f, 0.0f, 1.0f });
 	static void draw(Mesh& mesh, Camera& camera);
 	static void display();
 
 private:
 	Window() = delete;
 	~Window() = delete;
-	inline static GLFWwindow* glfwWindow = nullptr;
+	inline static GLFWwindow* m_glfwWindow = nullptr;
 };
 

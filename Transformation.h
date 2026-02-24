@@ -7,22 +7,29 @@
 
 class Violet::Transformation {
 public:
-	void resetOrientation();
-	void rotate(Vector3d rot_axis, double theta);
-	void pitch(double theta);
-	void roll(double theta);
-	void yaw(double theta);
+	// Transformation.Accessors.cpp
+	void setScale(double scale);
+	void setPosition(Vector3d position);
+	void setQuaternionRotation(Quaternion quaternion);
+	double& getScale();
+	Vector3d& getPosition();
+	Quaternion& getQuaternionRotation();
+
+	// Transformation.Utilities.cpp
+	void rotateAroundAxis(Vector3d rotation_axis, double theta);
 	Vector3d forward() const;
 	Vector3d right() const;
 	Vector3d up() const;
-	void moveForward(double dist);
-	void moveRight(double dist);
-	void moveUp(double dist);
-	Matrix getModelMatrix() const;
-	Matrix getViewMatrix() const;
+	void move(Vector3d direction, double distance);
+	void pitch(double theta);
+	void roll(double theta);
+	void yaw(double theta);
+	Matrix calculateModelMatrix() const;
+	Matrix calculateViewMatrix() const;
 
-	double scale           = 1.0;
-	Vector3d position      = { 0.0, 0.0, 0.0 };
-	Quaternion orientation = { 1.0, 0.0, 0.0, 0.0 };
+private:
+	double m_scale = 1.0;
+	Vector3d m_position = Vector3d::ZERO();
+	Quaternion m_quaternion = Quaternion::Identity();
 };
 

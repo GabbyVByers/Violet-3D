@@ -6,8 +6,10 @@
 
 class Violet::Quaternion {
 public:
+    // Quaternion.cpp
     void normalize();
     static Quaternion buildRotationQuaternion(Vector3d axis, double theta);
+    static Quaternion Identity();
     Quaternion operator * (const Quaternion& b) const;
 
     double w = 1.0;

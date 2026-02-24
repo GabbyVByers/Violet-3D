@@ -151,15 +151,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Camera.Accessors.cpp" />
+    <ClCompile Include="Camera.Matrix.cpp" />
+    <ClCompile Include="Camera.Transformation.cpp" />
+    <ClCompile Include="Color.Interface.cpp" />
+    <ClCompile Include="Color.Static.cpp" />
     <ClCompile Include="Keplar.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Mesh.Accessors.cpp" />
+    <ClCompile Include="Mesh.Transformation.cpp" />
+    <ClCompile Include="Mesh.Utilities.cpp" />
+    <ClCompile Include="Mouse.Internal.cpp" />
+    <ClCompile Include="Mouse.Utilities.cpp" />
     <ClCompile Include="Planet.cpp" />
-    <ClCompile Include="Shape.cpp" />
-    <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Shape.Private.cpp" />
+    <ClCompile Include="Shape.Utilities.cpp" />
+    <ClCompile Include="Transformation.Accessors.cpp" />
+    <ClCompile Include="Transformation.Utilities.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -172,8 +180,11 @@
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
     <ClCompile Include="Quaternion.cpp" />
-    <ClCompile Include="Transformation.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="Vector.Vector3d.cpp" />
+    <ClCompile Include="Vector.Vector3f.cpp" />
+    <ClCompile Include="Window.Lifetime.cpp" />
+    <ClCompile Include="Window.Rendering.cpp" />
+    <ClCompile Include="Window.Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />

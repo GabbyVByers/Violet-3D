@@ -2,11 +2,11 @@
 #include "Keyboard.h"
 
 void Violet::Keyboard::reset() {
-	gl_keyEvents.clear();
+	m_gl_keyEvents.clear();
 }
 
 void Violet::Keyboard::addKeyEvent(const gl_keyEvent& keyEvent) {
-	gl_keyEvents.push_back(keyEvent);
+	m_gl_keyEvents.push_back(keyEvent);
 }
 
 bool Violet::Keyboard::pressing(int KEY) {
@@ -14,7 +14,7 @@ bool Violet::Keyboard::pressing(int KEY) {
 }
 
 bool Violet::Keyboard::pressed(int KEY, int EDGE) {
-	for (gl_keyEvent& keyEvent : gl_keyEvents) {
+	for (gl_keyEvent& keyEvent : m_gl_keyEvents) {
 		if (keyEvent.key == KEY && keyEvent.action == EDGE) {
 			return true;
 		}

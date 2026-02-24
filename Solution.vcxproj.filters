@@ -40,6 +40,39 @@
     <Filter Include="Solution\Realistic Progression 3D\Modules\Source Files">
       <UniqueIdentifier>{b71535ac-c4c4-495c-a1f1-9cc5499cb517}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Camera">
+      <UniqueIdentifier>{6eb331b8-5a15-4721-8276-5826a110c0bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Transformation">
+      <UniqueIdentifier>{bf61b54c-d2c6-4728-8078-01f448c2188b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Mesh">
+      <UniqueIdentifier>{4fada820-6f72-4bbd-999e-8f389da07da5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Mouse">
+      <UniqueIdentifier>{4b966642-c0e8-4610-bcfa-a09cec8d76ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Shape">
+      <UniqueIdentifier>{60b840b0-81eb-4308-a224-9975dedb1e02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Vector">
+      <UniqueIdentifier>{36be8af2-db07-42d9-8a88-66651de96272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Window">
+      <UniqueIdentifier>{94dda400-9f61-4d1c-bf73-d96a53b6dda4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Color">
+      <UniqueIdentifier>{2811eb20-2ae4-4d7b-be63-d3e0a398de51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Keyboard">
+      <UniqueIdentifier>{8b61c7f1-4eee-40f4-be21-8ab95d932e5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Matrix">
+      <UniqueIdentifier>{1360c910-c3f6-40dc-8212-3387e31b8465}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Violet 3D\Modules\Source Files\Quaternion">
+      <UniqueIdentifier>{1f15e02a-59ef-4292-a906-cefb2967a697}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL\glad.c">
@@ -66,41 +99,8 @@
     <ClCompile Include="ImGui\imgui_widgets.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Transformation.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Quaternion.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Solution\Realistic Progression 3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shape.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Keplar.cpp">
       <Filter>Solution\Realistic Progression 3D\Modules\Source Files</Filter>
@@ -110,6 +110,72 @@
     </ClCompile>
     <ClCompile Include="Planet.cpp">
       <Filter>Solution\Realistic Progression 3D\Modules\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.Matrix.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.Accessors.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Transformation.Accessors.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="Transformation.Utilities.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.Transformation.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Utilities.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Accessors.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Transformation.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.Utilities.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.Internal.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.Utilities.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.Private.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.Vector3d.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.Vector3f.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Lifetime.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Utilities.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.Rendering.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.Interface.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.Static.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Quaternion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

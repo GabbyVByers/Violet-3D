@@ -19,6 +19,10 @@ Violet::Quaternion Violet::Quaternion::buildRotationQuaternion(Vector3d axis, do
     return quat;
 }
 
+Violet::Quaternion Violet::Quaternion::Identity() {
+    return { 1.0, 0.0, 0.0, 0.0 };
+}
+
 Violet::Quaternion Violet::Quaternion::operator * (const Quaternion & b) const {
     return {
         (w * b.w) - (x * b.x) - (y * b.y) - (z * b.z),

@@ -8,12 +8,12 @@
 
 class Violet::Mouse {
 public:
-	// Utilities
+	// Mouse.Utilities.cpp
 	static void reset();
 	static void addMouseEvent(const gl_mouseEvent& mouseEvent);
 	static void update(double x, double y);
 	
-	// Interface
+	// Mouse.Internal.cpp
 	static bool isImGuiCaptured();
 	static void cursor(int cursorSetting);
 	static Vector2d velocity();
@@ -24,8 +24,8 @@ public:
 private:
 	Mouse() = delete;
 	~Mouse() = delete;
-	inline static double x_pos = 0.0, y_pos = 0.0;
-	inline static double x_vel = 0.0, y_vel = 0.0;
-	inline static std::vector<gl_mouseEvent> gl_mouseEvents;
+	inline static double m_x_pos = 0.0, m_y_pos = 0.0;
+	inline static double m_x_vel = 0.0, m_y_vel = 0.0;
+	inline static std::vector<gl_mouseEvent> m_gl_mouseEvents;
 };
 

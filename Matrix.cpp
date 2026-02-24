@@ -9,18 +9,18 @@ Violet::Matrix::Matrix(double a, double b, double c, double d,
 	           double e, double f, double g, double h,
 	           double i, double j, double k, double l,
 	           double m, double n, double o, double p) {
-	data[0][0] = a; data[0][1] = b; data[0][2] = c; data[0][3] = d;
-	data[1][0] = e; data[1][1] = f; data[1][2] = g; data[1][3] = h;
-	data[2][0] = i; data[2][1] = j; data[2][2] = k; data[2][3] = l;
-	data[3][0] = m; data[3][1] = n; data[3][2] = o; data[3][3] = p;
+	m_data[0][0] = a; m_data[0][1] = b; m_data[0][2] = c; m_data[0][3] = d;
+	m_data[1][0] = e; m_data[1][1] = f; m_data[1][2] = g; m_data[1][3] = h;
+	m_data[2][0] = i; m_data[2][1] = j; m_data[2][2] = k; m_data[2][3] = l;
+	m_data[3][0] = m; m_data[3][1] = n; m_data[3][2] = o; m_data[3][3] = p;
 }
 
 void Violet::Matrix::setIdentity() {
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {
-			data[i][j] = 0.0;
+			m_data[i][j] = 0.0;
 		}
-		data[i][i] = 1.0;
+		m_data[i][i] = 1.0;
 	}
 }
 
@@ -66,18 +66,18 @@ Violet::Matrix Violet::Matrix::buildQuaternionRotationMatrix(const Quaternion& q
 const float* Violet::Matrix::as_float() {
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {
-			gl_dataFloatColumnMajor[j][i] = (float)data[i][j];
+			m_gl_dataFloatColumnMajor[j][i] = (float)m_data[i][j];
 		}
 	}
-	return &gl_dataFloatColumnMajor[0][0];
+	return &m_gl_dataFloatColumnMajor[0][0];
 }
 
 double* Violet::Matrix::operator [] (size_t i) {
-	assert(i < 4);  return data[i];
+	assert(i < 4);  return m_data[i];
 }
 
 const double* Violet::Matrix::operator [] (size_t i) const {
-	assert(i < 4); return data[i];
+	assert(i < 4); return m_data[i];
 }
 
 Violet::Matrix Violet::Matrix::operator * (const Matrix& otherMatrix) const {
@@ -86,7 +86,7 @@ Violet::Matrix Violet::Matrix::operator * (const Matrix& otherMatrix) const {
 		for (size_t j = 0; j < 4; j++) {
 			double dot = 0.0;
 			for (int k = 0; k < 4; k++) {
-				dot += data[i][k] * otherMatrix[k][j];
+				dot += m_data[i][k] * otherMatrix[k][j];
 			}
 			result[i][j] = dot;
 		}

@@ -12,6 +12,10 @@ Planet::Planet(std::string name, size_t type, double mass, double radius, double
 	mesh.setRandomColors();
 }
 
+Vi::Mesh& Planet::getMesh() {
+	return mesh;
+}
+
 Vi::ID Planet::getParentID() const {
 	return parentID;
 }
@@ -54,17 +58,5 @@ bool Planet::isPlanet() const {
 
 bool Planet::isSun() const {
 	return type == isSunType;
-}
-
-Vi::Mesh& Planet::getMesh() {
-	return mesh;
-}
-
-void Planet::clearMesh() {
-	mesh.vertices.clear();
-}
-
-void Planet::addMeshVertex(const Vi::Vertex& vertex) {
-	mesh.vertices.push_back(vertex);
 }
 

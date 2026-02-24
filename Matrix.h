@@ -5,6 +5,7 @@
 
 class Violet::Matrix {
 public:
+	// Matrix.cpp
 	Matrix();
 	Matrix(double a, double b, double c, double d,
 		   double e, double f, double g, double h,
@@ -20,7 +21,7 @@ public:
 	Matrix        operator *  (const Matrix& otherMatrix) const;
 	
 private:
-	double data[4][4] = { 0.0 };
-	float gl_dataFloatColumnMajor[4][4] = { 0.0f };
+	double m_data[4][4] = { 0.0 };
+	float m_gl_dataFloatColumnMajor[4][4] = { 0.0f };
 };
 

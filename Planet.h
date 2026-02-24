@@ -13,6 +13,7 @@ enum Celestial {
 class Planet {
 public:
 	Planet(std::string name, size_t type, double mass, double radius, double altitude);
+	Vi::Mesh& getMesh();
 
 	Vi::ID getParentID() const;
 	void setParentID(Vi::ID planetID);
@@ -28,9 +29,6 @@ public:
 	bool isPlanet() const;
 	bool isSun() const;
 
-	Vi::Mesh& getMesh();
-	void clearMesh();
-	void addMeshVertex(const Vi::Vertex& vertex);
 
 private:
 	std::string name = "Unnamed Body";

@@ -6,12 +6,12 @@ void Map::render() {
 	const double sensitivity = 0.1;
 	if (Vi::Mouse::pressing(GLFW_MOUSE_BUTTON_LEFT)) {
 		Vi::Vector2d mouseVelocity = Vi::Mouse::velocity();
-		camera.transformation.pitch(sensitivity * mouseVelocity.y * -0.01);
-		camera.transformation.rotate(Vi::Vector3d(0.0, 1.0, 0.0), sensitivity * mouseVelocity.x * -0.01);
+		camera.pitch(sensitivity * mouseVelocity.y * -0.01);
+		camera.rotateAroundAxis(Vi::Vector3d(0.0, 1.0, 0.0), sensitivity * mouseVelocity.x * -0.01);
 	}
 
-	Vi::Vector3d forward = camera.transformation.forward();
-	Vi::Vector3d& position = camera.transformation.position;
+	Vi::Vector3d forward = camera.forward();
+	Vi::Vector3d& position = camera.getPosition();
 	position = forward * -1.0;
 
 	// GLOBAL/LOCAL/RENDER POSITIONS

@@ -5,9 +5,15 @@
 
 class Violet::Color {
 public:
+	// Color.Interface.cpp
 	Color();
 	Color(float r, float g, float b, float a = 1.0f);
-	
+	float& red();
+	float& green();
+	float& blue();
+	float& alpha();
+
+	// Color.Static.cpp
 	static Color Random();
 	static Color WHITE();
 	static Color BLACK();
@@ -18,9 +24,10 @@ public:
 	static Color PURPLE();
 	static Color YELLOW();
 
-	float r = 1.0f;
-	float g = 1.0f;
-	float b = 1.0f;
-	float a = 1.0f;
+private:
+	float m_r = 1.0f;
+	float m_g = 1.0f;
+	float m_b = 1.0f;
+	float m_a = 1.0f;
 };
 
