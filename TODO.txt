@@ -3,7 +3,7 @@ TODO List
 
 --replace getters/setters with unified 'borrow' convention,,, resist urge to rewrite codebase in rust (jk imagine (lol))
 
-merge together keplar and map? // no
+merge together keplar and map? // no // actually yes, and remove get/set for stuff you're actively working on...!!!!
 
 Camera / Mesh should Inherit from Transformation?
 
