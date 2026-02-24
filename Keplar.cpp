@@ -96,6 +96,8 @@ void Keplar::constructSolarSystem() {
 
 	Map::setSunID(SunID);
 	Map::setFocusBodyID(EarthID);
+
+	SUN.getMesh().setColor(Vi::Color::YELLOW());
 }
 
 Vi::Container<Planet>& Keplar::getPlanets() {

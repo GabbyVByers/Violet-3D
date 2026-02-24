@@ -22,6 +22,8 @@ public:
 	std::vector<Vi::ID>& getChildren();
 	void addChild(Vi::ID childID);
 
+	double& getRadius();
+
 	Vi::Vector3f &getRenderPosition();
 	Vi::Vector3d &getLocalPosition();
 	Vi::Vector3d &getGlobalPosition();

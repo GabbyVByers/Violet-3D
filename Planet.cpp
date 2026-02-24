@@ -41,6 +41,10 @@ void Planet::addChild(Vi::ID childID) {
 	childIDs.push_back(childID);
 }
 
+double& Planet::getRadius() {
+	return radius;
+}
+
 Vi::Vector3f& Planet::getRenderPosition() {
 	return renderPosition;
 }

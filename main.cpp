@@ -12,7 +12,7 @@ int main() {
 		Vi::Window::clear(Vi::Color::BLACK());
 		Map::render();
 
-		std::cout << Vi::Mouse::scroll() << "\n";
+		std::cout << Map::getGlobalScale() << "\n";
 
 		Vi::Window::display();
 	}

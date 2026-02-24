@@ -9,3 +9,7 @@ void Map::setFocusBodyID(Vi::ID planetID) {
 	focusBodyID = planetID;
 }
 
+double& Map::getGlobalScale() {
+	return globalScale;
+}
+
