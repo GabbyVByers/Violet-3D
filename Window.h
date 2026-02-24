@@ -21,14 +21,17 @@ public:
 	static void vSync(bool vsync);
 	static Vector2i getSize();
 	static GLFWwindow* getGLFW();
+
+	// Window.Rendering.cpp
+	static void clear(Color color = { 0.0f, 0.0f, 0.0f, 1.0f }); // glfwPollEvents() Called Here
+	static void draw(Mesh& mesh, Camera& camera);
+	static void display();
+
+	// Window.Callback.cpp
 	static void framebufferSizeCallback(GLFWwindow* glfwWindow, int width, int height);
 	static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 	static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
-
-	// Window.Rendering.cpp
-	static void clear(Color color = { 0.0f, 0.0f, 0.0f, 1.0f });
-	static void draw(Mesh& mesh, Camera& camera);
-	static void display();
+	static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 
 private:
 	Window() = delete;

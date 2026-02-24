@@ -5,7 +5,7 @@ void Map::setSunID(Vi::ID planetID) {
 	theSunID = planetID;
 }
 
-void Map::setFocusPlanetID(Vi::ID planetID) {
-	focusPlanetID = planetID;
+void Map::setFocusBodyID(Vi::ID planetID) {
+	focusBodyID = planetID;
 }
 

@@ -19,28 +19,57 @@ void Map::controlCameraMapView() {
 
 void Map::updatePlanetRenderPositions() {
 	Planet& theSun = Keplar::getPlanet(theSunID);
-	Planet& focusPlanet = Keplar::getPlanet(focusPlanetID);
-	focusPlanet.setGlobalPosition(Vi::Vector3d::ZERO());
+	Planet& focusBody = Keplar::getPlanet(focusBodyID);
 
-	if (focusPlanet.isPlanet()) {
-		theSun.setGlobalPosition(focusPlanet.getLocalPosition() * -1.0);
+	if (focusBody.isSun()) {
+		theSun.setGlobalPosition(Vi::Vector3d::ZERO());
 	}
-	if (focusPlanet.isMoon()) {
-		Planet& focusPlanetParent = Keplar::getPlanet(focusPlanet.getParentID());
-		Vi::Vector3d focusPlanetPosition = focusPlanetParent.getLocalPosition() + focusPlanet.getLocalPosition();
-		theSun.setGlobalPosition(focusPlanetPosition * -1.0);
+	if (focusBody.isPlanet()) {
+		theSun.setGlobalPosition(focusBody.getLocalPosition() * -1.0);
 	}
-
-	for (Planet& planet : Keplar::getPlanets()) {
-		if (planet.isPlanet())
-			planet.setGlobalPosition(theSun.getGlobalPosition() + planet.getLocalPosition());
+	if (focusBody.isMoon()) {
+		Planet& parentBody = Keplar::getPlanet(focusBody.getParentID());
+		Vi::Vector3d moonPosition = parentBody.getLocalPosition() + focusBody.getLocalPosition();
+		theSun.setGlobalPosition(moonPosition * -1.0);
 	}
 
-	for (Planet& planet : Keplar::getPlanets()) {
-		if (planet.isMoon()) {
-			planet.setGlobalPosition(
-				planet.getGlobalPosition() + Keplar::getPlanet(planet.getParentID()).getGlobalPosition()
+	for (Planet& body : Keplar::getPlanets()) {
+		if (body.isPlanet()) {
+			body.setGlobalPosition(
+				theSun.getGlobalPosition() +
+				body.getLocalPosition()
 			);
+		}
+	}
+	for (Planet& body : Keplar::getPlanets()) {
+		if (body.isMoon()) {
+			Planet& parentBody = Keplar::getPlanet(body.getParentID());
+			body.setGlobalPosition(
+				parentBody.getGlobalPosition() +
+				body.getLocalPosition()
+			);
+		}
+	}
+
+	focusBody.setGlobalPosition(Vi::Vector3d::ZERO());
+	if (focusBody.isMoon()) {
+		Planet& parentBody = Keplar::getPlanet(focusBody.getParentID());
+		parentBody.setGlobalPosition(focusBody.getLocalPosition() * -1.0);
+
+		for (Vi::ID childID : parentBody.getChildren()) {
+			if (childID == focusBody.getSelfID())
+				continue;
+			Planet& body = Keplar::getPlanet(childID);
+			body.setGlobalPosition(
+				parentBody.getGlobalPosition() +
+				body.getLocalPosition()
+			);
+		}
+	}
+	if (focusBody.isPlanet()) {
+		for (Vi::ID childID : focusBody.getChildren()) {
+			Planet& body = Keplar::getPlanet(childID);
+			body.setGlobalPosition(body.getLocalPosition());
 		}
 	}
 }

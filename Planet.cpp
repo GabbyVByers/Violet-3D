@@ -21,7 +21,11 @@ void Planet::setSelfID(Vi::ID id) {
 	ID = id;
 }
 
-Vi::ID& Planet::getID() {
+void Planet::setParentID(Vi::ID planetID) {
+	parentID = planetID;
+}
+
+Vi::ID& Planet::getSelfID() {
 	return ID;
 }
 
@@ -29,8 +33,12 @@ Vi::ID& Planet::getParentID() {
 	return parentID;
 }
 
-void Planet::setParentID(Vi::ID planetID) {
-	parentID = planetID;
+std::vector<Vi::ID>& Planet::getChildren() {
+	return childIDs;
+}
+
+void Planet::addChild(Vi::ID childID) {
+	childIDs.push_back(childID);
 }
 
 Vi::Vector3f& Planet::getRenderPosition() {

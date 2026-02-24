@@ -1,22 +1,41 @@
 
 #include "Mouse.h"
 
-void Violet::Mouse::reset() {
-	m_gl_mouseEvents.clear();
+bool Violet::Mouse::isImGuiCaptured() {
+	ImGuiIO& io = ImGui::GetIO();
+	return io.WantCaptureMouse;
 }
 
-void Violet::Mouse::addMouseEvent(const gl_mouseEvent& mouseEvent) {
-	m_gl_mouseEvents.push_back(mouseEvent);
+void Violet::Mouse::cursor(int cursorSetting) {
+	glfwSetInputMode(Window::getGLFW(), GLFW_CURSOR, cursorSetting);
 }
 
-void Violet::Mouse::update(double x, double y) {
-	static double x_pos_prev = 0.0;
-	static double y_pos_prev = 0.0;
-	x_pos_prev = m_x_pos;
-	y_pos_prev = m_y_pos;
-	m_x_pos = x;
-	m_y_pos = y;
-	m_x_vel = m_x_pos - x_pos_prev;
-	m_y_vel = m_y_pos - y_pos_prev;
+Violet::Vector2d Violet::Mouse::velocity() {
+	return { m_x_vel, m_y_vel };
+}
+
+Violet::Vector2d Violet::Mouse::position() {
+	return { m_x_pos, m_y_pos };
+}
+
+bool Violet::Mouse::pressing(int GLFW_BUTTON) {
+	return glfwGetMouseButton(Window::getGLFW(), GLFW_BUTTON) == GLFW_PRESS;
+}
+
+bool Violet::Mouse::clicked(int GLFW_BUTTON, int ACTION) {
+	for (gl_mouseEvent& mouseEvent : m_gl_mouseEvents) {
+		if (mouseEvent.button == GLFW_BUTTON && mouseEvent.action == ACTION) {
+			return true;
+		}
+	}
+	return false;
+}
+
+double Violet::Mouse::scroll() {
+	double scrollAccumulator = 0.0;
+	for (gl_scrollEvent& scrollEvent : m_gl_scrollEvents) {
+		scrollAccumulator += scrollEvent.yoffset;
+	}
+	return scrollAccumulator;
 }
 

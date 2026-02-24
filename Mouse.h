@@ -4,22 +4,25 @@
 #include "Core.h"
 #include "Window.h"
 #include "gl_mouseEvent.h"
+#include "gl_scrollEvent.h"
 #include "Vector.h"
 
 class Violet::Mouse {
 public:
-	// Mouse.Utilities.cpp
+	// Mouse.Internal.cpp
 	static void reset();
 	static void addMouseEvent(const gl_mouseEvent& mouseEvent);
+	static void addScrollEvent(const gl_scrollEvent& scrollEvent);
 	static void update(double x, double y);
 	
-	// Mouse.Internal.cpp
+	// Mouse.Utilities.cpp
 	static bool isImGuiCaptured();
 	static void cursor(int cursorSetting);
 	static Vector2d velocity();
 	static Vector2d position();
 	static bool pressing(int GLFW_BUTTON);
 	static bool clicked(int GLFW_BUTTON, int EDGE);
+	static double scroll();
 
 private:
 	Mouse() = delete;
@@ -27,5 +30,6 @@ private:
 	inline static double m_x_pos = 0.0, m_y_pos = 0.0;
 	inline static double m_x_vel = 0.0, m_y_vel = 0.0;
 	inline static std::vector<gl_mouseEvent> m_gl_mouseEvents;
+	inline static std::vector<gl_scrollEvent> m_gl_scrollEvents;
 };
 

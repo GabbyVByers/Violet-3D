@@ -16,6 +16,7 @@ void Violet::Window::construct(size_t width, size_t height, std::string title) {
 	glfwSetFramebufferSizeCallback(m_glfwWindow, framebufferSizeCallback);
 	glfwSetKeyCallback(m_glfwWindow, keyCallback);
 	glfwSetMouseButtonCallback(m_glfwWindow, mouseButtonCallback);
+	glfwSetScrollCallback(m_glfwWindow, scrollCallback);
 
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();

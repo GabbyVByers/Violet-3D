@@ -3,56 +3,56 @@
 
 void Keplar::constructSolarSystem() {
 	planets.clear();
-	Vi::ID Sun = planets.push_back(Planet(
+	Vi::ID SunID = planets.push_back(Planet(
 		"Sun",
 		isSunType,
 		1.988475E30,
 		6.957E8,
 		0.0
 	));
-	Vi::ID Mercury = planets.push_back(Planet(
+	Vi::ID MercuryID = planets.push_back(Planet(
 		"Mercury",
 		isPlanetType,
 		3.3011E23,
 		2.4397E6,
 		5.791E10
 	));
-	Vi::ID Venus = planets.push_back(Planet(
+	Vi::ID VenusID = planets.push_back(Planet(
 		"Venus",
 		isPlanetType,
 		4.8675E24,
 		6.0518E6,
 		1.0821E11
 	));
-	Vi::ID Earth = planets.push_back(Planet(
+	Vi::ID EarthID = planets.push_back(Planet(
 		"Terra",
 		isPlanetType,
 		5.972168E24,
 		6.371E6,
 		1.49598023E11
 	));
-	Vi::ID Moon = planets.push_back(Planet(
+	Vi::ID MoonID = planets.push_back(Planet(
 		"Luna",
 		isMoonType,
 		7.346E22,
 		1.7374E6,
 		3.84399E8
 	));
-	Vi::ID Mars = planets.push_back(Planet(
+	Vi::ID MarsID = planets.push_back(Planet(
 		"Mars",
 		isPlanetType,
 		6.4171E23,
 		3.3895E6,
 		2.27939366E11
 	));
-	Vi::ID Phobos = planets.push_back(Planet(
+	Vi::ID PhobosID = planets.push_back(Planet(
 		"Phobos",
 		isMoonType,
 		1.06E16,
 		1.108E4,
 		9.376E6
 	));
-	Vi::ID Deimos = planets.push_back(Planet(
+	Vi::ID DeimosID = planets.push_back(Planet(
 		"Deimos",
 		isMoonType,
 		1.51E15,
@@ -60,25 +60,42 @@ void Keplar::constructSolarSystem() {
 		2.34632E7
 	));
 
-	getPlanet(Sun)    .setSelfID(Sun);
-	getPlanet(Mercury).setSelfID(Mercury);
-	getPlanet(Venus)  .setSelfID(Venus);
-	getPlanet(Earth)  .setSelfID(Earth);
-	getPlanet(Moon)   .setSelfID(Moon);
-	getPlanet(Mars)   .setSelfID(Mars);
-	getPlanet(Phobos) .setSelfID(Phobos);
-	getPlanet(Deimos) .setSelfID(Deimos);
+	Planet& SUN     = getPlanet(SunID);
+	Planet& MERCURY = getPlanet(MercuryID);
+	Planet& VENUS   = getPlanet(VenusID);
+	Planet& EARTH   = getPlanet(EarthID);
+	Planet& MOON    = getPlanet(MoonID);
+	Planet& MARS    = getPlanet(MarsID);
+	Planet& PHOBOS  = getPlanet(PhobosID);
+	Planet& DEIMOS  = getPlanet(DeimosID);
 
-	planets[Mercury].setParentID(Sun);
-	planets[Venus]  .setParentID(Sun);
-	planets[Earth]  .setParentID(Sun);
-	planets[Mars]   .setParentID(Sun);
-	planets[Moon]   .setParentID(Earth);
-	planets[Phobos] .setParentID(Mars);
-	planets[Deimos] .setParentID(Mars);
+	SUN    .setSelfID(SunID);
+	MERCURY.setSelfID(MercuryID);
+	VENUS  .setSelfID(VenusID);
+	EARTH  .setSelfID(EarthID);
+	MOON   .setSelfID(MoonID);
+	MARS   .setSelfID(MarsID);
+	PHOBOS .setSelfID(PhobosID);
+	DEIMOS .setSelfID(DeimosID);
 
-	Map::setSunID(Sun);
-	Map::setFocusPlanetID(Earth);
+	SUN    .addChild(MercuryID);
+	SUN    .addChild(VenusID);
+	SUN    .addChild(EarthID);
+	SUN    .addChild(MarsID);
+	EARTH  .addChild(MoonID);
+	MARS   .addChild(PhobosID);
+	MARS   .addChild(DeimosID);
+
+	MERCURY.setParentID(SunID);
+	VENUS  .setParentID(SunID);
+	EARTH  .setParentID(SunID);
+	MARS   .setParentID(SunID);
+	MOON   .setParentID(EarthID);
+	PHOBOS .setParentID(MarsID);
+	DEIMOS .setParentID(MarsID);
+
+	Map::setSunID(SunID);
+	Map::setFocusBodyID(EarthID);
 }
 
 Vi::Container<Planet>& Keplar::getPlanets() {

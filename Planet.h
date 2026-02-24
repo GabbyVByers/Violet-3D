@@ -16,9 +16,11 @@ public:
 	Vi::Mesh& getMesh();
 
 	void setSelfID(Vi::ID id);
-	Vi::ID& getID();
-	Vi::ID& getParentID();
 	void setParentID(Vi::ID planetID);
+	Vi::ID& getSelfID();
+	Vi::ID& getParentID();
+	std::vector<Vi::ID>& getChildren();
+	void addChild(Vi::ID childID);
 
 	Vi::Vector3f &getRenderPosition();
 	Vi::Vector3d &getLocalPosition();
@@ -36,6 +38,7 @@ private:
 	size_t type = isNullType;
 	Vi::ID ID = Vi::InvalidID;
 	Vi::ID parentID = Vi::InvalidID;
+	std::vector<Vi::ID> childIDs;
 
 	Vi::Mesh mesh;
 	Vi::Vector3f renderPosition;

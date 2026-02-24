@@ -2,6 +2,11 @@
 #include "Window.h"
 
 void Violet::Window::clear(Color color) {
+	Keyboard::reset();
+	Mouse::reset();
+	double x, y; glfwGetCursorPos(m_glfwWindow, &x, &y); Mouse::update(x, y);
+	glfwPollEvents();
+
 	glClearColor(color.red(), color.green(), color.blue(), color.alpha());
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	ImGui_ImplOpenGL3_NewFrame();
@@ -39,12 +44,5 @@ void Violet::Window::display() {
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	glfwSwapBuffers(m_glfwWindow);
-
-	Keyboard::reset();
-	Mouse::reset();
-	double x, y;
-	glfwGetCursorPos(m_glfwWindow, &x, &y);
-	Mouse::update(x, y);
-	glfwPollEvents();
 }
 

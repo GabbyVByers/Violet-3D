@@ -35,6 +35,7 @@ namespace Violet
 	class Matrix;
 	struct gl_keyEvent;
 	struct gl_mouseEvent;
+	struct gl_scrollEvent;
 	struct Vertex;
 	struct Vector2i;
 	struct Vector2f;

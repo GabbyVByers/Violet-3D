@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -162,8 +162,8 @@
     <ClCompile Include="Mesh.Accessors.cpp" />
     <ClCompile Include="Mesh.Transformation.cpp" />
     <ClCompile Include="Mesh.Lifetime.cpp" />
-    <ClCompile Include="Mouse.Internal.cpp" />
     <ClCompile Include="Mouse.Utilities.cpp" />
+    <ClCompile Include="Mouse.Internal.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="Shape.Private.cpp" />
     <ClCompile Include="Shape.Utilities.cpp" />
@@ -183,6 +183,7 @@
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Vector.Vector3d.cpp" />
     <ClCompile Include="Vector.Vector3f.cpp" />
+    <ClCompile Include="Window.Callback.cpp" />
     <ClCompile Include="Window.Lifetime.cpp" />
     <ClCompile Include="Window.Rendering.cpp" />
     <ClCompile Include="Window.Utilities.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="gl_keyEvent.h" />
     <ClInclude Include="gl_mouseEvent.h" />
+    <ClInclude Include="gl_scrollEvent.h" />
     <ClInclude Include="Keplar.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Mouse.h" />
