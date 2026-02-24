@@ -14,7 +14,6 @@ public:
 private:
 	Keplar() = delete;
 	~Keplar() = delete;
-
 	inline static Vi::Container<Planet> planets;
 };
 

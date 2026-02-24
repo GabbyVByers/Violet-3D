@@ -15,12 +15,14 @@ public:
 	Planet(std::string name, size_t type, double mass, double radius, double altitude);
 	Vi::Mesh& getMesh();
 
-	Vi::ID getParentID() const;
+	void setSelfID(Vi::ID id);
+	Vi::ID& getID();
+	Vi::ID& getParentID();
 	void setParentID(Vi::ID planetID);
 
-	Vi::Vector3f getRenderPosition() const;
-	Vi::Vector3d getLocalPosition() const;
-	Vi::Vector3d getGlobalPosition() const;
+	Vi::Vector3f &getRenderPosition();
+	Vi::Vector3d &getLocalPosition();
+	Vi::Vector3d &getGlobalPosition();
 	void setRenderPosition(Vi::Vector3f renderPosition);
 	void setLocalPosition(Vi::Vector3d localPosition);
 	void setGlobalPosition(Vi::Vector3d globalPosition);
@@ -29,10 +31,10 @@ public:
 	bool isPlanet() const;
 	bool isSun() const;
 
-
 private:
 	std::string name = "Unnamed Body";
 	size_t type = isNullType;
+	Vi::ID ID = Vi::InvalidID;
 	Vi::ID parentID = Vi::InvalidID;
 
 	Vi::Mesh mesh;

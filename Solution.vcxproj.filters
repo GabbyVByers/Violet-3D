@@ -73,6 +73,15 @@
     <Filter Include="Solution\Violet 3D\Modules\Source Files\Quaternion">
       <UniqueIdentifier>{1f15e02a-59ef-4292-a906-cefb2967a697}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Solution\Realistic Progression 3D\Modules\Source Files\Map">
+      <UniqueIdentifier>{33dbc64c-6170-43c4-9a7a-69aecc5b6df5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Realistic Progression 3D\Modules\Source Files\Keplar">
+      <UniqueIdentifier>{c1c2ca12-055b-4e83-bfb3-34db50148966}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solution\Realistic Progression 3D\Modules\Source Files\Planet">
+      <UniqueIdentifier>{dd0be084-743b-41fc-b043-97f5e3dfc7e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL\glad.c">
@@ -102,15 +111,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Solution\Realistic Progression 3D</Filter>
     </ClCompile>
-    <ClCompile Include="Keplar.cpp">
-      <Filter>Solution\Realistic Progression 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Solution\Realistic Progression 3D\Modules\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Planet.cpp">
-      <Filter>Solution\Realistic Progression 3D\Modules\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.Matrix.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
     </ClCompile>
@@ -126,7 +126,7 @@
     <ClCompile Include="Camera.Transformation.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.Utilities.cpp">
+    <ClCompile Include="Mesh.Lifetime.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.Accessors.cpp">
@@ -176,6 +176,18 @@
     </ClCompile>
     <ClCompile Include="Quaternion.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Quaternion</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Solution\Realistic Progression 3D\Modules\Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Keplar.cpp">
+      <Filter>Solution\Realistic Progression 3D\Modules\Source Files\Keplar</Filter>
+    </ClCompile>
+    <ClCompile Include="Planet.cpp">
+      <Filter>Solution\Realistic Progression 3D\Modules\Source Files\Planet</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.Render.cpp">
+      <Filter>Solution\Realistic Progression 3D\Modules\Source Files\Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

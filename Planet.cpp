@@ -8,7 +8,8 @@ Planet::Planet(std::string name, size_t type, double mass, double radius, double
 	this->radius = radius;
 	this->altitude = altitude;
 
-	Vi::Shape::sphere(mesh, 1.0, 10);
+	mesh = Vi::Mesh();
+	Vi::Shape::sphere(mesh, 1.0, 15);
 	mesh.setRandomColors();
 }
 
@@ -16,7 +17,15 @@ Vi::Mesh& Planet::getMesh() {
 	return mesh;
 }
 
-Vi::ID Planet::getParentID() const {
+void Planet::setSelfID(Vi::ID id) {
+	ID = id;
+}
+
+Vi::ID& Planet::getID() {
+	return ID;
+}
+
+Vi::ID& Planet::getParentID() {
 	return parentID;
 }
 
@@ -24,15 +33,15 @@ void Planet::setParentID(Vi::ID planetID) {
 	parentID = planetID;
 }
 
-Vi::Vector3f Planet::getRenderPosition() const {
+Vi::Vector3f& Planet::getRenderPosition() {
 	return renderPosition;
 }
 
-Vi::Vector3d Planet::getLocalPosition() const {
+Vi::Vector3d& Planet::getLocalPosition() {
 	return localPosition;
 }
 
-Vi::Vector3d Planet::getGlobalPosition() const {
+Vi::Vector3d& Planet::getGlobalPosition() {
 	return globalPosition;
 }
 

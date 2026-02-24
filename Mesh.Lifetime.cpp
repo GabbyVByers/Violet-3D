@@ -88,19 +88,3 @@ std::string Violet::Mesh::loadFileAsString(std::string path) {
 	return buffer.str();
 }
 
-void Violet::Mesh::setColor(const Color& color) {
-	for (Vertex& vertex : m_vertices) {
-		vertex.color = color;
-	}
-}
-
-void Violet::Mesh::setRandomColors() {
-	for (Vertex& vertex : m_vertices) {
-		vertex.color = Color::Random();
-	}
-}
-
-const Violet::Matrix Violet::Mesh::calculateModelMatrix() const {
-	return m_transformation.calculateModelMatrix();
-}
-

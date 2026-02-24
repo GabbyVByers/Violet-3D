@@ -9,6 +9,14 @@
 
 class Violet::Mesh {
 public:
+	// Mesh.Lifetime.cpp
+	Mesh(std::string path = "default", int primativeType = GL_TRIANGLES);
+	~Mesh();
+	void assertVertexShader(uint vertProgram) const;
+	void assertFragmentShader(uint fragProgram) const;
+	void assertShaderProgram() const;
+	static std::string loadFileAsString(std::string path);
+
 	// Mesh.Accessors.cpp
 	void setPrimativeType(int primativeType);
 	int& getPrimativeType();
@@ -16,6 +24,8 @@ public:
 	uint& getVAO();
 	uint& getVBO();
 	uint& getShaderProgram();
+	void setColor(const Color& color);
+	void setRandomColors();
 
 	// Mesh.Transformation.cpp
 	void setScale(double scale);
@@ -32,16 +42,6 @@ public:
 	void pitch(double theta);
 	void roll(double theta);
 	void yaw(double theta);
-
-	// Mesh.Utilities.cpp
-	Mesh(std::string path = "default", int primativeType = GL_TRIANGLES);
-	~Mesh();
-	void assertVertexShader(uint vertProgram) const;
-	void assertFragmentShader(uint fragProgram) const;
-	void assertShaderProgram() const;
-	static std::string loadFileAsString(std::string path);
-	void setColor(const Color& color);
-	void setRandomColors();
 	const Matrix calculateModelMatrix() const;
 
 private:

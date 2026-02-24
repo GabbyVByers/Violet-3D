@@ -158,9 +158,10 @@
     <ClCompile Include="Color.Static.cpp" />
     <ClCompile Include="Keplar.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Map.Render.cpp" />
     <ClCompile Include="Mesh.Accessors.cpp" />
     <ClCompile Include="Mesh.Transformation.cpp" />
-    <ClCompile Include="Mesh.Utilities.cpp" />
+    <ClCompile Include="Mesh.Lifetime.cpp" />
     <ClCompile Include="Mouse.Internal.cpp" />
     <ClCompile Include="Mouse.Utilities.cpp" />
     <ClCompile Include="Planet.cpp" />

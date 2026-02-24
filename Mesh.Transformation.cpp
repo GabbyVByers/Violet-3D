@@ -57,3 +57,7 @@ void Violet::Mesh::yaw(double theta) {
 	m_transformation.yaw(theta);
 }
 
+const Violet::Matrix Violet::Mesh::calculateModelMatrix() const {
+	return m_transformation.calculateModelMatrix();
+}
+

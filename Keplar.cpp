@@ -60,14 +60,25 @@ void Keplar::constructSolarSystem() {
 		2.34632E7
 	));
 
+	getPlanet(Sun)    .setSelfID(Sun);
+	getPlanet(Mercury).setSelfID(Mercury);
+	getPlanet(Venus)  .setSelfID(Venus);
+	getPlanet(Earth)  .setSelfID(Earth);
+	getPlanet(Moon)   .setSelfID(Moon);
+	getPlanet(Mars)   .setSelfID(Mars);
+	getPlanet(Phobos) .setSelfID(Phobos);
+	getPlanet(Deimos) .setSelfID(Deimos);
+
 	planets[Mercury].setParentID(Sun);
-	planets[Venus].setParentID(Sun);
-	planets[Earth].setParentID(Sun);
-	planets[Mars].setParentID(Sun);
-	planets[Moon].setParentID(Earth);
-	planets[Phobos].setParentID(Mars);
-	planets[Deimos].setParentID(Mars);
+	planets[Venus]  .setParentID(Sun);
+	planets[Earth]  .setParentID(Sun);
+	planets[Mars]   .setParentID(Sun);
+	planets[Moon]   .setParentID(Earth);
+	planets[Phobos] .setParentID(Mars);
+	planets[Deimos] .setParentID(Mars);
+
 	Map::setSunID(Sun);
+	Map::setFocusPlanetID(Earth);
 }
 
 Vi::Container<Planet>& Keplar::getPlanets() {
@@ -75,6 +86,7 @@ Vi::Container<Planet>& Keplar::getPlanets() {
 }
 
 Planet& Keplar::getPlanet(Vi::ID planetID) {
+	assert(planetID != Vi::InvalidID);
 	return planets[planetID];
 }
 
