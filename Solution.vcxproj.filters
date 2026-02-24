@@ -189,6 +189,9 @@
     <ClCompile Include="Map.Render.cpp">
       <Filter>Solution\Realistic Progression 3D\Modules\Source Files\Map</Filter>
     </ClCompile>
+    <ClCompile Include="Window.Callback.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -276,6 +279,9 @@
       <Filter>Solution\Realistic Progression 3D\Modules\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Violet.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
+    </ClInclude>
+    <ClInclude Include="gl_scrollEvent.h">
       <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,6 +2,8 @@
 #include "Violet.h"
 #include "Map.h"
 
+#include <iostream>
+
 int main() {
 	Vi::Window::construct(1920, 1080, "My Window");
 	Keplar::constructSolarSystem();
@@ -10,7 +12,7 @@ int main() {
 		Vi::Window::clear(Vi::Color::BLACK());
 		Map::render();
 
-
+		std::cout << Vi::Mouse::scroll() << "\n";
 
 		Vi::Window::display();
 	}
