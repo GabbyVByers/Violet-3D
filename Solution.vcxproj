@@ -200,7 +200,7 @@
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Violet.h" />
+    <ClInclude Include="Core.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_glfw.h" />
@@ -214,6 +214,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Transformation.h" />
     <ClInclude Include="Vertex.h" />
+    <ClInclude Include="Violet.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "Violet.h"
+#include "Core.h"
 #include "Vertex.h"
 #include "Camera.h"
 #include "Window.h"

@@ -227,7 +227,7 @@
     <ClInclude Include="gl_keyEvent.h">
       <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
     </ClInclude>
-    <ClInclude Include="Violet.h">
+    <ClInclude Include="Core.h">
       <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
@@ -262,6 +262,9 @@
     </ClInclude>
     <ClInclude Include="Planet.h">
       <Filter>Solution\Realistic Progression 3D\Modules\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Violet.h">
+      <Filter>Solution\Violet 3D\Modules\Header Files\Header Only</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

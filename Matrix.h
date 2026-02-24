@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include "Core.h"
 #include "Vector.h"
 
 class Violet::Matrix {

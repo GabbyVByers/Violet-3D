@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "Violet.h"
+#include "Core.h"
 
 struct Violet::gl_keyEvent {
 	GLFWwindow* window;

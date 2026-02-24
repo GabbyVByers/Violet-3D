@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "Violet.h"
+#include "Core.h"
 #include "Quaternion.h"
 
 struct Violet::Vector2i;
