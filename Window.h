@@ -19,8 +19,8 @@ public:
 	// Window.Utilities.cpp
 	static bool isOpen();
 	static void vSync(bool vsync);
-	static Vector2i getSize();
-	static GLFWwindow* getGLFW();
+	static Vector2i getWindowSize();
+	static GLFWwindow* getWindowPtr();
 
 	// Window.Rendering.cpp
 	static void clear(Color color = { 0.0f, 0.0f, 0.0f, 1.0f }); // glfwPollEvents() Called Here

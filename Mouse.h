@@ -17,12 +17,12 @@ public:
 	
 	// Mouse.Utilities.cpp
 	static bool isImGuiCaptured();
-	static void cursor(int cursorSetting);
+	static void setCursorVisibility(int cursorSetting);
 	static Vector2d velocity();
 	static Vector2d position();
 	static bool pressing(int GLFW_BUTTON);
 	static bool clicked(int GLFW_BUTTON, int EDGE);
-	static double scroll();
+	static double getScrollDistance();
 
 private:
 	Mouse() = delete;

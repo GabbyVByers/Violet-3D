@@ -1,38 +1,30 @@
 
 #include "Mesh.h"
 
-void Violet::Mesh::setPrimativeType(int primativeType) {
-	m_primativeType = primativeType;
-}
-
-int& Violet::Mesh::getPrimativeType() {
+int Violet::Mesh::getPrimativeType() const {
 	return m_primativeType;
 }
 
-std::vector<Violet::Vertex>& Violet::Mesh::getVertices() {
-	return m_vertices;
-}
-
-Violet::uint& Violet::Mesh::getVAO() {
+Violet::uint Violet::Mesh::getVAO() const {
 	return m_VAO;
 }
 
-Violet::uint& Violet::Mesh::getVBO() {
+Violet::uint Violet::Mesh::getVBO() const {
 	return m_VBO;
 }
 
-Violet::uint& Violet::Mesh::getShaderProgram() {
+Violet::uint Violet::Mesh::getShaderProgram() const {
 	return m_shaderProgram;
 }
 
 void Violet::Mesh::setColor(const Color& color) {
-	for (Vertex& vertex : m_vertices) {
+	for (Vertex& vertex : vertices) {
 		vertex.color = color;
 	}
 }
 
 void Violet::Mesh::setRandomColors() {
-	for (Vertex& vertex : m_vertices) {
+	for (Vertex& vertex : vertices) {
 		vertex.color = Color::Random();
 	}
 }

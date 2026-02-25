@@ -38,7 +38,7 @@ Violet::Vector3f Violet::Vector3d::as_float() const {
 	};
 }
 
-Violet::Vector3d Violet::Vector3d::ZERO() {
+Violet::Vector3d Violet::Vector3d::Zero() {
 	return { 0.0, 0.0, 0.0 };
 }
 

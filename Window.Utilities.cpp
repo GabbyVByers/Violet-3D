@@ -9,7 +9,7 @@ void Violet::Window::vSync(bool vsync) {
 	glfwSwapInterval((int)vsync);
 }
 
-Violet::Vector2i Violet::Window::getSize() {
+Violet::Vector2i Violet::Window::getWindowSize() {
 	int width, height; glfwGetFramebufferSize(m_glfwWindow, &width, &height);
 	return {
 		width,
@@ -17,7 +17,7 @@ Violet::Vector2i Violet::Window::getSize() {
 	};
 }
 
-GLFWwindow* Violet::Window::getGLFW() {
+GLFWwindow* Violet::Window::getWindowPtr() {
 	return m_glfwWindow;
 }
 

@@ -111,10 +111,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Solution\Realistic Progression 3D</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.Matrix.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.Accessors.cpp">
+    <ClCompile Include="Camera.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Transformation.Accessors.cpp">
@@ -123,16 +120,10 @@
     <ClCompile Include="Transformation.Utilities.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Transformation</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.Transformation.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.Constructor.cpp">
+    <ClCompile Include="Mesh.Lifetime.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.Accessors.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.Transformation.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Mouse.Utilities.cpp">
@@ -162,10 +153,7 @@
     <ClCompile Include="Window.Rendering.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
     </ClCompile>
-    <ClCompile Include="Color.Interface.cpp">
-      <Filter>Solution\Violet 3D\Modules\Source Files\Color</Filter>
-    </ClCompile>
-    <ClCompile Include="Color.Static.cpp">
+    <ClCompile Include="Color.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Color</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
@@ -193,6 +181,9 @@
       <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.MoveSemantics.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.Private.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
     </ClCompile>
   </ItemGroup>

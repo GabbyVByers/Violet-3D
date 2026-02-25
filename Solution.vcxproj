@@ -151,18 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.Accessors.cpp" />
-    <ClCompile Include="Camera.Matrix.cpp" />
-    <ClCompile Include="Camera.Transformation.cpp" />
-    <ClCompile Include="Color.Interface.cpp" />
-    <ClCompile Include="Color.Static.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="Keplar.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Map.Render.cpp" />
     <ClCompile Include="Mesh.Accessors.cpp" />
+    <ClCompile Include="Mesh.Private.cpp" />
     <ClCompile Include="Mesh.MoveSemantics.cpp" />
-    <ClCompile Include="Mesh.Transformation.cpp" />
-    <ClCompile Include="Mesh.Constructor.cpp" />
+    <ClCompile Include="Mesh.Lifetime.cpp" />
     <ClCompile Include="Mouse.Utilities.cpp" />
     <ClCompile Include="Mouse.Internal.cpp" />
     <ClCompile Include="Planet.cpp" />

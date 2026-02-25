@@ -6,8 +6,8 @@ bool Violet::Mouse::isImGuiCaptured() {
 	return io.WantCaptureMouse;
 }
 
-void Violet::Mouse::cursor(int cursorSetting) {
-	glfwSetInputMode(Window::getGLFW(), GLFW_CURSOR, cursorSetting);
+void Violet::Mouse::setCursorVisibility(int cursorSetting) {
+	glfwSetInputMode(Window::getWindowPtr(), GLFW_CURSOR, cursorSetting);
 }
 
 Violet::Vector2d Violet::Mouse::velocity() {
@@ -19,7 +19,7 @@ Violet::Vector2d Violet::Mouse::position() {
 }
 
 bool Violet::Mouse::pressing(int GLFW_BUTTON) {
-	return glfwGetMouseButton(Window::getGLFW(), GLFW_BUTTON) == GLFW_PRESS;
+	return glfwGetMouseButton(Window::getWindowPtr(), GLFW_BUTTON) == GLFW_PRESS;
 }
 
 bool Violet::Mouse::clicked(int GLFW_BUTTON, int ACTION) {
@@ -31,7 +31,7 @@ bool Violet::Mouse::clicked(int GLFW_BUTTON, int ACTION) {
 	return false;
 }
 
-double Violet::Mouse::scroll() {
+double Violet::Mouse::getScrollDistance() {
 	double scrollAccumulator = 0.0;
 	for (gl_scrollEvent& scrollEvent : m_gl_scrollEvents) {
 		scrollAccumulator += scrollEvent.yoffset;

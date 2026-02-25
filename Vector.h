@@ -44,7 +44,7 @@ struct Violet::Vector3d {
 	void applyQuaternionRotation(Quaternion quat);
 	void normalize();
 	Vector3f as_float() const;
-	static Vector3d ZERO();
+	static Vector3d Zero();
 	Vector3d operator *  (const double    scalar) const;
 	Vector3d operator +  (const Vector3d& vector) const;
 	void     operator += (const Vector3d& vector);

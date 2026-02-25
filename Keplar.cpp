@@ -96,11 +96,8 @@ void Keplar::constructSolarSystem() {
 
 	Map::setSunID(SunID);
 	Map::setFocusBodyID(EarthID);
-
-
-
 	for (Planet& body : getPlanets()) {
-		//body.mesh = Vi::Mesh();
+		body.mesh.init();
 		Vi::Shape::sphere(body.mesh, 1.0, 10);
 		body.mesh.setRandomColors();
 	}

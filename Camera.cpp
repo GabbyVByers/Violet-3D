@@ -1,8 +1,28 @@
 
 #include "Camera.h"
 
-Violet::Matrix Violet::Camera::calculateViewMatrix() const {
-	return m_transformation.calculateViewMatrix();
+void Violet::Camera::setFOV(double FOV) {
+	m_FOV = FOV;
+}
+
+void Violet::Camera::setFarPlane(double farPlane) {
+	m_farPlane = farPlane;
+}
+
+void Violet::Camera::setNearPlane(double nearPlane) {
+	m_nearPlane = nearPlane;
+}
+
+double Violet::Camera::getFOV() const {
+	return m_FOV;
+}
+
+double Violet::Camera::getFarPlane() const {
+	return m_farPlane;
+}
+
+double Violet::Camera::getNearPlane() const {
+	return m_nearPlane;
 }
 
 Violet::Matrix Violet::Camera::calculateProjectionMatrix(int width, int height) const {

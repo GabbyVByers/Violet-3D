@@ -7,54 +7,40 @@
 #include "Window.h"
 #include "Transformation.h"
 
-class Violet::Mesh {
+class Violet::Mesh : public Violet::Transformation {
 public:
-	// Mesh.Contructor.cpp
-	Mesh(std::string path = "default", int primativeType = GL_TRIANGLES);
-	~Mesh();
+	// Mesh.Lifetime.cpp
+	Mesh() = default;
+	~Mesh() = default;
+	void init(std::string path = "default", int primativeType = GL_TRIANGLES);
+	void destroy();
+
+	// Mesh.Accessors.cpp
+	int getPrimativeType() const;
+	uint getVAO() const;
+	uint getVBO() const;
+	uint getShaderProgram() const;
+	void setColor(const Color& color);
+	void setRandomColors();
+	
+	// Deletions
+	const Matrix calculateViewMatrix() const = delete;
+
+private:
+	// Mesh.Private.cpp
 	void assertVertexShader(uint vertProgram) const;
 	void assertFragmentShader(uint fragProgram) const;
 	void assertShaderProgram() const;
 	static std::string loadFileAsString(std::string path);
 
-	// Mesh.Accessors.cpp
-	void setPrimativeType(int primativeType);
-	int& getPrimativeType();
-	std::vector<Vertex>& getVertices();
-	uint& getVAO();
-	uint& getVBO();
-	uint& getShaderProgram();
-	void setColor(const Color& color);
-	void setRandomColors();
-
-	// Mesh.Transformation.cpp
-	void setScale(double scale);
-	void setPosition(Vector3d position);
-	void setQuaternionRotation(Quaternion quaternion);
-	double& getScale();
-	Vector3d& getPosition();
-	Quaternion& getQuaternionRotation();
-	void rotateAroundAxis(Vector3d rotation_axis, double theta);
-	Vector3d forward() const;
-	Vector3d right() const;
-	Vector3d up() const;
-	void move(Vector3d direction, double distance);
-	void pitch(double theta);
-	void roll(double theta);
-	void yaw(double theta);
-	const Matrix calculateModelMatrix() const;
-	
-	// Mesh.MoveSemantics.cpp
-	Mesh(const Mesh&) = delete;
-	Mesh& operator=(const Mesh&) = delete;
-	Mesh(Mesh&& other) noexcept;
-	Mesh& operator=(Mesh&& other) noexcept;
-
+public:
+	// Members
+	std::vector<Vertex> vertices;
 private:
-	Transformation m_transformation;
+	bool m_uninitialized = false;
 	int m_primativeType = GL_TRIANGLES;
-	std::vector<Vertex> m_vertices;
-	uint m_VAO = 0, m_VBO = 0;
+	uint m_VAO = 0;
+	uint m_VBO = 0;
 	uint m_shaderProgram = 0;
 };
 

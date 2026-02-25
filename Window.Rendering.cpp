@@ -7,7 +7,7 @@ void Violet::Window::clear(Color color) {
 	double x, y; glfwGetCursorPos(m_glfwWindow, &x, &y); Mouse::update(x, y);
 	glfwPollEvents();
 
-	glClearColor(color.red(), color.green(), color.blue(), color.alpha());
+	glClearColor(color.r, color.g, color.b, color.a);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
@@ -15,19 +15,21 @@ void Violet::Window::clear(Color color) {
 }
 
 void Violet::Window::draw(Mesh& mesh, Camera& camera) {
-	if (mesh.getVertices().size() == 0)
-		return;
-
 	const uint VAO = mesh.getVAO();
 	const uint VBO = mesh.getVBO();
 	const uint shaderProgram = mesh.getShaderProgram();
-	const std::vector<Vertex>& vertices = mesh.getVertices();
+	const std::vector<Vertex>& vertices = mesh.vertices;
+
+	assert(VAO != 0);
+	assert(VBO != 0);
+	assert(shaderProgram != 0);
+	assert(vertices.size() != 0);
 
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glUseProgram(shaderProgram);
 
-	Vector2i size = getSize();
+	Vector2i size = getWindowSize();
 	const Matrix modelMatrix = mesh.calculateModelMatrix();
 	const Matrix viewMatrix = camera.calculateViewMatrix();
 	const Matrix projectionMatrix = camera.calculateProjectionMatrix(size.x, size.y);

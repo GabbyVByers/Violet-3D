@@ -13,15 +13,15 @@ void Violet::Transformation::setQuaternionRotation(Quaternion quaternion) {
 	m_quaternion = quaternion;
 }
 
-double& Violet::Transformation::getScale() {
+double Violet::Transformation::getScale() const {
 	return m_scale;
 }
 
-Violet::Vector3d& Violet::Transformation::getPosition() {
+Violet::Vector3d Violet::Transformation::getPosition() const {
 	return m_position;
 }
 
-Violet::Quaternion& Violet::Transformation::getQuaternionRotation() {
+Violet::Quaternion Violet::Transformation::getQuaternionRotation() const {
 	return m_quaternion;
 }
 

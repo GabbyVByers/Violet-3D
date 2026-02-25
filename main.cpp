@@ -9,7 +9,7 @@ int main() {
 	Keplar::constructSolarSystem();
 
 	while (Vi::Window::isOpen()) {
-		Vi::Window::clear(Vi::Color::BLACK());
+		Vi::Window::clear(Vi::Color::Black());
 		Map::render();
 		Vi::Window::display();
 	}
