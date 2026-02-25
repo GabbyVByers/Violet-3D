@@ -126,7 +126,7 @@
     <ClCompile Include="Camera.Transformation.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.Lifetime.cpp">
+    <ClCompile Include="Mesh.Constructor.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.Accessors.cpp">
@@ -191,6 +191,9 @@
     </ClCompile>
     <ClCompile Include="Window.Callback.cpp">
       <Filter>Solution\Violet 3D\Modules\Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.MoveSemantics.cpp">
+      <Filter>Solution\Violet 3D\Modules\Source Files\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

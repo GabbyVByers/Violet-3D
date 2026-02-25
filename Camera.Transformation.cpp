@@ -1,20 +1,12 @@
 
 #include "Camera.h"
 
-void Violet::Camera::setScale(double scale) {
-	m_transformation.setScale(scale);
-}
-
 void Violet::Camera::setPosition(Vector3d position) {
 	m_transformation.setPosition(position);
 }
 
 void Violet::Camera::setQuaternionRotation(Quaternion quaternion) {
 	m_transformation.setQuaternionRotation(quaternion);
-}
-
-double& Violet::Camera::getScale() {
-	return m_transformation.getScale();
 }
 
 Violet::Vector3d& Violet::Camera::getPosition() {

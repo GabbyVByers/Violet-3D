@@ -9,7 +9,7 @@ void Map::render() {
 
 void Map::controlCameraMapView() {
 	const double sensitivity = 0.1;
-	globalScale *= (1.0 + (Vi::Mouse::scroll() / 5.0));
+	globalScale *= (1.0 + (Vi::Mouse::scroll() / 20.0));
 	if (Vi::Mouse::pressing(GLFW_MOUSE_BUTTON_LEFT)) {
 		Vi::Vector2d mouseVelocity = Vi::Mouse::velocity();
 		camera.pitch(sensitivity * mouseVelocity.y * -0.01);
@@ -75,14 +75,23 @@ void Map::updatePlanetRenderPositions() {
 	//}
 
 	for (Planet& body : Keplar::getPlanets()) {
-		double renderRadius = globalScale * body.getRadius();
-		body.getMesh().setScale(renderRadius);
+		double renderRadius = globalScale * body.radius;
+		body.mesh.setScale(renderRadius);
+		
 	}
+	std::cout << "\n";
 }
 
 void Map::renderPlanetMeshes() {
-	for (Planet& planet : Keplar::getPlanets()) {
-		Vi::Window::draw(planet.getMesh(), camera);
+	for (Planet& body : Keplar::getPlanets()) {
+		if (body.isSun())
+			continue;
+		Vi::Vector3f pos = body.renderPosition;
+		printf("\n%s: radius: %lf pos: %f %f %f", body.name.c_str(), body.mesh.getScale(), pos.x, pos.y, pos.y);
+		//std::cout << body.name << ": " << renderRadius << "pos: x:" << body.renderPosition.x  << "\n";
+
+
+		Vi::Window::draw(body.mesh, camera);
 	}
 }
 

@@ -11,9 +11,6 @@ int main() {
 	while (Vi::Window::isOpen()) {
 		Vi::Window::clear(Vi::Color::BLACK());
 		Map::render();
-
-		std::cout << Map::getGlobalScale() << "\n";
-
 		Vi::Window::display();
 	}
 

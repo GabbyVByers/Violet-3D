@@ -9,7 +9,7 @@
 
 class Violet::Mesh {
 public:
-	// Mesh.Lifetime.cpp
+	// Mesh.Contructor.cpp
 	Mesh(std::string path = "default", int primativeType = GL_TRIANGLES);
 	~Mesh();
 	void assertVertexShader(uint vertProgram) const;
@@ -43,6 +43,12 @@ public:
 	void roll(double theta);
 	void yaw(double theta);
 	const Matrix calculateModelMatrix() const;
+	
+	// Mesh.MoveSemantics.cpp
+	Mesh(const Mesh&) = delete;
+	Mesh& operator=(const Mesh&) = delete;
+	Mesh(Mesh&& other) noexcept;
+	Mesh& operator=(Mesh&& other) noexcept;
 
 private:
 	Transformation m_transformation;

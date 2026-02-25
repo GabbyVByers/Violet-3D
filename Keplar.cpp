@@ -69,35 +69,41 @@ void Keplar::constructSolarSystem() {
 	Planet& PHOBOS  = getPlanet(PhobosID);
 	Planet& DEIMOS  = getPlanet(DeimosID);
 
-	SUN    .setSelfID(SunID);
-	MERCURY.setSelfID(MercuryID);
-	VENUS  .setSelfID(VenusID);
-	EARTH  .setSelfID(EarthID);
-	MOON   .setSelfID(MoonID);
-	MARS   .setSelfID(MarsID);
-	PHOBOS .setSelfID(PhobosID);
-	DEIMOS .setSelfID(DeimosID);
+	SUN    .ID = SunID;
+	MERCURY.ID = MercuryID;
+	VENUS  .ID = VenusID;
+	EARTH  .ID = EarthID;
+	MOON   .ID = MoonID;
+	MARS   .ID = MarsID;
+	PHOBOS .ID = PhobosID;
+	DEIMOS .ID = DeimosID;
 
-	SUN    .addChild(MercuryID);
-	SUN    .addChild(VenusID);
-	SUN    .addChild(EarthID);
-	SUN    .addChild(MarsID);
-	EARTH  .addChild(MoonID);
-	MARS   .addChild(PhobosID);
-	MARS   .addChild(DeimosID);
+	SUN    .childIDs.push_back(MercuryID);
+	SUN    .childIDs.push_back(VenusID);
+	SUN    .childIDs.push_back(EarthID);
+	SUN    .childIDs.push_back(MarsID);
+	EARTH  .childIDs.push_back(MoonID);
+	MARS   .childIDs.push_back(PhobosID);
+	MARS   .childIDs.push_back(DeimosID);
 
-	MERCURY.setParentID(SunID);
-	VENUS  .setParentID(SunID);
-	EARTH  .setParentID(SunID);
-	MARS   .setParentID(SunID);
-	MOON   .setParentID(EarthID);
-	PHOBOS .setParentID(MarsID);
-	DEIMOS .setParentID(MarsID);
+	MERCURY.parentID = SunID;
+	VENUS  .parentID = SunID;
+	EARTH  .parentID = SunID;
+	MARS   .parentID = SunID;
+	MOON   .parentID = EarthID;
+	PHOBOS .parentID = MarsID;
+	DEIMOS .parentID = MarsID;
 
 	Map::setSunID(SunID);
 	Map::setFocusBodyID(EarthID);
 
-	SUN.getMesh().setColor(Vi::Color::YELLOW());
+
+
+	for (Planet& body : getPlanets()) {
+		//body.mesh = Vi::Mesh();
+		Vi::Shape::sphere(body.mesh, 1.0, 10);
+		body.mesh.setRandomColors();
+	}
 }
 
 Vi::Container<Planet>& Keplar::getPlanets() {

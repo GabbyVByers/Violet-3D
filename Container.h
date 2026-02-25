@@ -128,6 +128,16 @@ namespace Violet
             return id;
         }
 
+        /** Moves the provided object at the end of the vector
+         *
+         */
+        ID push_back(TObjectType&& object)
+        {
+            const ID id = getFreeSlot();
+            m_data.push_back(std::move(object));
+            return id;
+        }
+
         /** Constructs an object in place
          *
          * @tparam TArgs Constructor arguments types

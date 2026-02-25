@@ -16,10 +16,8 @@ public:
 	double& getNearPlane();
 
 	// Camera.Transformation.cpp
-	void setScale(double scale);
 	void setPosition(Vector3d position);
 	void setQuaternionRotation(Quaternion quaternion);
-	double& getScale();
 	Vector3d& getPosition();
 	Quaternion& getQuaternionRotation();
 	void rotateAroundAxis(Vector3d rotation_axis, double theta);
